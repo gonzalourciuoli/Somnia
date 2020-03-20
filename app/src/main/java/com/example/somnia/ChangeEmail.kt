@@ -1,17 +1,16 @@
-package com.example.app
+package com.example.somnia
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.example.somnia.R
-import kotlinx.android.synthetic.main.change_email.*
+import kotlinx.android.synthetic.main.activity_change_email.*
 
 class ChangeEmail : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.change_email)
+        setContentView(R.layout.activity_change_email)
         var currentEmail = currentEmail.text.toString()
         var password = password.text.toString()
         var newEmail = newEmail.text.toString()
@@ -24,7 +23,7 @@ class ChangeEmail : AppCompatActivity() {
         }
 
         val ret_button = findViewById<Button>(R.id.ret) as Button
-        ret.setOnClickListener {
+        ret_button.setOnClickListener {
             val intent = Intent(this@ChangeEmail, Settings::class.java)
             startActivity(intent)
         }
