@@ -1,20 +1,18 @@
-package com.example.app
+package com.example.somnia
 
 import android.content.Intent
 import android.graphics.Color
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.somnia.R
-import kotlinx.android.synthetic.main.settings.*
+import kotlinx.android.synthetic.main.activity_settings.*
 
 class Settings : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.settings)
+        setContentView(R.layout.activity_settings)
 
         val chEmail_button = findViewById<TextView>(R.id.chEmail) as TextView
         chEmail_button.setOnClickListener {
@@ -39,7 +37,7 @@ class Settings : AppCompatActivity() {
 
         val home_button = findViewById<ImageView>(R.id.principal_settings) as ImageView
         home_button.setOnClickListener {
-            principal_settings.setColorFilter(Color.RED)
+            home_button.setColorFilter(Color.RED)
             val intent = Intent(this@Settings, Home::class.java)
             startActivity(intent)
         }
