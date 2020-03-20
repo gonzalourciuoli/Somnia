@@ -17,28 +17,28 @@ class Settings : AppCompatActivity() {
         setContentView(R.layout.settings)
 
         val chEmail_button = findViewById<TextView>(R.id.chEmail) as TextView
-        chEmail.setOnClickListener {
+        chEmail_button.setOnClickListener {
             val intent = Intent(this@Settings, ChangeEmail::class.java)
             startActivity(intent)
         }
 
         val chPass_button = findViewById<TextView>(R.id.chPass) as TextView
-        chPass.setOnClickListener {
+        chPass_button.setOnClickListener {
 
         }
 
         val logout_button = findViewById<TextView>(R.id.logout) as TextView
-        logout.setOnClickListener {
+        logout_button.setOnClickListener {
 
         }
 
         val delAcc_button = findViewById<TextView>(R.id.delAcc) as TextView
-        delAcc.setOnClickListener {
+        delAcc_button.setOnClickListener {
 
         }
 
         val home_button = findViewById<ImageView>(R.id.principal_settings) as ImageView
-        principal_settings.setOnClickListener {
+        home_button.setOnClickListener {
             principal_settings.setColorFilter(Color.RED)
             val intent = Intent(this@Settings, Home::class.java)
             startActivity(intent)

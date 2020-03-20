@@ -24,7 +24,7 @@ class ChangeEmail : AppCompatActivity() {
         }
 
         val ret_button = findViewById<Button>(R.id.ret) as Button
-        ret.setOnClickListener {
+        ret_button.setOnClickListener {
             val intent = Intent(this@ChangeEmail, Settings::class.java)
             startActivity(intent)
         }

@@ -15,7 +15,7 @@ class Home : AppCompatActivity() {
         setContentView(R.layout.principal)
 
         val settings_button = findViewById<ImageView>(R.id.settings_principal) as ImageView
-        settings_principal.setOnClickListener {
+        settings_button.setOnClickListener {
             val intent = Intent(this@Home, Settings::class.java)
             startActivity(intent)
         }
