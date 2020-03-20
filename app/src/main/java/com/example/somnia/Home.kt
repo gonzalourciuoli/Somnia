@@ -19,15 +19,5 @@ class Home : AppCompatActivity() {
             val intent = Intent(this@Home, Settings::class.java)
             startActivity(intent)
         }
-
-        val timbre = findViewById<ImageView>(R.id.timbre) as ImageView
-        timbre.setOnClickListener {
-            Toast.makeText(this@Home, "You are waking up at (falta añadir tiempo)", Toast.LENGTH_SHORT).show()
-        }
-
-        val luna = findViewById<ImageView>(R.id.luna) as ImageView
-        luna.setOnClickListener {
-            Toast.makeText(this@Home, "You are going to bed at (falta añadir tiempo)", Toast.LENGTH_SHORT).show()
-        }
     }
 }
