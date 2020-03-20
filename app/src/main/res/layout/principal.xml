@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/cuadrotoolbar_principal"
+        android:layout_width="411dp"
+        android:layout_height="61dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/cuadrotoolbar" />
+
+    <ImageView
+        android:id="@+id/graficas_principal"
+        android:layout_width="37dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/graficas" />
+
+    <ImageView
+        android:id="@+id/alarmas_principal"
+        android:layout_width="41dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="94dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_principal"
+        app:srcCompat="@drawable/alarmas" />
+
+    <ImageView
+        android:id="@+id/principal_principal"
+        android:layout_width="57dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="179dp"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_principal"
+        app:srcCompat="@drawable/home" />
+
+    <ImageView
+        android:id="@+id/calculadora_principal"
+        android:layout_width="52dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="274dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_principal"
+        app:srcCompat="@drawable/calculadora" />
+
+    <ImageView
+        android:id="@+id/settings_principal"
+        android:layout_width="37dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/cuadrotoolbar_principal"
+        app:srcCompat="@drawable/settings"/>
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:timePickerMode="clock"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-3dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

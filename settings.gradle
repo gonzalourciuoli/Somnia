@@ -1,0 +1,2 @@
+rootProject.name='Somnia'
+include ':app'

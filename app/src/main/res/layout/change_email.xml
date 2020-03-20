@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".ChangeEmail">
+
+    <TextView
+        android:id="@+id/top_chEmail"
+        android:layout_width="265dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Change e-mail"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/currentEmail"
+        android:layout_width="302dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="48dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Introduce your current e-mail"
+        app:layout_constraintStart_toStartOf="@+id/top_chEmail"
+        app:layout_constraintTop_toBottomOf="@+id/top_chEmail" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="302dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="Introduce your password"
+        app:layout_constraintStart_toStartOf="@+id/currentEmail"
+        app:layout_constraintTop_toBottomOf="@+id/currentEmail" />
+
+    <EditText
+        android:id="@+id/newEmail"
+        android:layout_width="302dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Introduce your new e-mail"
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <Button
+        android:id="@+id/savechanges"
+        android:layout_width="147dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:text="SAVE CHANGES"
+        app:layout_constraintStart_toStartOf="@+id/newEmail"
+        app:layout_constraintTop_toBottomOf="@+id/newEmail" />
+
+    <Button
+        android:id="@+id/ret"
+        android:layout_width="147dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="112dp"
+        android:text="RETURN"
+        app:layout_constraintStart_toStartOf="@+id/savechanges"
+        app:layout_constraintTop_toTopOf="@+id/savechanges" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
