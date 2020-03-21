@@ -8,6 +8,7 @@
     android:background="@drawable/background">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="407dp"
         android:layout_height="405dp"
         android:orientation="vertical"
@@ -17,6 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="115dp">
 
         <TextView
@@ -50,7 +52,7 @@
             android:id="@+id/repeatTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/repeat_title"/>
+            android:text="@string/repeat_title" />
 
         <Spinner
             android:id="@+id/repeatSpinner"
@@ -99,23 +101,84 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="140dp"
-        android:layout_marginRight="140dp"
         android:text="@string/add_button"
         app:layout_constraintEnd_toStartOf="@+id/cancel"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="615dp" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
         android:text="@string/cancel_button"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="615dp" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/cuadrotoolbar_settings"
+        android:layout_width="411dp"
+        android:layout_height="61dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#a0000000" />
+
+    <ImageView
+        android:id="@+id/graficas_settings"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cuadrotoolbar_settings"
+        app:srcCompat="@drawable/button_graph" />
+
+    <ImageView
+        android:id="@+id/alarmas_settings"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/principal_settings"
+        app:layout_constraintStart_toEndOf="@+id/graficas_settings"
+        app:layout_constraintTop_toTopOf="@+id/cuadrotoolbar_settings"
+        app:srcCompat="@drawable/clockpressed" />
+
+    <ImageView
+        android:id="@+id/principal_settings"
+        android:layout_width="57dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="179dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_settings"
+        app:layout_constraintTop_toTopOf="@+id/cuadrotoolbar_settings"
+        app:srcCompat="@drawable/home" />
+
+    <ImageView
+        android:id="@+id/calculadora_settings"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/principal_settings"
+        app:layout_constraintTop_toTopOf="@+id/cuadrotoolbar_settings"
+        app:srcCompat="@drawable/button_calculator" />
+
+    <ImageView
+        android:id="@+id/settings_settings"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/cuadrotoolbar_settings"
+        app:layout_constraintStart_toEndOf="@+id/calculadora_settings"
+        app:layout_constraintTop_toTopOf="@+id/cuadrotoolbar_settings"
+        app:srcCompat="@drawable/button_settings" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

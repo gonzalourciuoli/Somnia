@@ -223,56 +223,58 @@
         android:layout_height="61dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/cuadrotoolbar" />
+        android:background="#a0000000" />
 
     <ImageView
         android:id="@+id/graficas_settings"
-        android:layout_width="37dp"
-        android:layout_height="32dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:layout_marginStart="18dp"
-        android:layout_marginBottom="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/graficas" />
+        app:layout_constraintTop_toTopOf="@+id/cuadrotoolbar_settings"
+        app:srcCompat="@drawable/button_graph" />
 
     <ImageView
         android:id="@+id/alarmas_settings"
-        android:layout_width="41dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="94dp"
-        android:layout_marginBottom="11dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_settings"
-        app:srcCompat="@drawable/alarmas" />
+        app:layout_constraintEnd_toStartOf="@+id/principal_settings"
+        app:layout_constraintStart_toEndOf="@+id/graficas_settings"
+        app:layout_constraintTop_toTopOf="@+id/cuadrotoolbar_settings"
+        app:srcCompat="@drawable/button_clock" />
 
     <ImageView
         android:id="@+id/principal_settings"
         android:layout_width="57dp"
         android:layout_height="45dp"
         android:layout_marginStart="179dp"
-        android:layout_marginBottom="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_settings"
+        app:layout_constraintTop_toTopOf="@+id/cuadrotoolbar_settings"
         app:srcCompat="@drawable/home" />
 
     <ImageView
         android:id="@+id/calculadora_settings"
-        android:layout_width="52dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="274dp"
-        android:layout_marginBottom="9dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_settings"
-        app:srcCompat="@drawable/calculadora" />
+        app:layout_constraintStart_toEndOf="@+id/principal_settings"
+        app:layout_constraintTop_toTopOf="@+id/cuadrotoolbar_settings"
+        app:srcCompat="@drawable/button_calculator" />
 
     <ImageView
         android:id="@+id/settings_settings"
-        android:layout_width="37dp"
-        android:layout_height="39dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
         android:layout_marginEnd="17dp"
-        android:layout_marginBottom="9dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/cuadrotoolbar_settings"
-        app:srcCompat="@drawable/settings" />
+        app:layout_constraintStart_toEndOf="@+id/calculadora_settings"
+        app:layout_constraintTop_toTopOf="@+id/cuadrotoolbar_settings"
+        app:srcCompat="@drawable/button_settings" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
