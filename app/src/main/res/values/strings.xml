@@ -15,4 +15,24 @@
     <string name="coffee">Coffee</string>
     <string name="alcohol">Alcohol</string>
     <string name="comments">Add a comment:</string>
+    <string name="logIn_layout_title">Somnia</string>
+    <string name="logIn_button">Log In</string>
+    <string name="register_layout_title">Register</string>
+    <string name="name_title">Name</string>
+    <string name="email_title">Email</string>
+    <string name="password_title">Password</string>
+    <string name="repeatPassword_title">Repeat the password</string>
+    <string name="register_title">Register</string>
+    <string name="register_button">Register</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="newAlarm_layout_title">New alarm</string>
+    <string name="title_title">Title</string>
+    <string name="title_text">Alarm</string>
+    <string name="hour_title">Hour</string>
+    <string name="repeat_title">Repeat</string>
+    <string name="vibration_switch">Vibration</string>
+    <string name="description_title">Description</string>
+    <string name="add_button">Add</string>
+    <string name="accept_button">Accept</string>
+    <string name="edit_button">Edit</string>
 </resources>
