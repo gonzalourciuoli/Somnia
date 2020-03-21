@@ -150,8 +150,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
-        android:layout_width="343dp"
-        android:layout_height="143dp"
+        android:layout_width="347dp"
+        android:layout_height="145dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -170,8 +170,8 @@
 
         <EditText
             android:id="@+id/textView2"
-            android:layout_width="341dp"
-            android:layout_height="111dp"
+            android:layout_width="349dp"
+            android:layout_height="112dp"
             android:autofillHints=""
             android:background="@color/cardview_light_background"
             android:inputType="text"
@@ -189,6 +189,7 @@
         android:id="@+id/constraintLayout6"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
@@ -198,6 +199,7 @@
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/cardview_shadow_start_color"
             android:text="@string/Cancel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button3"
@@ -208,8 +210,10 @@
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/cardview_shadow_start_color"
             android:text="@string/Save"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
