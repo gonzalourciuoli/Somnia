@@ -15,7 +15,8 @@
         android:layout_height="129dp"
         app:srcCompat="@drawable/logo"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="131dp" />
+        tools:layout_editor_absoluteY="131dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/somnia"
@@ -23,7 +24,8 @@
         android:layout_height="55dp"
         android:text="@string/logIn_layout_title"
         tools:layout_editor_absoluteX="224dp"
-        tools:layout_editor_absoluteY="168dp" />
+        tools:layout_editor_absoluteY="168dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/password"
@@ -39,7 +41,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="435dp" />
+        tools:layout_editor_absoluteY="435dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/user"
@@ -85,5 +88,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="613dp" />
+        tools:layout_editor_absoluteY="613dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
