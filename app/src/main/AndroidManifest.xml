@@ -11,8 +11,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Home" />
         <activity android:name=".ChangePassword" />
-        <activity android:name=".valuationsActivity" />
-        <activity android:name=".calculatorActivity" />
+        <activity android:name=".Valuations" />
+        <activity android:name=".Calculator" />
         <activity android:name=".Settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
