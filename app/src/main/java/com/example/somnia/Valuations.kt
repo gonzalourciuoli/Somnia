@@ -12,5 +12,17 @@ class Valuations : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_valuations)
+
+        val save = findViewById<Button>(R.id.save) as Button
+        save.setOnClickListener {
+            val intent = Intent(this@Valuations, Home::class.java)
+            startActivity(intent)
+        }
+
+        val cancel = findViewById<Button>(R.id.cancel) as Button
+        cancel.setOnClickListener {
+            val intent = Intent(this@Valuations, Home::class.java)
+            startActivity(intent)
+        }
     }
 }
