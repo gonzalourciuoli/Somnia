@@ -12,11 +12,12 @@ public class AlarmsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.alarms)
-
-        val newAlarm_button = findViewById<Button>(R.id.add_button) as Button
+    /*
+    val newAlarm_button = findViewById<Button>(R.id.add_button) as Button
         newAlarm_button.setOnClickListener {
             val intent = Intent(this@AlarmsActivity, New_alarmActivity::class.java)
             startActivity(intent)
         }
+     */
     }
 }
