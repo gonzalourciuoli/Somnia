@@ -23,7 +23,8 @@
             android:id="@+id/titleTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_title" />
+            android:text="@string/title_title"
+            style="@style/Text"/>
 
         <EditText
             android:id="@+id/titleText"
@@ -31,13 +32,14 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/title_text" />
+            android:text="@string/title_text"/>
 
         <TextView
             android:id="@+id/hourTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hour_title" />
+            android:text="@string/hour_title"
+            style="@style/Text"/>
 
         <EditText
             android:id="@+id/hourText"
@@ -50,7 +52,8 @@
             android:id="@+id/repeatTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/repeat_title"/>
+            android:text="@string/repeat_title"
+            style="@style/Text"/>
 
         <Spinner
             android:id="@+id/repeatSpinner"
@@ -61,13 +64,15 @@
             android:id="@+id/vibrationSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/vibration_switch" />
+            android:text="@string/vibration_switch"
+            style="@style/Text"/>
 
         <TextView
             android:id="@+id/descriptionTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/description_title" />
+            android:text="@string/description_title"
+            style="@style/Text"/>
 
         <EditText
             android:id="@+id/descriptionText"
@@ -91,7 +96,8 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintVertical_bias="0.51"
+        style="@style/Title"/>
 
     <Button
         android:id="@+id/add"
@@ -117,5 +123,4 @@
         android:text="@string/cancel_button"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="615dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
