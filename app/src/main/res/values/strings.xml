@@ -15,6 +15,8 @@
     <string name="coffee">Coffee</string>
     <string name="alcohol">Alcohol</string>
     <string name="comments">Add a comment:</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Save">Save</string>
     <string name="logIn_layout_title">Somnia</string>
     <string name="logIn_button">Log In</string>
     <string name="register_layout_title">Register</string>
