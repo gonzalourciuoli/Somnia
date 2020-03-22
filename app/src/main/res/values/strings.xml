@@ -59,7 +59,7 @@
     <string name="comments">Add a comment</string>
     <string name="Cancel">Cancel</string>
     <string name="Save">Save</string>
-    <string name="rate_last_sleep" />
+    <string name="rate_last_sleep">RATE LAST SLEEP</>
 
     <style name="Title" parent="AppTheme">
         <item name="android:textSize">35sp</item>
