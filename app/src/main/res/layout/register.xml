@@ -28,7 +28,8 @@
             android:id="@+id/nameTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/name_title" />
+            android:text="@string/name_title"
+            style="@style/Text"/>
 
         <EditText
             android:id="@+id/nameText"
@@ -41,7 +42,8 @@
             android:id="@+id/emailTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/email_title" />
+            android:text="@string/email_title"
+            style="@style/Text"/>
 
         <EditText
             android:id="@+id/emailText"
@@ -54,7 +56,8 @@
             android:id="@+id/passwordTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/password_title" />
+            android:text="@string/password_title"
+            style="@style/Text"/>
 
         <EditText
             android:id="@+id/paswordText"
@@ -67,7 +70,8 @@
             android:id="@+id/repeatPasswordTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/repeatPassword_title" />
+            android:text="@string/repeatPassword_title"
+            style="@style/Text"/>
 
         <EditText
             android:id="@+id/repeatPasswordText"
@@ -90,7 +94,8 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintVertical_bias="0.51"
+        style="@style/Title"/>
 
     <Button
         android:id="@+id/register"
@@ -119,3 +124,4 @@
         tools:layout_editor_absoluteY="615dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

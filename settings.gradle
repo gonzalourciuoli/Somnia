@@ -1,2 +1,2 @@
-rootProject.name='Somnia'
 include ':app'
+rootProject.name='Somnia'
