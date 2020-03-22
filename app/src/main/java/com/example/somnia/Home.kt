@@ -16,7 +16,7 @@ class Home : AppCompatActivity() {
 
         val rate_last_sleep_button = findViewById<Button>(R.id.rate_last_sleep)
         rate_last_sleep_button.setOnClickListener {
-            val intent = Intent(this@Home, valuationsActivity::class.java)
+            val intent = Intent(this@Home, Valuations::class.java)
             startActivity(intent)
         }
 

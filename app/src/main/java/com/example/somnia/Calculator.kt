@@ -1,15 +1,13 @@
 package com.example.somnia
 
 import android.content.Intent
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 
-class calculatorActivity : AppCompatActivity() {
-
+public class Calculator : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_calculator)
+        setContentView(R.layout.alarms)
     }
 }

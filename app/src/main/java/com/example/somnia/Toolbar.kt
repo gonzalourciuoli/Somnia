@@ -36,8 +36,8 @@ class Toolbar : androidx.fragment.app.Fragment() {
         }
 
         viewActual.button_calculator.setOnClickListener { view ->
-            if (activity?.javaClass?.simpleName != calculatorActivity::class.simpleName) {
-                val principal = Intent(activity, calculatorActivity::class.java)
+            if (activity?.javaClass?.simpleName != Calculator::class.simpleName) {
+                val principal = Intent(activity, Calculator::class.java)
                 startActivity(principal)
             }
         }
