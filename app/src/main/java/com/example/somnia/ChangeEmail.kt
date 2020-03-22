@@ -11,15 +11,15 @@ class ChangeEmail : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_change_email)
-        var currentEmail = currentEmail.text.toString()
+        var current_Email = current_Email.text.toString()
         var password = password.text.toString()
-        var newEmail = newEmail.text.toString()
+        var new_Email = new_Email.text.toString()
 
-        val savechanges_button = findViewById<Button>(R.id.savechanges) as Button
-        savechanges.setOnClickListener {
+        val save_changes_button = findViewById<Button>(R.id.save_changes) as Button
+        save_changes_button.setOnClickListener {
             //Si currentEmail es igual al email del usuario
             //Y si password es igual a la contraseña del usuario
-            //Entonces currentEmail = newEmail
+            //Entonces current_Email = new_Email
         }
 
         val ret_button = findViewById<Button>(R.id.ret) as Button

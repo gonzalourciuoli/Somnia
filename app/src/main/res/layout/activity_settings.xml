@@ -13,17 +13,19 @@
         android:layout_height="63dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Settings"
+        android:text="@string/top_settings"
+        android:fontFamily="@font/reef_family"
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/chEmail"
+        android:id="@+id/ch_Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="Change e-mail"
+        android:text="@string/ch_Email"
+        android:fontFamily="@font/reef_family"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="@+id/top_settings"
         app:layout_constraintTop_toBottomOf="@+id/top_settings" />
@@ -35,18 +37,19 @@
         android:layout_height="3dp"
         android:layout_marginTop="25dp"
         android:background="#B1AEC2"
-        app:layout_constraintStart_toStartOf="@+id/chEmail"
-        app:layout_constraintTop_toBottomOf="@+id/chEmail" />
+        app:layout_constraintStart_toStartOf="@+id/ch_Email"
+        app:layout_constraintTop_toBottomOf="@+id/ch_Email" />
 
     <TextView
-        android:id="@+id/chPass"
+        android:id="@+id/ch_Pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Change password"
+        android:text="@string/ch_Pass"
+        android:fontFamily="@font/reef_family"
         android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="@+id/chEmail"
-        app:layout_constraintTop_toBottomOf="@+id/chEmail" />
+        app:layout_constraintStart_toStartOf="@+id/ch_Email"
+        app:layout_constraintTop_toBottomOf="@+id/ch_Email" />
 
     <View
         android:id="@+id/bar2"
@@ -54,18 +57,19 @@
         android:layout_height="3dp"
         android:layout_marginTop="25dp"
         android:background="#B1AEC2"
-        app:layout_constraintStart_toStartOf="@+id/chPass"
-        app:layout_constraintTop_toBottomOf="@+id/chPass" />
+        app:layout_constraintStart_toStartOf="@+id/ch_Pass"
+        app:layout_constraintTop_toBottomOf="@+id/ch_Pass" />
 
     <TextView
-        android:id="@+id/logout"
+        android:id="@+id/log_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Log out"
+        android:text="@string/log_out"
+        android:fontFamily="@font/reef_family"
         android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="@+id/chPass"
-        app:layout_constraintTop_toBottomOf="@+id/chPass" />
+        app:layout_constraintStart_toStartOf="@+id/ch_Pass"
+        app:layout_constraintTop_toBottomOf="@+id/ch_Pass" />
 
     <View
         android:id="@+id/bar3"
@@ -73,75 +77,27 @@
         android:layout_height="3dp"
         android:layout_marginTop="25dp"
         android:background="#B1AEC2"
-        app:layout_constraintStart_toStartOf="@+id/logout"
-        app:layout_constraintTop_toBottomOf="@+id/logout" />
+        app:layout_constraintStart_toStartOf="@+id/log_out"
+        app:layout_constraintTop_toBottomOf="@+id/log_out" />
 
     <TextView
-        android:id="@+id/delAcc"
+        android:id="@+id/del_Acc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Delete account"
+        android:text="@string/del_Acc"
+        android:fontFamily="@font/reef"
         android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="@+id/logout"
-        app:layout_constraintTop_toBottomOf="@+id/logout" />
+        app:layout_constraintStart_toStartOf="@+id/log_out"
+        app:layout_constraintTop_toBottomOf="@+id/log_out" />
 
-    <ImageView
-        android:id="@+id/cuadrotoolbar_settings"
-        android:layout_width="411dp"
-        android:layout_height="61dp"
+    <fragment
+        class="com.example.somnia.Toolbar"
+        android:id="@+id/toolbar"
+        android:layout_width="412dp"
+        android:layout_height="84dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/cuadrotoolbar" />
-
-    <ImageView
-        android:id="@+id/graficas_settings"
-        android:layout_width="37dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginBottom="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/graficas" />
-
-    <ImageView
-        android:id="@+id/alarmas_settings"
-        android:layout_width="41dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="94dp"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_settings"
-        app:srcCompat="@drawable/alarmas" />
-
-    <ImageView
-        android:id="@+id/principal_settings"
-        android:layout_width="57dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="179dp"
-        android:layout_marginBottom="7dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_settings"
-        app:srcCompat="@drawable/home" />
-
-    <ImageView
-        android:id="@+id/calculadora_settings"
-        android:layout_width="52dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="274dp"
-        android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_settings"
-        app:srcCompat="@drawable/calculadora" />
-
-    <ImageView
-        android:id="@+id/settings_settings"
-        android:layout_width="37dp"
-        android:layout_height="39dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/cuadrotoolbar_settings"
-        app:srcCompat="@drawable/settings" />
+        app:layout_constraintStart_toStartOf="parent">
+    </fragment>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

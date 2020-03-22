@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".valuationsActivity"
-
+    android:padding="16dp"
     android:background="@drawable/background">
 
     <TextView
@@ -150,8 +150,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
-        android:layout_width="343dp"
-        android:layout_height="143dp"
+        android:layout_width="311dp"
+        android:layout_height="171dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -170,105 +170,18 @@
 
         <EditText
             android:id="@+id/textView2"
-            android:layout_width="341dp"
-            android:layout_height="111dp"
+            android:layout_width="304dp"
+            android:layout_height="120dp"
             android:autofillHints=""
             android:background="@color/cardview_light_background"
-            android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/comments"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_bias="0.257"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout6"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
-
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Cancel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button3"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Save"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/cuadrotoolbar_settings"
-        android:layout_width="411dp"
-        android:layout_height="61dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/cuadrotoolbar" />
-
-    <ImageView
-        android:id="@+id/graficas_settings"
-        android:layout_width="37dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginBottom="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/graficas" />
-
-    <ImageView
-        android:id="@+id/alarmas_settings"
-        android:layout_width="41dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="94dp"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_settings"
-        app:srcCompat="@drawable/alarmas" />
-
-    <ImageView
-        android:id="@+id/principal_settings"
-        android:layout_width="57dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="179dp"
-        android:layout_marginBottom="7dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_settings"
-        app:srcCompat="@drawable/home" />
-
-    <ImageView
-        android:id="@+id/calculadora_settings"
-        android:layout_width="52dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="274dp"
-        android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_settings"
-        app:srcCompat="@drawable/calculadora" />
-
-    <ImageView
-        android:id="@+id/settings_settings"
-        android:layout_width="37dp"
-        android:layout_height="39dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/cuadrotoolbar_settings"
-        app:srcCompat="@drawable/settings" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

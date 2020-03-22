@@ -13,19 +13,23 @@
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Change e-mail"
+        android:autofillHints="@string/ch_Email"
+        android:hint="@string/ch_Email"
+        android:fontFamily="@font/reef_family"
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/currentEmail"
+        android:id="@+id/current_Email"
         android:layout_width="302dp"
         android:layout_height="41dp"
         android:layout_marginTop="48dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Introduce your current e-mail"
+        android:inputType="textEmailAddress"
+        android:autofillHints="@string/current_Email"
+        android:hint="@string/current_Email"
+        android:fontFamily="@font/reef_family"
         app:layout_constraintStart_toStartOf="@+id/top_chEmail"
         app:layout_constraintTop_toBottomOf="@+id/top_chEmail" />
 
@@ -36,37 +40,45 @@
         android:layout_marginTop="50dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="Introduce your password"
-        app:layout_constraintStart_toStartOf="@+id/currentEmail"
-        app:layout_constraintTop_toBottomOf="@+id/currentEmail" />
+        android:autofillHints="@string/password"
+        android:hint="@string/password"
+        android:fontFamily="@font/reef_family"
+        app:layout_constraintStart_toStartOf="@+id/current_Email"
+        app:layout_constraintTop_toBottomOf="@+id/current_Email" />
 
     <EditText
-        android:id="@+id/newEmail"
+        android:id="@+id/new_Email"
         android:layout_width="302dp"
         android:layout_height="41dp"
         android:layout_marginTop="50dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Introduce your new e-mail"
+        android:inputType="textEmailAddress"
+        android:autofillHints="@string/new_Email"
+        android:hint="@string/new_Email"
+        android:fontFamily="@font/reef_family"
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
-        android:id="@+id/savechanges"
+        android:id="@+id/save_changes"
         android:layout_width="147dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
-        android:text="SAVE CHANGES"
-        app:layout_constraintStart_toStartOf="@+id/newEmail"
-        app:layout_constraintTop_toBottomOf="@+id/newEmail" />
+        android:text="@string/save_changes"
+        android:fontFamily="@font/reef_family"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/new_Email"
+        app:layout_constraintTop_toBottomOf="@+id/new_Email" />
 
     <Button
         android:id="@+id/ret"
         android:layout_width="147dp"
         android:layout_height="50dp"
         android:layout_marginTop="112dp"
-        android:text="RETURN"
-        app:layout_constraintStart_toStartOf="@+id/savechanges"
-        app:layout_constraintTop_toTopOf="@+id/savechanges" />
+        android:text="@string/ret"
+        android:fontFamily="@font/reef_family"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/save_changes"
+        app:layout_constraintTop_toTopOf="@+id/save_changes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,5 @@
 package com.example.somnia
-
+/*
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -47,3 +47,4 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+ */

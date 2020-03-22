@@ -37,4 +37,19 @@
     <string name="add_button">Add</string>
     <string name="accept_button">Accept</string>
     <string name="edit_button">Edit</string>
+    <string name="top_settings">Settings</string>
+    <string name="ch_Email">Change e-mail</string>
+    <string name="ch_Pass">Change password</string>
+    <string name="log_out">Log out</string>
+    <string name="del_Acc">Delete account</string>
+    <string name="current_Email">Introduce your current e-mail</string>
+    <string name="password">Introduce your password</string>
+    <string name="new_Email">Introduce your new e-mail</string>
+    <string name="new_Password">Introduce your new password</string>
+    <string name="save_changes">SAVE CHANGES</string>
+    <string name="ret">RETURN</string>
+    <string name="rate_last_sleep">RATE LAST SLEEP</string>
+    <string name="see_your_ratings">SEE YOUR RATINGS</string>
+    <string name="toggle_Wake">Wake</string>
+    <string name="toggle_Sleep">Sleep</string>
 </resources>

@@ -8,69 +8,79 @@
     android:background="@drawable/background"
     tools:context=".Home">
 
-    <ImageView
-        android:id="@+id/cuadrotoolbar_principal"
-        android:layout_width="411dp"
-        android:layout_height="61dp"
+    <Button
+        android:id="@+id/rate_last_sleep"
+        android:layout_width="149dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="36dp"
+        android:fontFamily="@font/reef_family"
+        android:text="@string/rate_last_sleep"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/cuadrotoolbar" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.654" />
 
-    <ImageView
-        android:id="@+id/graficas_principal"
-        android:layout_width="37dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginBottom="14dp"
+    <Button
+        android:id="@+id/see_your_ratings"
+        android:layout_width="149dp"
+        android:layout_height="57dp"
+        android:layout_marginEnd="36dp"
+        android:fontFamily="@font/reef_family"
+        android:text="@string/see_your_ratings"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/graficas" />
-
-    <ImageView
-        android:id="@+id/alarmas_principal"
-        android:layout_width="41dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="94dp"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_principal"
-        app:srcCompat="@drawable/alarmas" />
-
-    <ImageView
-        android:id="@+id/principal_principal"
-        android:layout_width="57dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="179dp"
-        android:layout_marginBottom="7dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_principal"
-        app:srcCompat="@drawable/home" />
-
-    <ImageView
-        android:id="@+id/calculadora_principal"
-        android:layout_width="52dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="274dp"
-        android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_principal"
-        app:srcCompat="@drawable/calculadora" />
-
-    <ImageView
-        android:id="@+id/settings_principal"
-        android:layout_width="37dp"
-        android:layout_height="39dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/cuadrotoolbar_principal"
-        app:srcCompat="@drawable/settings"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.654" />
 
     <TimePicker
+        android:id="@+id/timePicker_sleep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:timePickerMode="clock"
+        android:headerBackground="@color/sleep"
+        android:numbersSelectorColor="@color/sleep"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TimePicker
+        android:id="@+id/timePicker_wake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:headerBackground="@color/wake"
+        android:numbersSelectorColor="@color/wake"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"></TimePicker>
+
+    <Switch
+        android:id="@+id/toggle_Wake_Sleep"
+        android:layout_width="91dp"
+        android:layout_height="35dp"
+        android:checked="false"
+        android:fontFamily="@font/reef"
+        android:text="@string/toggle_Sleep"
+        android:textSize="20sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198" />
+
+    <fragment
+        android:id="@+id/toolbar"
+        class="com.example.somnia.Toolbar"
+        android:layout_width="410dp"
+        android:layout_height="77dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </fragment>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
