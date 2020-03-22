@@ -58,62 +58,15 @@
 
         </LinearLayout>
     </ScrollView>
-    <ImageView
-        android:id="@+id/cuadrotoolbar_principal"
-        android:layout_width="411dp"
-        android:layout_height="61dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/cuadrotoolbar" />
 
-    <ImageView
-        android:id="@+id/graficas_principal"
-        android:layout_width="37dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginBottom="14dp"
+    <fragment
+        android:id="@+id/toolbar"
+        class="com.example.somnia.Toolbar"
+        android:layout_width="410dp"
+        android:layout_height="77dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/graficas" />
-
-    <ImageView
-        android:id="@+id/alarmas_principal"
-        android:layout_width="41dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="94dp"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_principal"
-        app:srcCompat="@drawable/alarmas" />
-
-    <ImageView
-        android:id="@+id/principal_principal"
-        android:layout_width="57dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="179dp"
-        android:layout_marginBottom="7dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_principal"
-        app:srcCompat="@drawable/home" />
-
-    <ImageView
-        android:id="@+id/calculadora_principal"
-        android:layout_width="52dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="274dp"
-        android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cuadrotoolbar_principal"
-        app:srcCompat="@drawable/calculadora" />
-
-    <ImageView
-        android:id="@+id/settings_principal"
-        android:layout_width="37dp"
-        android:layout_height="39dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/cuadrotoolbar_principal"
-        app:srcCompat="@drawable/settings"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </fragment>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
