@@ -9,18 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Home" />
-        <activity android:name=".ChangePassword" />
-        <activity android:name=".Valuations" />
-        <activity android:name=".Calculator" />
-        <activity android:name=".Settings">
+        <activity android:name=".AlarmsActivity"/>
+        <activity android:name=".Calculator"/>
+        <activity android:name=".ChangeEmail"/>
+        <activity android:name=".ChangePassword"/>
+        <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChangeEmail" />
+        <activity android:name=".Info_alarmActivity"/>
+        <activity android:name=".logInActivity"/>
+        <activity android:name=".New_alarmActivity"/>
+        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".Settings"/>
+        <activity android:name=".Valuations"/>
     </application>
 
 </manifest>
