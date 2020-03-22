@@ -40,5 +40,7 @@ class Home : AppCompatActivity() {
             }
         }
 
+        timePicker_sleep_act.isKeyboardNavigationCluster =
+
     }
 }

@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Info_alarmActivity"/>
+        <activity android:name=".InfoValuations"/>
         <activity android:name=".logInActivity"/>
         <activity android:name=".New_alarmActivity"/>
         <activity android:name=".RegisterActivity"/>

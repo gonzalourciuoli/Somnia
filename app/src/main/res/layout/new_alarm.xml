@@ -14,17 +14,18 @@
         android:paddingLeft="32dp"
         android:paddingTop="32dp"
         android:paddingRight="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="115dp">
+        app:layout_constraintTop_toBottomOf="@+id/newAlarmLayoutTitle"
+        app:layout_constraintVertical_bias="0.141">
 
         <TextView
             android:id="@+id/titleTitle"
+            style="@style/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_title"
-            style="@style/Text"/>
+            android:text="@string/title_title" />
 
         <EditText
             android:id="@+id/titleText"
@@ -32,14 +33,14 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/title_text"/>
+            android:text="@string/title_text" />
 
         <TextView
             android:id="@+id/hourTitle"
+            style="@style/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hour_title"
-            style="@style/Text"/>
+            android:text="@string/hour_title" />
 
         <EditText
             android:id="@+id/hourText"
@@ -50,29 +51,31 @@
 
         <TextView
             android:id="@+id/repeatTitle"
+            style="@style/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/repeat_title"
-            style="@style/Text"/>
+            android:text="@string/repeat_title" />
 
         <Spinner
             android:id="@+id/repeatSpinner"
+            style="@style/Text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:entries="@array/repeat_array" />
 
         <Switch
             android:id="@+id/vibrationSwitch"
+            style="@style/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/vibration_switch"
-            style="@style/Text"/>
+            android:text="@string/vibration_switch" />
 
         <TextView
             android:id="@+id/descriptionTitle"
+            style="@style/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/description_title"
-            style="@style/Text"/>
+            android:text="@string/description_title" />
 
         <EditText
             android:id="@+id/descriptionText"
@@ -104,23 +107,24 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginRight="140dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="92dp"
         android:text="@string/add_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cancel"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="615dp" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="92dp"
         android:text="@string/cancel_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="615dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
