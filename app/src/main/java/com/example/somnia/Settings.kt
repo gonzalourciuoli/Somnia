@@ -28,12 +28,14 @@ class Settings : AppCompatActivity() {
 
         val logout_button = findViewById<TextView>(R.id.log_out) as TextView
         logout_button.setOnClickListener {
-            //Redirigir a Login Activity
+            val intent = Intent(this@Settings, logInActivity::class.java)
+            startActivity(intent)
         }
 
         val delAcc_button = findViewById<TextView>(R.id.del_Acc) as TextView
         delAcc_button.setOnClickListener {
-            //Redirigir a Login Activity
+            val intent = Intent(this@Settings, logInActivity::class.java)
+            startActivity(intent)
         }
 
     }
