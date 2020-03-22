@@ -1,24 +1,9 @@
 <resources>
     <string name="app_name">Somnia</string>
-    <string name="sleep_calculator">Sleep calculator</string>
-    <string name="i_m_waking_up_at">I\'m waking up at:</string>
-    <string name="in_order_to_sleep">In order to sleep:</string>
-    <string name="i_must_get_in_bed_at">I must get in bed at:</string>
-    <string name="sleeping_cycle">Sleeping cycle</string>
-    <string name="wake_up">6:30</string>
-    <string name="hours_to_sleep">8</string>
-    <string name="hours">hours</string>
-    <string name="go_bed">22:30</string>
-    <string name="valuations">Valuations</string>
-    <string name="rate_your_sleep">Rate your sleep:</string>
-    <string name="sport">Sport</string>
-    <string name="coffee">Coffee</string>
-    <string name="alcohol">Alcohol</string>
-    <string name="comments">Add a comment:</string>
-    <string name="Cancel">Cancel</string>
-    <string name="Save">Save</string>
+
     <string name="logIn_layout_title">Somnia</string>
     <string name="logIn_button">Log In</string>
+
     <string name="register_layout_title">Register</string>
     <string name="name_title">Name</string>
     <string name="email_title">Email</string>
@@ -27,6 +12,8 @@
     <string name="register_title">Register</string>
     <string name="register_button">Register</string>
     <string name="cancel_button">Cancel</string>
+
+
     <string name="newAlarm_layout_title">New alarm</string>
     <string name="title_title">Title</string>
     <string name="title_text">Alarm</string>
@@ -35,6 +22,20 @@
     <string name="vibration_switch">Vibration</string>
     <string name="description_title">Description</string>
     <string name="add_button">Add</string>
+
     <string name="accept_button">Accept</string>
     <string name="edit_button">Edit</string>
+    <string name="alarmSwitch_text">Alarm \n hour </string>
+    <string name="alarmSwitch_text2">Alarm 2 \n hour </string>
+    <string name="alarmSwitch_text3">Alarm  3 \n hour </string>
+    <string name="alarm_layout_title">Alarms</string>
+
+    <style name="Title" parent="AppTheme">
+        <item name="android:textSize">35sp</item>
+    </style>
+    <style name="Text" parent="AppTheme">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
 </resources>
