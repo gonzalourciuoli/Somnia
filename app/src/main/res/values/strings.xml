@@ -62,9 +62,11 @@
         <item>Every 2 days</item>
         <item>Monthly</item>
     </string-array>
+
     <style name="Title" parent="AppTheme">
         <item name="android:textSize">35sp</item>
     </style>
+
     <style name="Text" parent="AppTheme">
         <item name="android:textSize">20sp</item>
     </style>

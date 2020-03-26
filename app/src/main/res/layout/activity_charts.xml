@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:rowCount="3"
+    android:alignmentMode="alignMargins"
+    android:columnOrderPreserved="true"
+    android:background="@drawable/background"
+    tools:context=".Charts">
+
+    <com.anychart.AnyChartView
+        android:id="@+id/horizontal_bar_chart"
+        android:layout_width="208dp"
+        android:layout_height="209dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginVertical="238dp"
+        android:layout_marginBottom="230dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bar_chart"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.anychart.AnyChartView
+        android:id="@+id/linear_chart"
+        android:layout_width="match_parent"
+        android:layout_height="161dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+
+        app:layout_constraintBottom_toTopOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pie_chart"
+        app:layout_constraintVertical_bias="1.0">
+
+    </com.anychart.AnyChartView>
+
+    <com.anychart.AnyChartView
+        android:id="@+id/bar_chart"
+        android:layout_width="match_parent"
+        android:layout_height="157dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.anychart.AnyChartView>
+
+    <com.anychart.AnyChartView
+        android:id="@+id/pie_chart"
+        android:layout_width="213dp"
+        android:layout_height="209dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginVertical="238dp"
+        android:layout_marginBottom="230dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bar_chart"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <fragment
+        android:id="@+id/toolbar"
+        class="com.example.somnia.Toolbar"
+        android:layout_width="410dp"
+        android:layout_height="77dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </fragment>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
