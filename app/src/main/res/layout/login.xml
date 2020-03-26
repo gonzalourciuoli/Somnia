@@ -8,24 +8,15 @@
     android:background="@drawable/background">
 
 
-
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="189dp"
-        android:layout_height="129dp"
+        android:layout_width="206dp"
+        android:layout_height="151dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="148dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/somnia"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="131dp"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/somnia"
-        android:layout_width="155dp"
-        android:layout_height="55dp"
-        android:text="@string/logIn_layout_title"
-        android:textSize="40sp"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="168dp"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -33,16 +24,15 @@
         android:layout_width="320dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginBottom="252dp"
         android:ems="10"
         android:inputType="textPassword"
         android:text="Password"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="435dp"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -50,9 +40,7 @@
         android:layout_width="320dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginBottom="32dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -60,35 +48,36 @@
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="0.944" />
 
     <Button
         android:id="@+id/login"
         android:layout_width="320dp"
         android:layout_height="51dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/logIn_button"
         app:layout_constraintBottom_toTopOf="@+id/register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.56" />
 
     <Button
         android:id="@+id/register"
         android:layout_width="320dp"
         android:layout_height="51dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginBottom="52dp"
         android:text="@string/register_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="613dp"
         tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
