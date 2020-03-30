@@ -56,6 +56,7 @@
     <string name="Save">Save</string>
     <string name="rate_last_sleep">RATE LAST SLEEP</string>
     <string name="Return">Return</string>
+    <string name="addValuation">Add a valuation</string>
     <string-array name="repeat_array">
         <item>None</item>
         <item>Weekly</item>
