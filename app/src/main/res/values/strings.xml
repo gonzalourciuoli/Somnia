@@ -32,7 +32,7 @@
     <string name="hours_to_sleep">8</string>
     <string name="in_order_to_sleep">In order to sleep:</string>
     <string name="wake_up">6:30</string>
-    <string name="i_m_waking_up_at">I\'m weaking up at:</string>
+    <string name="i_m_waking_up_at">I\'m waking up at:</string>
     <string name="sleep_calculator">Sleep calculator</string>
     <string name="valuations">Valuations</string>
     <string name="see_your_ratings">SEE YOUR RATINGS</string>
@@ -48,7 +48,7 @@
     <string name="save_changes">SAVE CHANGES</string>
     <string name="ret">RETURN</string>
     <string name="current_Email">Introduce your current e-mail</string>
-    <string name="rate_your_sleep">RATE YOUR SLEEP</string>
+    <string name="rate_your_sleep">Rate your sleep</string>
     <string name="sport">Sport</string>
     <string name="coffee">Coffee</string>
     <string name="alcohol">Alcohol</string>
@@ -57,6 +57,7 @@
     <string name="Save">Save</string>
     <string name="rate_last_sleep">RATE LAST SLEEP</string>
     <string name="Return">Return</string>
+    <string name="comment_text">My last sleep was...</string>
     <string-array name="repeat_array">
         <item>None</item>
         <item>Weekly</item>

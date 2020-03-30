@@ -8,66 +8,50 @@
     android:background="@drawable/background"
     tools:context=".AlarmsActivity">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="407dp"
-        android:layout_height="480dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.346">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="32dp"
-            android:paddingTop="32dp"
-            android:paddingRight="32dp">
-
-            <Switch
-                android:id="@+id/alarm_switch"
-                style="@style/Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/alarmSwitch_text" />
-
-            <Switch
-                android:id="@+id/alarm_switch2"
-                style="@style/Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/alarmSwitch_text2" />
-
-            <Switch
-                android:id="@+id/alarm_switch3"
-                style="@style/Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/alarmSwitch_text3" />
-
-        </LinearLayout>
-    </ScrollView>
-
     <TextView
         android:id="@+id/alarmLayoutTitle"
         style="@style/Title"
         android:layout_width="155dp"
-        android:layout_height="54dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/alarm_layout_title"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.117"
+        android:fontFamily="@font/reef"
+        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="78dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/alarmLayoutTitle"
+        app:layout_constraintTop_toTopOf="@+id/alarmLayoutTitle"
+        app:srcCompat="@drawable/add"
+        tools:ignore="MissingConstraints" />
+
+    <ScrollView
+        android:id="@+id/scrollView_alarms"
+        android:layout_width="413dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alarmLayoutTitle"
+        app:layout_constraintVertical_bias="0.0">
+
+
+
+    </ScrollView>
 
     <fragment
         android:id="@+id/toolbar"
         class="com.example.somnia.Toolbar"
-        android:layout_width="410dp"
-        android:layout_height="77dp"
+        android:layout_width="413dp"
+        android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

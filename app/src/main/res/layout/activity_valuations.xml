@@ -10,211 +10,136 @@
 
     <TextView
         android:id="@+id/valuations"
+        style="@style/Title"
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="50dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/valuations"
-        android:textSize="35sp"
+        android:fontFamily="@font/reef"
+        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <TextView
+        android:id="@+id/rate_your_sleep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valuations">
-
-
-        <TextView
-            android:id="@+id/rate_your_sleep"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="@string/rate_your_sleep"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/reef"
+        android:text="@string/rate_your_sleep"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/valuations"
+        app:layout_constraintTop_toBottomOf="@+id/valuations" />
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="@+id/rate_your_sleep"
+        app:layout_constraintTop_toBottomOf="@+id/rate_your_sleep" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+    <TextView
+        android:id="@+id/sport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar">
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/reef"
+        android:text="@string/sport"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/ratingBar"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
-
-        <TextView
-            android:id="@+id/sport"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="@string/sport"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/sport"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
+    <CheckBox
+        android:id="@+id/checkBox_sport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-        tools:ignore="DuplicateIds,MissingConstraints">
+        android:layout_marginStart="45dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sport"
+        app:layout_constraintStart_toEndOf="@+id/sport" />
 
-        <TextView
-            android:id="@+id/coffee"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="@string/coffee"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <CheckBox
-            android:id="@+id/checkBox1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/coffee"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout4"
+    <TextView
+        android:id="@+id/coffee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-        tools:ignore="DuplicateIds">
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/reef"
+        android:text="@string/coffee"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/sport"
+        app:layout_constraintTop_toBottomOf="@+id/sport" />
 
-
-        <TextView
-            android:id="@+id/alcohol"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="@string/alcohol"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/alcohol"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints,NotSibling" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout5"
-        android:layout_width="347dp"
-        android:layout_height="145dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
-        tools:ignore="DuplicateIds">
-
-
-        <TextView
-            android:id="@+id/comments"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="@string/comments"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/textView2"
-            android:layout_width="349dp"
-            android:layout_height="112dp"
-            android:autofillHints=""
-            android:background="@color/cardview_light_background"
-            android:inputType="text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/comments"
-            app:layout_constraintVertical_bias="1.0"
-            tools:ignore="MissingConstraints" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout6"
-        android:layout_width="200dp"
+    <CheckBox
+        android:id="@+id/checkBox_coffee"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_sport"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_sport" />
 
+    <TextView
+        android:id="@+id/alcohol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/reef"
+        android:text="@string/alcohol"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/coffee"
+        app:layout_constraintTop_toBottomOf="@+id/coffee" />
 
-        <Button
-            android:id="@+id/cancelButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/cardview_shadow_start_color"
-            android:text="@string/Cancel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/saveButton"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+    <CheckBox
+        android:id="@+id/checkBox_alcohol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_coffee"
+        app:layout_constraintTop_toBottomOf="@+id/coffee" />
 
-        <Button
-            android:id="@+id/saveButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/cardview_shadow_start_color"
-            android:text="@string/Save"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/add_a_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/reef"
+        android:text="@string/comments"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/alcohol"
+        app:layout_constraintTop_toBottomOf="@+id/alcohol" />
 
+    <EditText
+        android:id="@+id/text_comment"
+        android:layout_width="305dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="15dp"
+        android:inputType="text"
+        android:hint="@string/comment_text"
+        android:gravity="top"
+        android:background="@color/cardview_light_background"
+        app:layout_constraintStart_toStartOf="@+id/add_a_comment"
+        app:layout_constraintTop_toBottomOf="@+id/add_a_comment" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="101dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/reef"
+        android:text="@string/Save"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/text_comment"
+        app:layout_constraintTop_toBottomOf="@+id/text_comment" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="101dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/reef"
+        android:text="@string/Cancel"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/saveButton"
+        app:layout_constraintTop_toBottomOf="@+id/text_comment" />
 </androidx.constraintlayout.widget.ConstraintLayout>
