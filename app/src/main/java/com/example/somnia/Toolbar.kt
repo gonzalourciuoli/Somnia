@@ -22,8 +22,8 @@ class Toolbar : androidx.fragment.app.Fragment() {
         }
 
         viewActual.button_graph.setOnClickListener { view ->
-            if (activity?.javaClass?.simpleName != Home::class.simpleName) {
-                val principal = Intent(activity, Home::class.java)
+            if (activity?.javaClass?.simpleName != Charts::class.simpleName) {
+                val principal = Intent(activity, Charts::class.java)
                 startActivity(principal)
             }
         }
