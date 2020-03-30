@@ -60,6 +60,8 @@
     <string name="Cancel">Cancel</string>
     <string name="Save">Save</string>
     <string name="rate_last_sleep">RATE LAST SLEEP</string>
+    <string name="addValuation">Add a valuation</string>
+    <string name="Return">Return</string>
 
     <style name="Title" parent="AppTheme">
         <item name="android:textSize">35sp</item>

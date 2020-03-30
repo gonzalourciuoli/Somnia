@@ -9,12 +9,12 @@
     android:background="@drawable/background">
 
     <TextView
-        android:id="@+id/valuations"
+        android:id="@+id/addValuation"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="50dp"
-        android:text="@string/valuations"
+        android:text="@string/addValuation"
         android:textSize="35sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +26,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valuations">
+        app:layout_constraintTop_toBottomOf="@+id/addValuation">
 
 
         <TextView
@@ -197,18 +197,18 @@
 
 
         <Button
-            android:id="@+id/cancel"
+            android:id="@+id/cancelButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/cardview_shadow_start_color"
             android:text="@string/Cancel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/save"
+            app:layout_constraintStart_toEndOf="@+id/saveButton"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <Button
-            android:id="@+id/save"
+            android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/cardview_shadow_start_color"
