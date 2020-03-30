@@ -25,7 +25,7 @@
             tools:ignore="ContentDescription" />
 
         <EditText
-            android:id="@+id/user"
+            android:id="@+id/name"
             android:layout_width="320dp"
             android:layout_height="40dp"
             android:layout_marginStart="20dp"
@@ -33,7 +33,7 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/input"
             android:ems="10"
-            android:hint="User name"
+            android:hint="Name"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
@@ -42,6 +42,23 @@
             android:textColorHint="#ccc"
             android:textColor="#fff"/>
 
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/input"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="#fff"
+            android:textColorHint="#ccc" />
         <EditText
             android:id="@+id/password"
             android:layout_width="320dp"
@@ -59,19 +76,27 @@
             android:paddingBottom="10dp"
             android:textColorHint="#ccc"
             android:textColor="#fff"/>
+        <EditText
+            android:id="@+id/repeat_password"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/input"
+            android:ems="10"
+            android:hint="Repeat password"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textColorHint="#ccc"
+            android:textColor="#fff"/>
 
-        <TextView
-            android:layout_width="351dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="40dp"
-            android:gravity="end"
-            android:paddingBottom="30dp"
-            android:text="Forgot password?"
-            android:textColor="#fff"
-            android:textSize="16dp"/>
+
         <Button
-            android:id="@+id/login"
+            android:id="@+id/sign_up"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -79,7 +104,7 @@
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/button_gradient_rounded"
-            android:text="@string/logIn_button"
+            android:text="@string/signUp_button"
             android:textColor="#fff"
             android:textSize="18dp" />
 
@@ -94,14 +119,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No account yet?"
+                android:text="Already have an account?"
                 android:textSize="16dp"
                 android:textColor="#fff"/>
             <Button
-                android:id="@+id/sign_up"
+                android:id="@+id/log_in"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SIGN UP"
+                android:text="LOG IN"
                 android:textColor="#fff"
                 android:background="#00000000"
                 android:layout_marginLeft="10dp"/>

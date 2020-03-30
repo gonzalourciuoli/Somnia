@@ -6,9 +6,10 @@
     <string name="name_title">Name</string>
     <string name="email_title">Email</string>
     <string name="password_title">Password</string>
-    <string name="repeatPassword_title">Repeat the password</string>
+    <string name="c">Repeat the password</string>
     <string name="register_title">Register</string>
-    <string name="register_button">Register</string>
+    <string name="signIn_button">Sign In</string>
+    <string name="signUp_button">Sign Up</string>
     <string name="cancel_button">Cancel</string>
     <string name="newAlarm_layout_title">New alarm</string>
     <string name="title_title">Title</string>
