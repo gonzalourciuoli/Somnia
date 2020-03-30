@@ -7,205 +7,76 @@
     tools:context=".Calculator"
     android:background="@drawable/background">
 
-
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="50dp"
+        android:id="@+id/top_calculator"
+        style="@style/Title"
+        android:layout_width="270dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/sleep_calculator"
-        android:textSize="35sp"
+        android:fontFamily="@font/reef"
+        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <TextView
+        android:id="@+id/waking_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/i_m_waking_up_at"
+        android:fontFamily="@font/reef"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/top_calculator"
+        app:layout_constraintTop_toBottomOf="@+id/top_calculator" />
+
+
+    <View
+        android:id="@+id/bar1"
+        android:layout_width="250dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="25dp"
+        android:background="#B1AEC2"
+        app:layout_constraintStart_toStartOf="@+id/waking_up"
+        app:layout_constraintTop_toBottomOf="@+id/waking_up" />
+
+    <TextView
+        android:id="@+id/to_sleep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        android:text="@string/in_order_to_sleep"
+        android:fontFamily="@font/reef"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/waking_up"
+        app:layout_constraintTop_toBottomOf="@+id/waking_up" />
 
+    <View
+        android:id="@+id/bar2"
+        android:layout_width="250dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="25dp"
+        android:background="#B1AEC2"
+        app:layout_constraintStart_toStartOf="@+id/to_sleep"
+        app:layout_constraintTop_toBottomOf="@+id/to_sleep" />
 
-        <TextView
-            android:id="@+id/wakeUp"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="@string/i_m_waking_up_at"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/timeWakeUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:autofillHints=""
-            android:inputType="time"
-            android:text="@string/wake_up"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/wakeUp"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/bar1"
-            android:layout_width="320dp"
-            android:layout_height="3dp"
-            android:layout_marginTop="20dp"
-            android:background="#B1AEC2"
-            app:layout_constraintStart_toStartOf="@+id/wakeUp"
-            app:layout_constraintTop_toBottomOf="@+id/wakeUp" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+    <TextView
+        android:id="@+id/in_bed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
-
-        <TextView
-            android:id="@+id/orderToSleep"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="@string/in_order_to_sleep"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/hoursToSleep"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:autofillHints=""
-            android:inputType="numberSigned"
-            android:text="@string/hours_to_sleep"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/orderToSleep"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/bar2"
-            android:layout_width="320dp"
-            android:layout_height="3dp"
-            android:layout_marginTop="20dp"
-            android:background="#B1AEC2"
-            app:layout_constraintStart_toStartOf="@+id/orderToSleep"
-            app:layout_constraintTop_toBottomOf="@+id/orderToSleep" />
-
-        <TextView
-            android:id="@+id/hours"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hours"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/hoursToSleep"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
-
-
-        <TextView
-            android:id="@+id/getInBed"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="@string/i_must_get_in_bed_at"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/timeBed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:autofillHints=""
-            android:inputType="time"
-            android:text="@string/go_bed"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/getInBed"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/bar3"
-            android:layout_width="320dp"
-            android:layout_height="3dp"
-            android:layout_marginTop="20dp"
-            android:background="#B1AEC2"
-            app:layout_constraintStart_toStartOf="@+id/getInBed"
-            app:layout_constraintTop_toBottomOf="@+id/getInBed" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
-
-
-        <TextView
-            android:id="@+id/sleepingCycle"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="@string/sleeping_cycle"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Switch
-            android:id="@+id/cycleSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/sleepingCycle"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/bar4"
-            android:layout_width="320dp"
-            android:layout_height="3dp"
-            android:layout_marginTop="20dp"
-            android:background="#B1AEC2"
-            app:layout_constraintStart_toStartOf="@+id/sleepingCycle"
-            app:layout_constraintTop_toBottomOf="@+id/sleepingCycle" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginTop="50dp"
+        android:text="@string/i_must_get_in_bed_at"
+        android:fontFamily="@font/reef"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/to_sleep"
+        app:layout_constraintTop_toBottomOf="@+id/to_sleep" />
 
     <fragment
         android:id="@+id/toolbar"
         class="com.example.somnia.Toolbar"
-        android:layout_width="410dp"
-        android:layout_height="77dp"
+        android:layout_width="413dp"
+        android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

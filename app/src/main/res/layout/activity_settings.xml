@@ -9,6 +9,7 @@
 
     <TextView
         android:id="@+id/top_settings"
+        style="@style/Title"
         android:layout_width="211dp"
         android:layout_height="63dp"
         android:layout_marginStart="16dp"
@@ -94,8 +95,8 @@
     <fragment
         android:id="@+id/toolbar"
         class="com.example.somnia.Toolbar"
-        android:layout_width="410dp"
-        android:layout_height="77dp"
+        android:layout_width="413dp"
+        android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

@@ -69,13 +69,13 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <fragment
-        android:id="@+id/toolbar"
-        class="com.example.somnia.Toolbar"
-        android:layout_width="410dp"
-        android:layout_height="77dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+    android:id="@+id/toolbar"
+    class="com.example.somnia.Toolbar"
+    android:layout_width="413dp"
+    android:layout_height="80dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
     </fragment>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
