@@ -22,7 +22,8 @@ class Home : AppCompatActivity() {
 
         val see_your_ratings_button = findViewById<Button>(R.id.see_your_ratings)
         see_your_ratings_button.setOnClickListener {
-            //Redirigir a Activity donde se muestren todas las ratings
+            val intent = Intent(this@Home, InfoValuations::class.java)
+            startActivity(intent)
         }
 
         val toggle_Wake_Sleep = findViewById<Switch>(R.id.toggle_Wake_Sleep)
