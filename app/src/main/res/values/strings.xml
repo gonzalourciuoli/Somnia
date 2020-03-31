@@ -28,7 +28,7 @@
     <string name="go_bed">22:30</string>
     <string name="i_must_get_in_bed_at">I must get in bed at:</string>
     <string name="sleeping_cycle">Sleeping cycle</string>
-    <string name="hours">hours</string>
+    <string name="hours">h</string>
     <string name="hours_to_sleep">8</string>
     <string name="in_order_to_sleep">In order to sleep:</string>
     <string name="wake_up">6:30</string>

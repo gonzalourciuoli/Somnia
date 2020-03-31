@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Valuations"
+    tools:context=".view.Valuations"
 
     android:background="@drawable/background">
 
@@ -43,7 +43,7 @@
         android:id="@+id/sport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/reef"
         android:text="@string/sport"
         android:textSize="25sp"
@@ -63,7 +63,7 @@
         android:id="@+id/coffee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/reef"
         android:text="@string/coffee"
         android:textSize="25sp"
@@ -74,7 +74,7 @@
         android:id="@+id/checkBox_coffee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/checkBox_sport"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_sport" />
 
@@ -82,7 +82,7 @@
         android:id="@+id/alcohol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/reef"
         android:text="@string/alcohol"
         android:textSize="25sp"
@@ -93,7 +93,7 @@
         android:id="@+id/checkBox_alcohol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/checkBox_coffee"
         app:layout_constraintTop_toBottomOf="@+id/coffee" />
 
@@ -101,7 +101,7 @@
         android:id="@+id/add_a_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/reef"
         android:text="@string/comments"
         android:textSize="25sp"
@@ -124,7 +124,7 @@
         android:id="@+id/saveButton"
         android:layout_width="101dp"
         android:layout_height="50dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/reef"
         android:text="@string/Save"
         android:textSize="18sp"
@@ -136,7 +136,7 @@
         android:layout_width="101dp"
         android:layout_height="50dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/reef"
         android:text="@string/Cancel"
         android:textSize="18sp"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".Settings">
+    tools:context=".view.Settings">
 
     <TextView
         android:id="@+id/top_settings"
@@ -94,7 +94,7 @@
 
     <fragment
         android:id="@+id/toolbar"
-        class="com.example.somnia.Toolbar"
+        class="com.example.somnia.view.Toolbar"
         android:layout_width="413dp"
         android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"

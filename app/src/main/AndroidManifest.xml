@@ -9,24 +9,24 @@
         android:roundIcon="@mipmap/icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InfoValuations"></activity>
-        <activity android:name=".AlarmsActivity" />
-        <activity android:name=".Calculator" />
-        <activity android:name=".ChangeEmail" />
-        <activity android:name=".ChangePassword" />
-        <activity android:name=".Charts"/>
-        <activity android:name=".Home"/>
-        <activity android:name=".Info_alarmActivity" />
-        <activity android:name=".logInActivity">
+        <activity android:name=".view.InfoValuations"></activity>
+        <activity android:name=".view.AlarmsActivity" />
+        <activity android:name=".view.Calculator" />
+        <activity android:name=".view.ChangeEmail" />
+        <activity android:name=".view.ChangePassword" />
+        <activity android:name=".view.Charts"/>
+        <activity android:name=".view.Home"/>
+        <activity android:name=".view.Info_alarmActivity" />
+        <activity android:name=".view.logInActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".New_alarmActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".Settings" />
-        <activity android:name=".Valuations" />
+        <activity android:name=".view.New_alarmActivity" />
+        <activity android:name=".view.SignUpActivity" />
+        <activity android:name=".view.Settings" />
+        <activity android:name=".view.Valuations" />
 
         <meta-data
             android:name="preloaded_fonts"

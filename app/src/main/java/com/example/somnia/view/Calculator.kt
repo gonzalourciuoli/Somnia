@@ -1,9 +1,8 @@
-package com.example.somnia
+package com.example.somnia.view
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.somnia.R
 
 public class Calculator : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

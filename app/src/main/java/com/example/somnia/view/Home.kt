@@ -1,4 +1,4 @@
-package com.example.somnia
+package com.example.somnia.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.Switch
 import android.widget.TimePicker
+import com.example.somnia.R
 
 class Home : AppCompatActivity() {
 

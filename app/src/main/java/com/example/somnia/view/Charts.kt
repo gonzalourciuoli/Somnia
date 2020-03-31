@@ -1,4 +1,4 @@
-package com.example.somnia
+package com.example.somnia.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +12,7 @@ import com.anychart.data.Mapping
 import com.anychart.data.Set
 import com.anychart.enums.Anchor
 import com.anychart.enums.MarkerType
+import com.example.somnia.R
 import kotlin.random.Random
 
 class Charts : AppCompatActivity() {

@@ -9,7 +9,7 @@
     android:alignmentMode="alignMargins"
     android:columnOrderPreserved="true"
     android:background="@drawable/background"
-    tools:context=".Charts">
+    tools:context=".view.Charts">
 
     <com.anychart.AnyChartView
         android:id="@+id/horizontal_bar_chart"
@@ -70,7 +70,7 @@
 
     <fragment
     android:id="@+id/toolbar"
-    class="com.example.somnia.Toolbar"
+    class="com.example.somnia.view.Toolbar"
     android:layout_width="413dp"
     android:layout_height="80dp"
     app:layout_constraintBottom_toBottomOf="parent"
