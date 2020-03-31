@@ -7,122 +7,130 @@
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
-    <LinearLayout
-        android:layout_width="407dp"
-        android:layout_height="405dp"
-        android:orientation="vertical"
-        android:paddingLeft="32dp"
-        android:paddingTop="32dp"
-        android:paddingRight="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newAlarmLayoutTitle"
-        app:layout_constraintVertical_bias="0.141">
-
-        <TextView
-            android:id="@+id/titleTitle"
-            style="@style/Text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/title_title" />
-
-        <EditText
-            android:id="@+id/titleText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/title_text" />
-
-        <TextView
-            android:id="@+id/hourTitle"
-            style="@style/Text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/hour_title" />
-
-        <EditText
-            android:id="@+id/hourText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="time" />
-
-        <TextView
-            android:id="@+id/repeatTitle"
-            style="@style/Text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/repeat_title" />
-
-        <Spinner
-            android:id="@+id/repeatSpinner"
-            style="@style/Text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/repeat_array" />
-
-        <Switch
-            android:id="@+id/vibrationSwitch"
-            style="@style/Text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/vibration_switch" />
-
-        <TextView
-            android:id="@+id/descriptionTitle"
-            style="@style/Text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/description_title" />
-
-        <EditText
-            android:id="@+id/descriptionText"
-            android:layout_width="match_parent"
-            android:layout_height="128dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/newAlarmLayoutTitle"
         style="@style/Title"
-        android:layout_width="382dp"
-        android:layout_height="54dp"
+        android:layout_width="190dp"
+        android:layout_height="63dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="16dp"
         android:text="@string/newAlarm_layout_title"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="40sp"
+        android:fontFamily="@font/reef"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/current_Email"
+        android:layout_width="306dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="28dp"
+        android:autofillHints="@string/alarm_title"
+        android:ems="10"
+        android:textSize="25sp"
+        android:fontFamily="@font/reef_family"
+        android:hint="@string/alarm_title"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="@+id/newAlarmLayoutTitle"
+        app:layout_constraintTop_toBottomOf="@+id/newAlarmLayoutTitle" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:timePickerMode="spinner"
+        app:layout_constraintStart_toStartOf="@+id/current_Email"
+        app:layout_constraintTop_toBottomOf="@+id/current_Email" />
 
     <Button
         android:id="@+id/add"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="52dp"
         android:text="@string/add_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cancel"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wednesday_switch" />
 
     <Button
         android:id="@+id/cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginEnd="76dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="88dp"
         android:text="@string/cancel_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saturday_switch" />
+
+    <Switch
+        android:id="@+id/monday_switch"
+        android:layout_width="122dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
+        android:text="Monday"
+        app:layout_constraintStart_toStartOf="@+id/timePicker"
+        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+
+    <Switch
+        android:id="@+id/tuesday_switch"
+        android:layout_width="122dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="66dp"
+        android:text="Tuesday"
+        app:layout_constraintStart_toStartOf="@+id/timePicker"
+        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+
+    <Switch
+        android:id="@+id/wednesday_switch"
+        android:layout_width="122dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="122dp"
+        android:text="Wednesday"
+        app:layout_constraintStart_toStartOf="@+id/timePicker"
+        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+
+    <Switch
+        android:id="@+id/thursday_switch"
+        android:layout_width="122dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="10dp"
+        android:text="Thursday"
+        app:layout_constraintStart_toStartOf="@+id/timePicker"
+        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+
+    <Switch
+        android:id="@+id/friday_switch"
+        android:layout_width="122dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="66dp"
+        android:text="Friday"
+        app:layout_constraintStart_toStartOf="@+id/timePicker"
+        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+
+    <Switch
+        android:id="@+id/saturday_switch"
+        android:layout_width="122dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="122dp"
+        android:text="Saturday"
+        app:layout_constraintStart_toStartOf="@+id/timePicker"
+        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+
+    <Switch
+        android:id="@+id/sunday_switch"
+        android:layout_width="122dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="268dp"
+        android:layout_marginTop="10dp"
+        android:text="Sunday"
+        app:layout_constraintStart_toStartOf="@+id/timePicker"
+        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

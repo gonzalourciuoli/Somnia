@@ -22,11 +22,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/logo"
-        android:layout_width="78dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/add_new_alarm"
+        android:layout_width="52dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toEndOf="@+id/alarmLayoutTitle"
         app:layout_constraintTop_toTopOf="@+id/alarmLayoutTitle"
         app:srcCompat="@drawable/add"
@@ -42,6 +42,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/alarmLayoutTitle"
         app:layout_constraintVertical_bias="0.0">
+
+
 
 
 

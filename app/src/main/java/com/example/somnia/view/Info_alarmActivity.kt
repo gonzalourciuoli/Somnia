@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.somnia.AlarmsActivity
+import com.example.somnia.New_alarmActivity
 import com.example.somnia.R
 
 class Info_alarmActivity  : AppCompatActivity() {

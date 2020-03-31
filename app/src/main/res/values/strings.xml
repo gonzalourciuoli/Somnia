@@ -48,6 +48,7 @@
     <string name="save_changes">SAVE CHANGES</string>
     <string name="ret">RETURN</string>
     <string name="current_Email">Introduce your current e-mail</string>
+    <string name="alarm_title">Alarm title</string>
     <string name="rate_your_sleep">Rate your sleep</string>
     <string name="sport">Sport</string>
     <string name="coffee">Coffee</string>

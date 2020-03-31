@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="382dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="46dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/alarmsetter" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="205dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="95dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Alarm clock name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sunday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="4dp"
+            android:text="Sun"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+        <TextView
+            android:id="@+id/monday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:text="Mon"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+        <TextView
+            android:id="@+id/tuesday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="4dp"
+            android:text="Tue"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+        <TextView
+            android:id="@+id/wednesday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="4dp"
+            android:text="Wed"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+        <TextView
+            android:id="@+id/thursday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="4dp"
+            android:text="Thu"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+        <TextView
+            android:id="@+id/friday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="4dp"
+            android:text="Fri"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+        <TextView
+            android:id="@+id/saturday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="192dp"
+            android:layout_marginTop="4dp"
+            android:text="Sat"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+        <Switch
+            android:id="@+id/toggle_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
