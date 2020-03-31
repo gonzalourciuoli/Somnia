@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Calculator"
+    tools:context=".view.Calculator"
     android:background="@drawable/background">
 
     <TextView
@@ -31,6 +31,19 @@
         app:layout_constraintStart_toStartOf="@+id/top_calculator"
         app:layout_constraintTop_toBottomOf="@+id/top_calculator" />
 
+    <EditText
+        android:id="@+id/timeWakeUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="43dp"
+        android:autofillHints=""
+        android:inputType="time"
+        android:text="@string/wake_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/waking_up"
+        app:layout_constraintTop_toBottomOf="@+id/top_calculator" />
+
 
     <View
         android:id="@+id/bar1"
@@ -52,6 +65,29 @@
         app:layout_constraintStart_toStartOf="@+id/waking_up"
         app:layout_constraintTop_toBottomOf="@+id/waking_up" />
 
+    <EditText
+        android:id="@+id/hoursToSleep"
+        android:layout_width="26dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="35dp"
+        android:autofillHints=""
+        android:inputType="numberSigned"
+        android:text="@string/hours_to_sleep"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/to_sleep"
+        app:layout_constraintTop_toBottomOf="@+id/timeWakeUp" />
+
+    <TextView
+        android:id="@+id/hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@string/hours"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/hoursToSleep"
+        app:layout_constraintTop_toBottomOf="@+id/timeWakeUp" />
+
     <View
         android:id="@+id/bar2"
         android:layout_width="250dp"
@@ -72,9 +108,62 @@
         app:layout_constraintStart_toStartOf="@+id/to_sleep"
         app:layout_constraintTop_toBottomOf="@+id/to_sleep" />
 
+    <EditText
+        android:id="@+id/timeBed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="15dp"
+        android:autofillHints=""
+        android:inputType="time"
+        android:text="@string/go_bed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/in_bed"
+        app:layout_constraintTop_toBottomOf="@+id/hoursToSleep" />
+
+    <View
+        android:id="@+id/bar3"
+        android:layout_width="250dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="25dp"
+        android:background="#B1AEC2"
+        app:layout_constraintStart_toStartOf="@+id/to_sleep"
+        app:layout_constraintTop_toBottomOf="@+id/in_bed" />
+
+    <TextView
+        android:id="@+id/sleepingCycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/sleeping_cycle"
+        android:fontFamily="@font/reef"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/in_bed"
+        app:layout_constraintTop_toBottomOf="@+id/in_bed" />
+
+    <Switch
+        android:id="@+id/cycleSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sleepingCycle"
+        app:layout_constraintTop_toBottomOf="@+id/timeBed" />
+
+    <View
+        android:id="@+id/bar4"
+        android:layout_width="250dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="25dp"
+        android:background="#B1AEC2"
+        app:layout_constraintStart_toStartOf="@+id/to_sleep"
+        app:layout_constraintTop_toBottomOf="@+id/sleepingCycle" />
+
     <fragment
         android:id="@+id/toolbar"
-        class="com.example.somnia.Toolbar"
+        class="com.example.somnia.view.Toolbar"
         android:layout_width="413dp"
         android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"

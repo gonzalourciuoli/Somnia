@@ -1,10 +1,11 @@
-package com.example.somnia
+package com.example.somnia.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.somnia.R
 import kotlinx.android.synthetic.main.toolbar.view.*
 
 class Toolbar : androidx.fragment.app.Fragment() {
