@@ -1,21 +1,18 @@
-package com.example.somnia
+package com.example.somnia.view
+import com.example.somnia.R
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.alarm_design.*
-import kotlinx.android.synthetic.main.alarms.*
+
 
 class New_alarmActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_alarm)
-
-        val parentLayout = findViewById<ScrollView>(R.id.scrollView_alarms)
-        View.inflate(this, R.layout.alarm_design, parentLayout)
 
         val monday_switch_act = findViewById<Switch>(R.id.monday_switch)
         monday_switch_act.setOnCheckedChangeListener { buttonView, isChecked ->

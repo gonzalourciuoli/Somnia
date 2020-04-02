@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.somnia"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         multiDexEnabled true
         versionCode 1
@@ -45,4 +45,5 @@ dependencies {
     def multidex_version = "2.0.1"
     implementation "androidx.multidex:multidex:$multidex_version"
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
+
 }

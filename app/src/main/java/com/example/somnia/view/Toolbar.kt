@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.somnia.AlarmsActivity
+import com.example.somnia.view.AlarmsActivity
 import com.example.somnia.R
 import kotlinx.android.synthetic.main.toolbar.view.*
 
