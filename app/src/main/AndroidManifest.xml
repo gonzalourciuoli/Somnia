@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/icon"
+        android:icon="@mipmap/somniaicon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/icon_round"
+        android:roundIcon="@mipmap/somniaicon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.InfoValuations"></activity>
@@ -18,7 +18,7 @@
         <activity android:name=".view.ChangePassword" />
         <activity android:name=".view.Charts"/>
         <activity android:name=".view.Home"/>
-        <activity android:name=".view.Info_alarmActivity" />
+        <activity android:name=".view.PresentationAlarm" />
         <activity android:name=".view.logInActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
