@@ -1,4 +1,4 @@
-package com.example.somnia
+package com.example.somnia.view
 
 import android.content.Intent
 import android.graphics.Color
@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
+import com.example.somnia.R
 import kotlinx.android.synthetic.main.alarms.*
 
 class AlarmsActivity : AppCompatActivity() {
