@@ -31,7 +31,10 @@ class AlarmsActivity : AppCompatActivity() {
         }*/
 
         val add_button = findViewById<Button>(R.id.add_button)
-
+        add_button.setOnClickListener {
+            val intent = Intent(this@AlarmsActivity, New_alarmActivity::class.java)
+            startActivity(intent)
+        }
         
 
     }
