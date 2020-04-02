@@ -65,7 +65,7 @@
         android:fontFamily="@font/reef"
         android:text="@string/toggle_Sleep"
         android:textSize="20sp"
-
+        android:theme="@style/SwitchTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.97"
