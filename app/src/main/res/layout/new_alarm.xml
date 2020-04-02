@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
+
     <TextView
         android:id="@+id/newAlarmLayoutTitle"
         style="@style/Title"
@@ -14,12 +15,13 @@
         android:layout_height="63dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/reef"
         android:text="@string/newAlarm_layout_title"
         android:textSize="40sp"
-        android:fontFamily="@font/reef"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/current_Email"
@@ -28,12 +30,14 @@
         android:layout_marginTop="28dp"
         android:autofillHints="@string/alarm_title"
         android:ems="10"
-        android:textSize="25sp"
         android:fontFamily="@font/reef_family"
         android:hint="@string/alarm_title"
         android:inputType="textEmailAddress"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/newAlarmLayoutTitle"
-        app:layout_constraintTop_toBottomOf="@+id/newAlarmLayoutTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/newAlarmLayoutTitle"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TimePicker
         android:id="@+id/timePicker"
@@ -41,8 +45,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:timePickerMode="spinner"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/current_Email"
-        app:layout_constraintTop_toBottomOf="@+id/current_Email" />
+        app:layout_constraintTop_toBottomOf="@+id/current_Email"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/add"
@@ -51,7 +57,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:layout_marginTop="52dp"
+        android:layout_marginBottom="65dp"
         android:text="@string/add_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wednesday_switch" />
 
@@ -62,7 +70,9 @@
         android:layout_gravity="right"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="88dp"
+        android:layout_marginBottom="65dp"
         android:text="@string/cancel_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/saturday_switch" />
 
@@ -70,67 +80,84 @@
         android:id="@+id/monday_switch"
         android:layout_width="122dp"
         android:layout_height="38dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="106dp"
         android:text="Monday"
-        app:layout_constraintStart_toStartOf="@+id/timePicker"
-        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.578" />
 
     <Switch
         android:id="@+id/tuesday_switch"
         android:layout_width="122dp"
         android:layout_height="38dp"
-        android:layout_marginTop="66dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="106dp"
         android:text="Tuesday"
-        app:layout_constraintStart_toStartOf="@+id/timePicker"
-        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.659" />
 
     <Switch
         android:id="@+id/wednesday_switch"
         android:layout_width="122dp"
         android:layout_height="38dp"
-        android:layout_marginTop="122dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="106dp"
         android:text="Wednesday"
-        app:layout_constraintStart_toStartOf="@+id/timePicker"
-        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.74" />
 
     <Switch
         android:id="@+id/thursday_switch"
         android:layout_width="122dp"
         android:layout_height="38dp"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="106dp"
         android:text="Thursday"
-        app:layout_constraintStart_toStartOf="@+id/timePicker"
-        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.578" />
 
     <Switch
         android:id="@+id/friday_switch"
         android:layout_width="122dp"
         android:layout_height="38dp"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="66dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="106dp"
         android:text="Friday"
-        app:layout_constraintStart_toStartOf="@+id/timePicker"
-        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.659" />
 
     <Switch
         android:id="@+id/saturday_switch"
         android:layout_width="122dp"
         android:layout_height="38dp"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="122dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="106dp"
         android:text="Saturday"
-        app:layout_constraintStart_toStartOf="@+id/timePicker"
-        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.74" />
 
     <Switch
         android:id="@+id/sunday_switch"
         android:layout_width="122dp"
         android:layout_height="38dp"
-        android:layout_marginStart="268dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="285dp"
+        android:layout_marginTop="106dp"
         android:text="Sunday"
-        app:layout_constraintStart_toStartOf="@+id/timePicker"
-        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.578" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
