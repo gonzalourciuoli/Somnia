@@ -59,6 +59,7 @@
     <string name="rate_last_sleep">RATE LAST SLEEP</string>
     <string name="Return">Return</string>
     <string name="comment_text">My last sleep was...</string>
+    <string name="Calendar">Calendar</string>
     <string-array name="repeat_array">
         <item>None</item>
         <item>Weekly</item>

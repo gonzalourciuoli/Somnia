@@ -74,7 +74,7 @@
         android:id="@+id/checkBox_coffee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="@+id/checkBox_sport"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_sport" />
 
@@ -93,7 +93,7 @@
         android:id="@+id/checkBox_alcohol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="@+id/checkBox_coffee"
         app:layout_constraintTop_toBottomOf="@+id/coffee" />
 
