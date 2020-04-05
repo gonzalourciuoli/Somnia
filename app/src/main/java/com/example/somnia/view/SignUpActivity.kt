@@ -41,9 +41,11 @@ class SignUpActivity : AppCompatActivity() {
 
         val signup_button = findViewById<Button>(R.id.sign_up) as Button
         signup_button.setOnClickListener {
-            createNewAccount()
-            val intent = Intent(this@SignUpActivity, Home::class.java)
-            startActivity(intent)
+            val accountExit : Int = createNewAccount()
+            if (accountExit == 0) {
+                val intent = Intent(this@SignUpActivity, Home::class.java)
+                startActivity(intent)
+            }
         }
 
         val login_button = findViewById<Button>(R.id.log_in) as Button
@@ -54,13 +56,16 @@ class SignUpActivity : AppCompatActivity() {
 
     }
 
-    private fun createNewAccount() {
+    private fun createNewAccount() : Int {
         val username : String = txtUsername.text.toString()
         val email : String = txtEmail.text.toString()
         val password : String = txtPassword.text.toString()
         val repeat_password : String = txtRepeat_password.text.toString()
 
-        if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(repeat_password) && password.equals(repeat_password)) {
+        if (password != repeat_password) {
+            Toast.makeText(this, "The passwords aren't matching", Toast.LENGTH_LONG).show()
+            return 1
+        } else if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(repeat_password)) {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) {
                 task ->
 
@@ -72,6 +77,10 @@ class SignUpActivity : AppCompatActivity() {
                     userBD.child("Name").setValue(username)
                 }
             }
+            return 0
+        } else {
+            Toast.makeText(this, "Looks like some of the fields are empty", Toast.LENGTH_LONG).show()
+            return 2
         }
     }
 
