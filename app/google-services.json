@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "954671786733",
+    "firebase_url": "https://somnia-b688f.firebaseio.com",
+    "project_id": "somnia-b688f",
+    "storage_bucket": "somnia-b688f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954671786733:android:49afce739b580abca03ae4",
+        "android_client_info": {
+          "package_name": "com.example.somnia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954671786733-oeelaqtrif05piapinu2lhgusui43pm5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.somnia",
+            "certificate_hash": "a33f9f5637251ec842fdaf2b7f9f810455e34495"
+          }
+        },
+        {
+          "client_id": "954671786733-nolj2gq2fp7fd4vcquvb6igfn036fidd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUA2yC5zKr7hMy1bnHUIUNanedie76a1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954671786733-nolj2gq2fp7fd4vcquvb6igfn036fidd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

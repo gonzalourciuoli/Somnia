@@ -8,13 +8,13 @@ import android.widget.Button
 import android.widget.Switch
 import android.widget.TimePicker
 import com.example.somnia.R
+import com.google.firebase.database.FirebaseDatabase
 
 class Home : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
         val rate_last_sleep_button = findViewById<Button>(R.id.rate_last_sleep)
         rate_last_sleep_button.setOnClickListener {
             val intent = Intent(this@Home, Valuations::class.java)
