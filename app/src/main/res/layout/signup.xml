@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_pinksky">
+    android:background="@drawable/background_pinksky"
+    tools:context=".view.SignUpActivity">
 
 
     <LinearLayout
@@ -97,6 +98,7 @@
 
         <Button
             android:id="@+id/sign_up"
+            android:onClick="sign_up"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -124,6 +126,7 @@
                 android:textColor="#fff"/>
             <Button
                 android:id="@+id/log_in"
+                android:onClick="login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="LOG IN"
