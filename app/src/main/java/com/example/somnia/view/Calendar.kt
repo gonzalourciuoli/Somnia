@@ -10,7 +10,7 @@ import com.example.somnia.R
 import com.example.somnia.controller.Controller
 import java.util.Calendar
 
-public class Calendar : AppCompatActivity() {
+public class Calendar : AppCompatActivity()  {
 
         val calendarView = findViewById<CalendarView>(R.id.calendarView) as CalendarView
 

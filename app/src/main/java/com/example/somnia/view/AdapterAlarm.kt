@@ -42,7 +42,7 @@ class AdapterAlarm (var list: ArrayList<Alarm>):RecyclerView.Adapter<AdapterAlar
         return list.size
     }
 
-    override fun onBindViewHolder(holder: AdapterAlarm.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItems(list[position])
     }
 
