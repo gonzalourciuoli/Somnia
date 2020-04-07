@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/background"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/alarmLayoutTitle"
+        style="@style/Title"
+        android:layout_width="155dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/alarm_layout_title"
+        android:fontFamily="@font/reef"
+        android:textSize="40sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="65dp"
+        android:layout_height="60dp"
+        android:background="@drawable/button_add"
+        android:gravity="end"/>
+
+    <fragment
+        android:id="@+id/toolbar"
+        class="com.example.somnia.view.Toolbar"
+        android:layout_width="413dp"
+        android:layout_height="80dp"
+        android:layout_gravity="end"></fragment>
+
+</LinearLayout>
