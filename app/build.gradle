@@ -18,6 +18,16 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    //Use JDK1.8 and make sure the same is well specified in your gradle file.
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    configurations {
+        implementation.exclude group: 'com.google.guava'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -57,4 +67,7 @@ dependencies {
     }
     implementation 'com.google.firebase:firebase-analytics:17.3.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    implementation 'com.google.guava:guava:27.0.1-android'
 }
