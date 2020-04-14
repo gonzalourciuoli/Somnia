@@ -18,10 +18,6 @@ public class Calendar : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
 
-        val ret = findViewById<Button>(R.id.returnButton) as Button
-        ret.setOnClickListener {
-            val intent = Intent(this@Calendar, Calculator::class.java)
-            startActivity(intent)
-        }
+
     }
 }
