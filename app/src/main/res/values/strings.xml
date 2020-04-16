@@ -62,6 +62,7 @@
     <string name="comment_text">My last sleep was...</string>
     <string name="Calendar">Calendar</string>
     <string name="repeatPassword_title">Repeat password</string>
+    <string name="date">Pick a date</string>
     <string-array name="repeat_array">
         <item>None</item>
         <item>Weekly</item>

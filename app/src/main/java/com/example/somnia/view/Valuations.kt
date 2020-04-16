@@ -8,6 +8,8 @@ import com.example.somnia.R
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_valuations.*
 import kotlinx.android.synthetic.main.login.view.*
+import java.util.Calendar
+import android.app.DatePickerDialog
 
 class Valuations : AppCompatActivity() {
 
@@ -32,5 +34,20 @@ class Valuations : AppCompatActivity() {
             val intent = Intent(this@Valuations, Home::class.java)
             startActivity(intent)
         }
+
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+
+        pickDate.setOnClickListener{
+            val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, mYear, mMonth, mDay ->
+                pickDate.setText("" + mDay + "/" + mMonth + "/" + mYear)
+            }, year, month, day)
+            dpd.show()
+        }
+
+
+
     }
 }

@@ -111,7 +111,7 @@
     <EditText
         android:id="@+id/text_comment"
         android:layout_width="305dp"
-        android:layout_height="108dp"
+        android:layout_height="95dp"
         android:layout_marginTop="15dp"
         android:inputType="text"
         android:hint="@string/comment_text"
@@ -121,25 +121,41 @@
         app:layout_constraintTop_toBottomOf="@+id/add_a_comment" />
 
     <Button
+        android:id="@+id/pickDate"
+        android:layout_width="101dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/reef"
+        android:text="@string/date"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_comment"
+        tools:ignore="MissingConstraints" />
+
+    <Button
         android:id="@+id/saveButton"
         android:layout_width="101dp"
         android:layout_height="50dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/reef"
         android:text="@string/Save"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/text_comment"
-        app:layout_constraintTop_toBottomOf="@+id/text_comment" />
+        app:layout_constraintStart_toEndOf="@+id/pickDate"
+        app:layout_constraintTop_toBottomOf="@+id/text_comment"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/cancelButton"
         android:layout_width="101dp"
         android:layout_height="50dp"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/reef"
         android:text="@string/Cancel"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/saveButton"
         app:layout_constraintTop_toBottomOf="@+id/text_comment" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
