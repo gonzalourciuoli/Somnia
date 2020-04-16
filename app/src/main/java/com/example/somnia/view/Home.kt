@@ -8,7 +8,6 @@ import android.widget.Button
 import android.widget.Switch
 import android.widget.TimePicker
 import com.example.somnia.R
-import com.google.firebase.database.FirebaseDatabase
 
 class Home : AppCompatActivity() {
 
