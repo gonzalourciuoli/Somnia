@@ -52,6 +52,8 @@ class AlarmsActivity : AppCompatActivity() {
         val adapter=AdapterAlarm(alarms)
         recyclerView.adapter=adapter
 
+        //hola
+
 
         
 
