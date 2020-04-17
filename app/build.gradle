@@ -18,16 +18,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    //Use JDK1.8 and make sure the same is well specified in your gradle file.
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    configurations {
-        implementation.exclude group: 'com.google.guava'
-    }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -49,7 +39,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.google.firebase:firebase-auth:19.3.0'
-    implementation 'com.google.firebase:firebase-firestore:21.4.2'
+    implementation 'com.google.firebase:firebase-firestore:21.4.2' // EL ERROR ES DE ESTA IMPLEMENTATION CON LAS 3 OTRAS COMENTADAS
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -59,14 +49,13 @@ dependencies {
     //implementation "com.google.android.gms:play-services-auth:18.0.0"
     implementation "pub.devrel:easypermissions:0.1.5"
     //implementation("com.google.api-client:google-api-client-android:1.22.0") {
-        //exclude group: "org.apache.httpcomponents"
+    //exclude group: "org.apache.httpcomponents"
     //}
     //implementation("com.google.apis:google-api-services-calendar:v3-rev218-1.22.0") {
-        //exclude group: "org.apache.httpcomponents"
+    //exclude group: "org.apache.httpcomponents"
     //}
     implementation 'com.google.firebase:firebase-analytics:17.3.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation 'com.google.guava:guava:27.0.1-android'
 }
