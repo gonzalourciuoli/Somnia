@@ -13,6 +13,7 @@ class Home : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_home)
         val rate_last_sleep_button = findViewById<Button>(R.id.rate_last_sleep)
         rate_last_sleep_button.setOnClickListener {

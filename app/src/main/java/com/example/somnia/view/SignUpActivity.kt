@@ -13,6 +13,8 @@ import android.widget.Toast
 import com.example.somnia.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+//import com.google.firebase.database.DatabaseReference
+//import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.signup.*
 
@@ -28,6 +30,11 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup)
+
+        txtUsername = findViewById(R.id.name)
+        txtEmail = findViewById(R.id.email)
+        txtPassword = findViewById(R.id.password)
+        txtRepeat_password = findViewById(R.id.repeat_password)
 
         db = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
@@ -52,15 +59,14 @@ class SignUpActivity : AppCompatActivity() {
             Toast.makeText(this, "The passwords aren't matching", Toast.LENGTH_LONG).show()
         } else if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(repeat_password)) {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) {
-                task ->
+                    task ->
 
                 if (task.isComplete) {
                     val user = hashMapOf(
-                        "username" to "User Prueba",
-                        "email" to "Email Prueba",
-                        "password" to "Password prueba"
+                        "username" to username,
+                        "email" to email,
+                        "password" to password
                     )
-
                     db.collection("users")
                         .add(user)
                         .addOnSuccessListener {
@@ -69,12 +75,14 @@ class SignUpActivity : AppCompatActivity() {
                         .addOnFailureListener {
                             Toast.makeText(this, "User creation failed", Toast.LENGTH_LONG)
                         }
+                    startActivity(Intent(this, logInActivity::class.java))
                 }
             }
         } else {
             Toast.makeText(this, "Looks like some of the fields are empty", Toast.LENGTH_LONG).show()
         }
     }
+
 
     private fun verifyEmail(user: FirebaseUser?) {
         user?.sendEmailVerification()?.addOnCompleteListener(this) { task ->

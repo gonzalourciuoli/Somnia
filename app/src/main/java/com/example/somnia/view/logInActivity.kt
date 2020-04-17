@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.somnia.R
 import com.google.firebase.auth.FirebaseAuth
+//import com.google.firebase.database.FirebaseDatabase
 
 class logInActivity : AppCompatActivity() {
 
@@ -47,7 +48,7 @@ class logInActivity : AppCompatActivity() {
 
         if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
             auth.signInWithEmailAndPassword(username, password).addOnCompleteListener(this) {
-                task ->
+                    task ->
 
                 if (task.isSuccessful) {
                     startActivity(Intent(this, Home::class.java))
@@ -57,5 +58,4 @@ class logInActivity : AppCompatActivity() {
             }
         }
     }
-
 }
