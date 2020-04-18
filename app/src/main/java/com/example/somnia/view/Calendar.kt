@@ -12,11 +12,13 @@ import java.util.Calendar
 
 public class Calendar : AppCompatActivity() {
 
-        val calendarView = findViewById<CalendarView>(R.id.calendarView) as CalendarView
+
 
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
+
+        val calendarView = findViewById<CalendarView>(R.id.calendarView) as CalendarView
 
         val ret = findViewById<Button>(R.id.returnButton) as Button
         ret.setOnClickListener {

@@ -31,7 +31,8 @@ class logInActivity : AppCompatActivity() {
     }
 
     fun login(view : View) {
-        loginUser()
+        //loginUser()
+        startActivity(Intent(this, Home::class.java))
     }
 
     fun sign_up(view : View) {
@@ -41,7 +42,7 @@ class logInActivity : AppCompatActivity() {
     fun forgot_password(view : View) {
 
     }
-
+/*
     private fun loginUser() {
         val username : String = txtUsername.text.toString()
         val password : String = txtPassword.text.toString()
@@ -57,5 +58,5 @@ class logInActivity : AppCompatActivity() {
                 }
             }
         }
-    }
+    }*/
 }

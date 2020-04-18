@@ -20,7 +20,7 @@
         <activity android:name=".view.Calendar"/>
         <activity android:name=".view.ChangeEmail"/>
         <activity android:name=".view.ChangePassword"/>
-        <activity android:name=".view.Charts"/>
+        <activity android:name=".view.ChartsCard"/>
         <activity android:name=".view.Home"/>
         <activity android:name=".view.InfoValuations"/>
         <activity android:name=".view.logInActivity">
