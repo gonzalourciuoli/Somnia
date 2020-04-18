@@ -21,6 +21,10 @@
         <activity android:name=".view.ChangeEmail"/>
         <activity android:name=".view.ChangePassword"/>
         <activity android:name=".view.ChartsCard"/>
+        <activity android:name=".view.BarChart"/>
+        <activity android:name=".view.HorizonBarChart"/>
+        <activity android:name=".view.PieChart"/>
+        <activity android:name=".view.LinearChart"/>
         <activity android:name=".view.Home"/>
         <activity android:name=".view.InfoValuations"/>
         <activity android:name=".view.logInActivity">

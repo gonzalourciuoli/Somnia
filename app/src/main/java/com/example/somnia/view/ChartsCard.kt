@@ -1,5 +1,6 @@
 package com.example.somnia.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -42,6 +43,15 @@ class ChartsCard : AppCompatActivity(), AdapterView.OnItemClickListener {
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
         var items : LanguageItem = arrayList!!.get(position)
+        if (items.name == "MONTHLY")
+            startActivity(Intent(this, BarChart::class.java))
+        if (items.name == "WEEKLY")
+            startActivity(Intent(this, HorizonBarChart::class.java))
+        if (items.name == "DAILY")
+            startActivity(Intent(this, PieChart::class.java))
+        if (items.name == "AVERAGE")
+            startActivity(Intent(this, LinearChart::class.java))
+
         Toast.makeText(applicationContext, items.name, Toast.LENGTH_LONG).show()
 
     }
