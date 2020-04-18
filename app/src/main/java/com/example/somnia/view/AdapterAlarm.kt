@@ -3,33 +3,45 @@ import android.view.LayoutInflater
 import com.example.somnia.model.Alarm
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Spinner
 import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.somnia.R
-import kotlinx.android.synthetic.main.alarm_design.view.*
 
-class AdapterAlarm (var list: ArrayList<Alarm>):RecyclerView.Adapter<AdapterAlarm.ViewHolder>(){
+class AdapterAlarm (var list: MutableList<Alarm>):RecyclerView.Adapter<AdapterAlarm.ViewHolder>(){
 
     class ViewHolder(view:View):RecyclerView.ViewHolder(view){
 
         fun bindItems(data:Alarm){
             val alarmHour:TextView=itemView.findViewById(R.id.alarm_hour)
             val toggleAlarm:Switch=itemView.findViewById(R.id.toggle_alarm)
+            val monday:TextView=itemView.findViewById(R.id.monday_view)
+            val tuesday:TextView=itemView.findViewById(R.id.tuesday_view)
+            val wednesday:TextView=itemView.findViewById(R.id.wednesday_view)
+            val thursday:TextView=itemView.findViewById(R.id.thursday_view)
+            val friday:TextView=itemView.findViewById(R.id.friday_view)
+            val saturday:TextView=itemView.findViewById(R.id.saturday_view)
+            val sunday:TextView=itemView.findViewById(R.id.sunday_view)
 
-            alarmHour.text=data.alarmHour
-            if(data.activatedAlarm==true){
+            alarmHour.text=data.getHour()
+            if(data.getStatus()==true){
                 toggleAlarm.isChecked=true
             }
             else{
                 toggleAlarm.isChecked=false
             }
             toggleAlarm.setOnClickListener {
-                if(data.activatedAlarm==true){
-                    data.changeStatus(false)
+                if(data.getStatus()==true){
+                    data.setStatus(false)
                 }
             }
+            /*val iterator = data.getWeekDays().iterator()
+            val i: Int = 0
+            while(iterator.hasNext()){
+                val day = iterator.next()
+
+            }*/
+            //color(17170444)
         }
     }
 

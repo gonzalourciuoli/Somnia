@@ -1,16 +1,35 @@
 package com.example.somnia.model
 
 class Alarm {
-    var alarmHour:String
-    var alarmDays:Array<String>
-    var activatedAlarm:Boolean
+    private var title: String
+    private var hour: String
+    private var weekDays: MutableMap<String, Boolean>
+    private var status: Boolean
 
-    constructor(alarmHour:String, alarmDays:Array<String>){
-        this.alarmHour=alarmHour
-        this.alarmDays=alarmDays
-        this.activatedAlarm=true
+    constructor(title: String, hour: String, weekDays: MutableMap<String, Boolean>){
+        this.title = title
+        this.hour = hour
+        this.weekDays = weekDays
+        this.status = true
+
     }
-    fun changeStatus(newStatus:Boolean){
-        this.activatedAlarm=newStatus
+    fun setStatus(newStatus:Boolean){
+        this.status=newStatus
+    }
+
+    fun getStatus(): Boolean{
+        return this.status
+    }
+
+    fun getTitle(): String{
+        return this.title
+    }
+
+    fun getHour(): String{
+        return this.hour
+    }
+
+    fun getWeekDays(): MutableMap<String, Boolean>{
+        return this.weekDays
     }
 }
