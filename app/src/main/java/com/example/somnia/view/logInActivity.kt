@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.somnia.R
 import com.google.firebase.auth.FirebaseAuth
+//import com.google.firebase.database.FirebaseDatabase
 
 class logInActivity : AppCompatActivity() {
 
@@ -30,7 +31,8 @@ class logInActivity : AppCompatActivity() {
     }
 
     fun login(view : View) {
-        loginUser()
+        //loginUser()
+        startActivity(Intent(this, Home::class.java))
     }
 
     fun sign_up(view : View) {
@@ -40,14 +42,14 @@ class logInActivity : AppCompatActivity() {
     fun forgot_password(view : View) {
 
     }
-
+/*
     private fun loginUser() {
         val username : String = txtUsername.text.toString()
         val password : String = txtPassword.text.toString()
 
         if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
             auth.signInWithEmailAndPassword(username, password).addOnCompleteListener(this) {
-                task ->
+                    task ->
 
                 if (task.isSuccessful) {
                     startActivity(Intent(this, Home::class.java))
@@ -56,6 +58,5 @@ class logInActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
+    }*/
 }

@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.CalendarView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.somnia.R
+import com.example.somnia.controller.Controller
 import java.util.Calendar
 
 public class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
@@ -27,5 +28,12 @@ public class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
         val dialog = builder.create()
         dialog.show()
 
+        val calendarView = findViewById<CalendarView>(R.id.calendarView) as CalendarView
+
+        val ret = findViewById<Button>(R.id.returnButton) as Button
+        ret.setOnClickListener {
+            val intent = Intent(this@Calendar, Calculator::class.java)
+            startActivity(intent)
+        }
     }
 }
