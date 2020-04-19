@@ -32,7 +32,7 @@ class LinearChart: AppCompatActivity()  {
         val lineChart : AnyChartView = findViewById(R.id.linear_chart)
         APIlib.getInstance().setActiveAnyChartView(lineChart)
         createRangeChart(lineChart)
-
+        lineChart.setBackgroundColor("#9C7DFF")
     }
 
     fun createRangeChart(lineChart: AnyChartView){

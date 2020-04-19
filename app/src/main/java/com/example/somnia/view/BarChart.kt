@@ -29,7 +29,7 @@ class BarChart : AppCompatActivity(){
         val barChart: AnyChartView = findViewById(R.id.bar_chart)
         APIlib.getInstance().setActiveAnyChartView(barChart)
         createBarChart(barChart)
-        barChart.setBackgroundColor("#000000")
+        barChart.setBackgroundColor("#9C7DFF")
 
     }
 

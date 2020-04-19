@@ -30,6 +30,7 @@ class HorizonBarChart : AppCompatActivity(){
         val horizonBarChart: AnyChartView = findViewById(R.id.horizontal_bar_chart)
         APIlib.getInstance().setActiveAnyChartView(horizonBarChart)
         createHorizonBarChart(horizonBarChart)
+        horizonBarChart.setBackgroundColor("#9C7DFF")
     }
 
     fun createHorizonBarChart(horizonBarChart: AnyChartView){

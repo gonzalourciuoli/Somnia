@@ -22,6 +22,7 @@ class PieChart: AppCompatActivity() {
         val pieChart: AnyChartView = findViewById<AnyChartView>(R.id.pie_chart)
         APIlib.getInstance().setActiveAnyChartView(pieChart)
         createPie(pieChart)
+        pieChart.setBackgroundColor("#9C7DFF")
 
     }
 
