@@ -12,6 +12,12 @@ class InfoValuations : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info_valuations)
 
+        /* val bundle : Bundle
+        bundle = intent.extras!!
+        bundle.getInt("day")
+        bundle.getInt("month")
+        bundle.getInt("year")*/
+
         val retrn = findViewById<Button>(R.id.retButton) as Button
         retrn.setOnClickListener {
             val intent = Intent(this@InfoValuations, Home::class.java)

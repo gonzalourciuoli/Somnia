@@ -3,30 +3,43 @@ package com.example.somnia.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import com.example.somnia.R
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_valuations.*
 import kotlinx.android.synthetic.main.login.view.*
 import java.util.Calendar
 import android.app.DatePickerDialog
+import android.content.DialogInterface
+import android.widget.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Valuations : AppCompatActivity() {
+
+    private lateinit var numStars : RatingBar
+    private lateinit var sportBox : CheckBox
+    private lateinit var coffeeBox : CheckBox
+    private lateinit var alcoholBox : CheckBox
+    private lateinit var valuation_comment : EditText
+    private lateinit var date : Button
+    private var database = FirebaseDatabase.getInstance().reference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_valuations)
 
+        numStars = findViewById<RatingBar>(R.id.ratingBar)
+        sportBox = findViewById<CheckBox>(R.id.checkBox_sport)
+        coffeeBox = findViewById<CheckBox>(R.id.checkBox_coffee)
+        alcoholBox = findViewById<CheckBox>(R.id.checkBox_alcohol)
+        valuation_comment = findViewById<EditText>(R.id.text_comment)
+        date = findViewById<Button>(R.id.pickDate) as Button
+
+
         val save = findViewById<Button>(R.id.saveButton) as Button
         save.setOnClickListener {
-            val intent = Intent(this@Valuations, Home::class.java)
-            startActivity(intent)
-            val numStars = ratingBar.numStars
-            val sport_box = checkBox_sport.isChecked
-            val coffee_box = checkBox_coffee.isChecked
-            val alcohol_box = checkBox_alcohol.isChecked
-            val valuation_comment = text_comment.text
-
+            this.saveValuations()
         }
 
         val cancel = findViewById<Button>(R.id.cancelButton) as Button
@@ -44,10 +57,50 @@ class Valuations : AppCompatActivity() {
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, mYear, mMonth, mDay ->
                 pickDate.setText("" + mDay + "/" + mMonth + "/" + mYear)
             }, year, month, day)
+
+            val intent = Intent(this@Valuations, InfoValuations::class.java)
+            val intent2 = Intent(this@Valuations, Calendar::class.java)
+            val intent3 = Intent(this@Valuations, Valuations::class.java)
+            val bundle = Bundle()
+            bundle.putInt("day", day)
+            bundle.putInt("month", month)
+            bundle.putInt("year", year)
+            intent.putExtras(bundle)
+            intent2.putExtras(bundle)
+            intent3.putExtras(bundle)
+
             dpd.show()
         }
-
-
-
     }
+
+    private fun saveValuations(){
+        val numStars1 = ratingBar.numStars
+        val sport_box1 = checkBox_sport.isChecked
+        val coffee_box1 = checkBox_coffee.isChecked
+        val alcohol_box1 = checkBox_alcohol.isChecked
+        val valuation_comment1 = text_comment.text.toString()
+        val date1 = pickDate.text.toString()
+
+
+        if (date1.equals("Pick a date")){
+            Toast.makeText(this, "You need to pick a date", Toast.LENGTH_LONG).show()
+        } else {
+            val valuation = Valuation(date1, numStars1, sport_box1, coffee_box1, alcohol_box1, valuation_comment1)
+            database.child("valuations").child(date1).setValue(valuation)
+            Toast.makeText(this, "Valuation saved", Toast.LENGTH_LONG).show()
+
+            val intent = Intent(this@Valuations, Home::class.java)
+            startActivity(intent)
+        }
+    }
+
+    data class Valuation(
+        var date: String? = null,
+        var numStars : Int? = null,
+        var sport_box: Boolean? = null,
+        var coffee_box: Boolean? = null,
+        var alcohol_box: Boolean? = null,
+        var valuation_comment: String? = null
+    )
+
 }

@@ -17,23 +17,33 @@ public class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
 
+            /*val bundle : Bundle
+            bundle = intent.extras!!
+            bundle.getInt("day")
+            bundle.getInt("month")
+            bundle.getInt("year")*/
+
             val calendar = findViewById<CalendarView>(R.id.calendarView) as CalendarView
             calendar.setOnDateChangeListener(this)
+
+            val ret = findViewById<Button>(R.id.returnButton) as Button
+            ret.setOnClickListener {
+                val intent = Intent(this@Calendar, Calculator::class.java)
+                startActivity(intent)
+            }
     }
 
     override fun onSelectedDayChange(view: CalendarView, year: Int, month: Int, dayOfMonth: Int) {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Valuation of the day:\n")
+        val dia = dayOfMonth
+        val mes = month + 1
+        val año = year
+
+        builder.setTitle("Valuation of " + dia + "/" + mes + "/" + año + ":\n")
+        builder.setMessage("Rating bar\n" + "Sport\n" + "Coffee\n" + "Alcohol\n" + "Comment\n")
 
         val dialog = builder.create()
         dialog.show()
 
-        val calendarView = findViewById<CalendarView>(R.id.calendarView) as CalendarView
-
-        val ret = findViewById<Button>(R.id.returnButton) as Button
-        ret.setOnClickListener {
-            val intent = Intent(this@Calendar, Calculator::class.java)
-            startActivity(intent)
-        }
     }
 }
