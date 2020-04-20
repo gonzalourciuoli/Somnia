@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/somnia_background2"
     tools:context=".view.ChangeEmail">
 
     <TextView
@@ -28,7 +28,10 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:autofillHints="@string/current_Email"
-        android:hint="@string/current_Email"
+        android:paddingLeft="20dp"
+        android:hint="Current email"
+        android:textColorHint="#fff"
+        android:textColor="#fff"
         android:fontFamily="@font/reef_family"
         app:layout_constraintStart_toStartOf="@+id/top_chEmail"
         app:layout_constraintTop_toBottomOf="@+id/top_chEmail" />
@@ -41,7 +44,11 @@
         android:ems="10"
         android:inputType="textPassword"
         android:autofillHints="@string/password"
-        android:hint="@string/password"
+        android:paddingLeft="20dp"
+        android:hint="Current password"
+
+        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:fontFamily="@font/reef"
         app:layout_constraintStart_toStartOf="@+id/current_Email"
         app:layout_constraintTop_toBottomOf="@+id/current_Email" />
@@ -54,8 +61,12 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:autofillHints="@string/new_Email"
-        android:hint="@string/new_Email"
+        android:paddingLeft="20dp"
+        android:hint="New email"
+
         android:fontFamily="@font/reef"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
@@ -67,7 +78,8 @@
         android:layout_marginTop="50dp"
         android:text="@string/save_changes"
         android:fontFamily="@font/reef"
-        android:textSize="16sp"
+        android:textSize="18sp"
+
         app:layout_constraintStart_toStartOf="@+id/new_Email"
         app:layout_constraintTop_toBottomOf="@+id/new_Email" />
 
@@ -79,7 +91,9 @@
         android:layout_marginTop="112dp"
         android:text="@string/ret"
         android:fontFamily="@font/reef"
-        android:textSize="16sp"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:background="#00000000"
         app:layout_constraintStart_toStartOf="@+id/save_changes"
         app:layout_constraintTop_toTopOf="@+id/save_changes" />
 

@@ -2,6 +2,7 @@
     <string name="app_name">Somnia</string>
     <string name="logIn_layout_title">Somnia</string>
     <string name="logIn_button">Log In</string>
+    <string name="send_button">Send</string>
     <string name="register_button">Register</string>
     <string name="register_layout_title">Register</string>
     <string name="name_title">Name</string>
