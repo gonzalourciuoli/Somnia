@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.somnia.R
-import com.google.firebase.iid.FirebaseInstanceId
+//import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_valuations.*
 import kotlinx.android.synthetic.main.login.view.*
 

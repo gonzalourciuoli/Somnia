@@ -13,19 +13,16 @@ import android.widget.Toast
 import com.example.somnia.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-//import com.google.firebase.database.DatabaseReference
-//import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.signup.*
 
 class SignUpActivity : AppCompatActivity() {
 
-    private lateinit var txtUsername: EditText
-    private lateinit var txtEmail: EditText
-    private lateinit var txtPassword: EditText
-    private lateinit var txtRepeat_password: EditText
-    private lateinit var db: FirebaseFirestore
-    private lateinit var auth: FirebaseAuth
+    private lateinit var txtUsername : EditText
+    private lateinit var txtEmail : EditText
+    private lateinit var txtPassword : EditText
+    private lateinit var txtRepeat_password : EditText
+    private lateinit var db : FirebaseFirestore
+    private lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,19 +33,19 @@ class SignUpActivity : AppCompatActivity() {
         txtPassword = findViewById(R.id.password)
         txtRepeat_password = findViewById(R.id.repeat_password)
 
-        db = FirebaseFirestore.getInstance()
+        //db = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
 
     }
 
     fun sign_up(view: View) {
-        createNewAccount()
+        //createNewAccount()
     }
 
     fun login(view: View) {
         startActivity(Intent(this, logInActivity::class.java))
     }
-
+    /*
     private fun createNewAccount() {
         val username: String = txtUsername.text.toString()
         val email: String = txtEmail.text.toString()
@@ -82,7 +79,7 @@ class SignUpActivity : AppCompatActivity() {
             Toast.makeText(this, "Looks like some of the fields are empty", Toast.LENGTH_LONG).show()
         }
     }
-
+    */
 
     private fun verifyEmail(user: FirebaseUser?) {
         user?.sendEmailVerification()?.addOnCompleteListener(this) { task ->

@@ -16,7 +16,6 @@ class logInActivity : AppCompatActivity() {
 
     private lateinit var txtUsername : EditText
     private lateinit var txtPassword : EditText
-
     private lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +30,7 @@ class logInActivity : AppCompatActivity() {
     }
 
     fun login(view : View) {
-        //loginUser()
-        startActivity(Intent(this, Home::class.java))
+        loginUser()
     }
 
     fun sign_up(view : View) {
@@ -42,21 +40,22 @@ class logInActivity : AppCompatActivity() {
     fun forgot_password(view : View) {
 
     }
-/*
+
     private fun loginUser() {
         val username : String = txtUsername.text.toString()
         val password : String = txtPassword.text.toString()
 
         if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
             auth.signInWithEmailAndPassword(username, password).addOnCompleteListener(this) {
-                    task ->
+                task ->
 
                 if (task.isSuccessful) {
                     startActivity(Intent(this, Home::class.java))
+                    Toast.makeText(this, "You logged into your account", Toast.LENGTH_LONG).show()
                 } else {
-                    Toast.makeText(this, "Error en la autenticación", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Authentication failed", Toast.LENGTH_LONG).show()
                 }
             }
         }
-    }*/
+    }
 }
