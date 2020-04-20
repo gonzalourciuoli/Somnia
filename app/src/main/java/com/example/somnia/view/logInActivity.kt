@@ -27,6 +27,12 @@ class logInActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        val forgot = findViewById<Button>(R.id.forgot_password) as Button
+        forgot.setOnClickListener {
+            val intent = Intent(this@logInActivity, ForgotPassword::class.java)
+            startActivity(intent)
+        }
+
     }
 
     fun login(view : View) {
@@ -38,7 +44,7 @@ class logInActivity : AppCompatActivity() {
     }
 
     fun forgot_password(view : View) {
-
+        startActivity(Intent(this, ForgotPassword::class.java))
     }
 
     private fun loginUser() {
