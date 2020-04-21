@@ -53,10 +53,6 @@ class AlarmsActivity : AppCompatActivity() {
         recyclerView.adapter=adapter
 
         //hola
-
-
-        
-
     }
 
 }
