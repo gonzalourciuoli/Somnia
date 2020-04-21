@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/somnia_background2"
     tools:context=".view.Buttons_ListCalendar">
 
     <TextView
@@ -17,6 +17,8 @@
         android:text="@string/pick_a_way_to_see_your_ratings"
         android:fontFamily="@font/reef"
         android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,7 +29,6 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="80dp"
         android:background="@drawable/card_background"
-        android:backgroundTint="#a0000000"
         android:text="@string/Calendar"
         android:textColor="#fff"
         android:textSize="18dp"
@@ -42,7 +43,6 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/card_background"
-        android:backgroundTint="#a0000000"
         android:text="@string/list"
         android:textColor="#fff"
         android:textSize="18dp"

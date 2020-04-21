@@ -1,16 +1,14 @@
 package com.example.somnia.view
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.ListView
-import android.widget.Toast
+import android.widget.*
 import com.example.somnia.R
 import java.lang.reflect.Array
 import java.util.*
@@ -18,7 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import java.lang.Exception
 
-class InfoValuations : AppCompatActivity() {
+class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     private lateinit var listView: ListView
     private lateinit var arrayAdapter: ArrayAdapter<String>
@@ -30,7 +28,7 @@ class InfoValuations : AppCompatActivity() {
 
         listView = findViewById(R.id.valuations_list) as ListView
         db = FirebaseFirestore.getInstance()
-        arrayAdapter = ArrayAdapter<String>(this, android.R.layout.list_content)
+        arrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
 
         init()
 
@@ -46,37 +44,23 @@ class InfoValuations : AppCompatActivity() {
     }
 
     private fun init() {
-        //listView.setOnLongClickListener(this)
+        listView.onItemClickListener = this
 
-        if (db.collection("valuations") != null){
-            /*db.collection("valuations").document("2020").collection("3").document("20")
-                    .get().addOnSuccessListener {
-                        val date = it.get("date").toString()
-                        val numStars = it.get("numStars").toString()
-                        val sport_box = it.get("sport_box").toString()
-                        val coffee_box = it.get("coffee_box").toString()
-                        val alcohol_box = it.get("alcohol_box").toString()
-                        val valutaion_comment = it.get("valuation_comment").toString()
 
-                        arrayAdapter.add("Date: " + date +"\n")
-                        arrayAdapter.add("Rating: " + numStars + "/5 \n")
-                        if (sport_box == "true"){
-                            arrayAdapter.add("Sport \n")
-                        }
-                        if (coffee_box == "true"){
-                            arrayAdapter.add("Coffee \n")
-                        }
-                        if (alcohol_box == "true"){
-                            arrayAdapter.add("Alcohol \n")
-                        }
-                        if (valutaion_comment != ""){
-                            arrayAdapter.add(valutaion_comment)
-                        }else{
-                            arrayAdapter.add("No comments")
-                        }
-                        listView.adapter = arrayAdapter
-                    }*/
+        val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
+        val user = userPreferences.getString("email", "")
 
+        if (user != "") {
+            //EL TEU CODI AQUI
+        }
+
+
+        db.collection("valuations").document(user.toString()).collection("data")
+            .document("data").get().addOnSuccessListener {
+                val numStars : String? = it.getString("numStars")
+                arrayAdapter.add(numStars!!)
+            }
+        /*if (db.collection("valuations") != null){
             db.collection("valuations")
                 .get()
                 .addOnSuccessListener { result ->
@@ -114,8 +98,12 @@ class InfoValuations : AppCompatActivity() {
                 }
         }else{
             Toast.makeText(this, "There's no valuations" , Toast.LENGTH_LONG).show()
-        }
+        }*/
 
+        arrayAdapter.add("valuation 1")
+        arrayAdapter.add("valuation 2")
+        arrayAdapter.add("valuation 3")
+        listView.adapter = arrayAdapter
 
         val retrn = findViewById<Button>(R.id.retButton) as Button
         retrn.setOnClickListener {
@@ -124,40 +112,49 @@ class InfoValuations : AppCompatActivity() {
         }
     }
 
-    /*override fun onLongClick(v: View?): Boolean {
-        val builder = AlertDialog.Builder(this)
-        val item1 : CharSequence = "Delate"
-        val item2 : CharSequence = "Cancel"
-        var items : kotlin.Array<CharSequence>? = null
-        items?.set(0, item1)
-        items?.set(1, item2)
-
-        builder.setTitle("Delate valuation")
-            .setItems(items, DialogInterface.OnClickListener { dialogInterface: DialogInterface, i: Int ->
-                if (i == 0){
-
-                } else{
-                    val intent = Intent(this@InfoValuations, InfoValuations::class.java)
-                    startActivity(intent)
-                }
-
-            })
-
-        val dialog = builder.create()
-        dialog.show()
-        return false
-    }*/
-
-    private fun delate(valuation: String){
+    private fun deleteValuation(valuation: String){
         try{
-            arrayAdapter.remove("date")
+            arrayAdapter.remove(valuation)
             listView.adapter = arrayAdapter
+            /*db.collection("valuations").document(valuation)
+                .delete().addOnSuccessListener {
+                    Toast.makeText(this, "Valuation successfully deleted", Toast.LENGTH_LONG).show()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Error deleting valuation", Toast.LENGTH_LONG).show()
+                }*/
+            Log.d("TAG", "Valuation successfully deleted!")
 
         }catch(e : Exception){
             Toast.makeText(this, e.message , Toast.LENGTH_LONG).show()
             this.finish()
         }
 
+    }
+
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        val builder = AlertDialog.Builder(this)
+        val item1 : CharSequence = "Delete"
+        val item2 : CharSequence = "Cancel"
+        var items : kotlin.Array<CharSequence>? = null
+        items?.set(0, item1)
+        items?.set(1, item2)
+
+        builder.setTitle("Delete valuation")
+            .setItems(items, DialogInterface.OnClickListener { dialogInterface: DialogInterface, i: Int ->
+                if (i == 0){
+                    if (parent != null) {
+                        this.deleteValuation(parent.getItemAtPosition(position).toString())
+                    }
+
+                } else{
+                    val intent = Intent(this@InfoValuations, InfoValuations::class.java)
+                    startActivity(intent)
+                }
+            })
+
+        val dialog = builder.create()
+        dialog.show()
     }
 }
 

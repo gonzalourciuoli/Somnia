@@ -1,6 +1,8 @@
 package com.example.somnia.view
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -38,7 +40,7 @@ class logInActivity : AppCompatActivity() {
     }
 
     fun login(view : View) {
-        loginUser()
+        loginUser(view)
     }
 
     fun sign_up(view : View) {
@@ -49,7 +51,7 @@ class logInActivity : AppCompatActivity() {
         startActivity(Intent(this, ForgotPassword::class.java))
     }
 
-    private fun loginUser() {
+    private fun loginUser(view : View) {
         val username : String = txtUsername.text.toString()
         val password : String = txtPassword.text.toString()
 
@@ -58,6 +60,15 @@ class logInActivity : AppCompatActivity() {
                 task ->
 
                 if (task.isSuccessful) {
+
+
+                    val userPreferences = view.context.getSharedPreferences("users", Context.MODE_PRIVATE)
+                    val editor: SharedPreferences.Editor = userPreferences.edit()
+
+                    editor.putString("email", username)
+                    editor.apply()
+
+
                     startActivity(Intent(this, Home::class.java))
                     Toast.makeText(this, "You logged into your account", Toast.LENGTH_LONG).show()
                 } else {

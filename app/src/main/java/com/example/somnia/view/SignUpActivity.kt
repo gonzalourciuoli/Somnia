@@ -59,7 +59,7 @@ class SignUpActivity : AppCompatActivity() {
                     task ->
 
                 if (task.isComplete) {
-                    val user = hashMapOf(
+                    /*val user = hashMapOf(
                         "username" to username,
                         "email" to email,
                         "password" to password
@@ -71,7 +71,19 @@ class SignUpActivity : AppCompatActivity() {
                         }
                         .addOnFailureListener {
                             Toast.makeText(this, "User creation failed", Toast.LENGTH_LONG)
+                        }*/
+
+                    db.collection("users").document(email).set(mapOf(
+                        "username" to username,
+                        "email" to email,
+                        "password" to password
+                    )).addOnSuccessListener {
+                        Toast.makeText(this, "User created", Toast.LENGTH_LONG)
+                    }
+                        .addOnFailureListener {
+                            Toast.makeText(this, "User creation failed", Toast.LENGTH_LONG)
                         }
+
                     startActivity(Intent(this, logInActivity::class.java))
                 }
             }
@@ -95,4 +107,5 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
     }
+
 }

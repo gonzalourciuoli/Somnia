@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_valuations.*
 import kotlinx.android.synthetic.main.login.view.*
 import java.util.Calendar
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.widget.*
 import com.google.firebase.firestore.FirebaseFirestore
@@ -61,8 +62,9 @@ class Valuations : AppCompatActivity() {
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, mYear, mMonth, mDay ->
                 pickDate.text = "" + mYear + "-" + (mMonth+1) + "-" + mDay
             }, year, month, day)
+            dpd.datePicker.maxDate = Calendar.getInstance().timeInMillis
 
-            val intent = Intent(this@Valuations, InfoValuations::class.java)
+            /*val intent = Intent(this@Valuations, InfoValuations::class.java)
             val intent2 = Intent(this@Valuations, Calendar::class.java)
             val intent3 = Intent(this@Valuations, Valuations::class.java)
             val bundle = Bundle()
@@ -71,7 +73,7 @@ class Valuations : AppCompatActivity() {
             bundle.putInt("year", year)
             intent.putExtras(bundle)
             intent2.putExtras(bundle)
-            intent3.putExtras(bundle)
+            intent3.putExtras(bundle)*/
 
             dpd.show()
         }
@@ -86,22 +88,29 @@ class Valuations : AppCompatActivity() {
         val date1 = pickDate.text.toString()
 
 
-        if (date1 == "Pick a date"){
-            Toast.makeText(this, "You need to pick a date", Toast.LENGTH_LONG).show()
-        } else {
-            val valuation = hashMapOf(
-                "date" to date1,
-                "numStars" to numStars1,
-                "sport_box" to sport_box1,
-                "coffee_box" to coffee_box1,
-                "alcohol_box" to alcohol_box1,
-                "valuation_comment" to valuation_comment1
-            )
-            db.collection("valuations").document(date1).set(mapOf("valuation" to valuation))
-            Toast.makeText(this, "Valuation saved", Toast.LENGTH_LONG).show()
+        val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
+        val user = userPreferences.getString("email", "")
 
-            val intent = Intent(this@Valuations, Home::class.java)
-            startActivity(intent)
+        if (user != "") {
+            if (date1 == "Pick a date"){
+                Toast.makeText(this, "You need to pick a date", Toast.LENGTH_LONG).show()
+            } else {
+                db.collection("valuations").document(user.toString()).collection(date1)
+                    .document("data").set(mapOf(
+                        "date" to date1,
+                        "numStars" to numStars1,
+                        "sport_box" to sport_box1,
+                        "coffee_box" to coffee_box1,
+                        "alcohol_box" to alcohol_box1,
+                        "valuation_comment" to valuation_comment1
+                    ))
+                Toast.makeText(this, "Valuation saved", Toast.LENGTH_LONG).show()
+
+                val intent = Intent(this@Valuations, Home::class.java)
+                startActivity(intent)
+            }
+        }else{
+            Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
         }
     }
 
