@@ -11,8 +11,6 @@ import java.util.Calendar
 import android.app.DatePickerDialog
 import android.content.DialogInterface
 import android.widget.*
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Valuations : AppCompatActivity() {
@@ -23,7 +21,7 @@ class Valuations : AppCompatActivity() {
     private lateinit var alcoholBox : CheckBox
     private lateinit var valuation_comment : EditText
     private lateinit var date : Button
-    private var database = FirebaseDatabase.getInstance().reference
+    private lateinit var db : FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +34,13 @@ class Valuations : AppCompatActivity() {
         valuation_comment = findViewById<EditText>(R.id.text_comment)
         date = findViewById<Button>(R.id.pickDate) as Button
 
+        db = FirebaseFirestore.getInstance()
 
+        init()
+    }
+
+
+    private fun init(){
         val save = findViewById<Button>(R.id.saveButton) as Button
         save.setOnClickListener {
             this.saveValuations()
@@ -55,7 +59,7 @@ class Valuations : AppCompatActivity() {
 
         pickDate.setOnClickListener{
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, mYear, mMonth, mDay ->
-                pickDate.setText("" + mDay + "/" + mMonth + "/" + mYear)
+                pickDate.setText("" + mYear + "-" + (mMonth+1) + "-" + mDay)
             }, year, month, day)
 
             val intent = Intent(this@Valuations, InfoValuations::class.java)
@@ -74,7 +78,7 @@ class Valuations : AppCompatActivity() {
     }
 
     private fun saveValuations(){
-        val numStars1 = ratingBar.numStars
+        val numStars1 = ratingBar.rating
         val sport_box1 = checkBox_sport.isChecked
         val coffee_box1 = checkBox_coffee.isChecked
         val alcohol_box1 = checkBox_alcohol.isChecked
@@ -82,25 +86,23 @@ class Valuations : AppCompatActivity() {
         val date1 = pickDate.text.toString()
 
 
-        if (date1.equals("Pick a date")){
+        if (date1 == "Pick a date"){
             Toast.makeText(this, "You need to pick a date", Toast.LENGTH_LONG).show()
         } else {
-            val valuation = Valuation(date1, numStars1, sport_box1, coffee_box1, alcohol_box1, valuation_comment1)
-            database.child("valuations").child(date1).setValue(valuation)
-            Toast.makeText(this, "Valuation saved", Toast.LENGTH_LONG).show()
+            val valuation = hashMapOf(
+                "date" to date1,
+                "numStars" to numStars1,
+                "sport_box" to sport_box1,
+                "coffee_box" to coffee_box1,
+                "alcohol_box" to alcohol_box1,
+                "valuation_comment" to valuation_comment1
+            )
+            db.collection("valuations").document(date1).set(mapOf("valuation" to valuation))
+            Toast.makeText(this, valuation.toString(), Toast.LENGTH_LONG).show()
 
             val intent = Intent(this@Valuations, Home::class.java)
             startActivity(intent)
         }
     }
-
-    data class Valuation(
-        var date: String? = null,
-        var numStars : Int? = null,
-        var sport_box: Boolean? = null,
-        var coffee_box: Boolean? = null,
-        var alcohol_box: Boolean? = null,
-        var valuation_comment: String? = null
-    )
 
 }

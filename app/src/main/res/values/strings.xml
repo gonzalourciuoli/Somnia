@@ -64,6 +64,8 @@
     <string name="Calendar">Calendar</string>
     <string name="repeatPassword_title">Repeat password</string>
     <string name="date">Pick a date</string>
+    <string name="pick_a_way_to_see_your_ratings">Pick a way to see your ratings</string>
+    <string name="list">List</string>
     <string-array name="repeat_array">
         <item>None</item>
         <item>Weekly</item>
