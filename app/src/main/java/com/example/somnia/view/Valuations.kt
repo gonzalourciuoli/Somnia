@@ -59,7 +59,7 @@ class Valuations : AppCompatActivity() {
 
         pickDate.setOnClickListener{
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, mYear, mMonth, mDay ->
-                pickDate.setText("" + mYear + "-" + (mMonth+1) + "-" + mDay)
+                pickDate.text = "" + mYear + "-" + (mMonth+1) + "-" + mDay
             }, year, month, day)
 
             val intent = Intent(this@Valuations, InfoValuations::class.java)
@@ -98,7 +98,7 @@ class Valuations : AppCompatActivity() {
                 "valuation_comment" to valuation_comment1
             )
             db.collection("valuations").document(date1).set(mapOf("valuation" to valuation))
-            Toast.makeText(this, valuation.toString(), Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Valuation saved", Toast.LENGTH_LONG).show()
 
             val intent = Intent(this@Valuations, Home::class.java)
             startActivity(intent)
