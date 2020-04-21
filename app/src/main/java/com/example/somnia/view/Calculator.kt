@@ -8,16 +8,14 @@ import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.somnia.R
+import java.util.*
 import kotlin.properties.Delegates
 
 public class Calculator : AppCompatActivity() {
 
-    //private lateinit var cycleSwitch : Button
     private lateinit var timeWakeUp : EditText
     private lateinit var hoursToSleep : EditText
     private lateinit var  timeBed: EditText
-    private var time1 : Double? = null
-    private var hours : Double? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,19 +32,57 @@ public class Calculator : AppCompatActivity() {
 
     private fun init(){
         val cycleSwitch = findViewById<Button>(R.id.cycleSwitch) as Switch
+        val cycleSwitch1 = findViewById<Button>(R.id.cycleSwitch1) as Switch
+
         cycleSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
-                this.time1 = (this.timeBed.text.toString()).toDouble()
-                this.hours = (this.hoursToSleep.text.toString()).toDouble()
-                var result = time1!! + hours!!
-                if (result >= 24){
-                    var i: Double
-                    i = result - 24
-                    result = i
+                if (cycleSwitch1.isChecked){
+                    cycleSwitch1.isChecked = false
                 }
-                Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show()
-                //this.timeWakeUp.setText(result.toString())
+                this.calculateTimeToWakeUp()
             }
         }
+
+
+        cycleSwitch1.setOnCheckedChangeListener { buttonView, isChecked ->
+            if(isChecked){
+                if (cycleSwitch.isChecked){
+                    cycleSwitch.isChecked = false
+                }
+                this.calculateTimeToGoBed()
+            }
+        }
+
+    }
+
+    private fun calculateTimeToWakeUp(){
+        var hoursBed = (this.timeBed.text.toString().substringBefore(":")).toInt()
+        var minutsBed = (this.timeBed.text.toString().substringAfter(":")).toInt()
+        var hours = (this.hoursToSleep.text.toString()).toDouble()
+
+        var resultHours = (hoursBed + hours).toInt()
+        if (resultHours >= 24){
+            var i: Int
+            i = resultHours - 24
+            resultHours = i
+        }
+        val result = resultHours.toString() + ":" + minutsBed.toString()
+        this.timeWakeUp.setText(result)
+    }
+
+    private fun calculateTimeToGoBed(){
+        var hoursWakeUp = (this.timeWakeUp.text.toString().substringBefore(":")).toInt()
+        var minutsWakeUp = (this.timeWakeUp.text.toString().substringAfter(":")).toInt()
+        var hours = (this.hoursToSleep.text.toString()).toDouble()
+
+        var resultHours = (hoursWakeUp - hours).toInt()
+        if (resultHours < 0){
+            var i: Int
+            i = resultHours + 24
+            resultHours = i
+        }
+        val result = resultHours.toString() + ":" + minutsWakeUp.toString()
+        this.timeBed.setText(result)
+
     }
 }
