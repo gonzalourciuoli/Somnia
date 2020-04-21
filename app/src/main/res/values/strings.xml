@@ -31,7 +31,7 @@
     <string name="i_must_get_in_bed_at">I must get in bed at:</string>
     <string name="sleeping_cycle">Sleeping cycle</string>
     <string name="hours">h</string>
-    <string name="hours_to_sleep">8</string>
+    <string name="hours_to_sleep">8:30</string>
     <string name="in_order_to_sleep">In order to sleep:</string>
     <string name="wake_up">6:30</string>
     <string name="i_m_waking_up_at">I\'m waking up at:</string>
@@ -67,7 +67,7 @@
     <string name="pick_a_way_to_see_your_ratings">Pick a way to see your ratings</string>
     <string name="list">List</string>
     <string name="calculate_time_i_must_get_in_bed">Calculate time I must get in bed</string>
-    <string name="calculate_time_i_must_waking_up">Calculate time I must waking up</string>
+    <string name="calculate_time_i_must_wake_up">Calculate time I must wake up</string>
     <string-array name="repeat_array">
         <item>None</item>
         <item>Weekly</item>

@@ -21,7 +21,6 @@ public class Calculator : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
 
-        //cycleSwitch = findViewById(R.id.cycleSwitch) as Switch
         timeWakeUp = findViewById(R.id.timeWakeUp)
         hoursToSleep = findViewById(R.id.hoursToSleep)
         timeBed = findViewById(R.id.timeBed)
@@ -53,35 +52,64 @@ public class Calculator : AppCompatActivity() {
             }
         }
 
+        timeBed.setOnClickListener {
+            cycleSwitch.isChecked = false
+            cycleSwitch1.isChecked = false
+        }
+        timeWakeUp.setOnClickListener {
+            cycleSwitch.isChecked = false
+            cycleSwitch1.isChecked = false
+        }
+        hoursToSleep.setOnClickListener {
+            cycleSwitch.isChecked = false
+            cycleSwitch1.isChecked = false
+        }
+
     }
 
     private fun calculateTimeToWakeUp(){
         var hoursBed = (this.timeBed.text.toString().substringBefore(":")).toInt()
         var minutsBed = (this.timeBed.text.toString().substringAfter(":")).toInt()
-        var hours = (this.hoursToSleep.text.toString()).toDouble()
+        var hours = (this.hoursToSleep.text.toString().substringBefore(":")).toInt()
+        var minuts = (this.hoursToSleep.text.toString().substringAfter(":")).toInt()
 
-        var resultHours = (hoursBed + hours).toInt()
+        var resultHours = (hoursBed + hours)
+        var resultMinuts = (minutsBed + minuts)
         if (resultHours >= 24){
             var i: Int
             i = resultHours - 24
             resultHours = i
         }
-        val result = resultHours.toString() + ":" + minutsBed.toString()
+        if (resultMinuts >= 60){
+            var i : Int
+            i = resultMinuts - 60
+            resultMinuts = i
+            resultHours += 1
+        }
+        val result = resultHours.toString() + ":" + resultMinuts.toString()
         this.timeWakeUp.setText(result)
     }
 
     private fun calculateTimeToGoBed(){
         var hoursWakeUp = (this.timeWakeUp.text.toString().substringBefore(":")).toInt()
         var minutsWakeUp = (this.timeWakeUp.text.toString().substringAfter(":")).toInt()
-        var hours = (this.hoursToSleep.text.toString()).toDouble()
+        var hours = (this.hoursToSleep.text.toString().substringBefore(":")).toInt()
+        var minuts = (this.hoursToSleep.text.toString().substringAfter(":")).toInt()
 
-        var resultHours = (hoursWakeUp - hours).toInt()
+        var resultHours = (hoursWakeUp - hours)
+        var resultMinuts = (minutsWakeUp - minuts)
         if (resultHours < 0){
             var i: Int
             i = resultHours + 24
             resultHours = i
         }
-        val result = resultHours.toString() + ":" + minutsWakeUp.toString()
+        if (resultMinuts < 0){
+            var i : Int
+            i = resultMinuts + 60
+            resultMinuts = i
+            resultHours -= 1
+        }
+        val result = resultHours.toString() + ":" + resultMinuts.toString()
         this.timeBed.setText(result)
 
     }
