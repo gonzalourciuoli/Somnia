@@ -69,7 +69,7 @@ class LinearChart: AppCompatActivity()  {
         val range_colors = arrayOf("#9933FF")
         line.palette(range_colors)
         background.stroke("#663399")
-        background.fill(GradientKey("#dcd0ff",0,1))
+        //background.fill(GradientKey("#dcd0ff",0,1))
         lineChart.setChart(line)
     }
 

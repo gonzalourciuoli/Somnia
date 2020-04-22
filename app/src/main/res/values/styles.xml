@@ -18,7 +18,7 @@
 
     <style name="CalendarDayPickTheme" parent="Theme.AppCompat">
         <item name="colorAccent">#b284be</item>
-        <item name="colorPrimary">#fff</item>
+        <item name="colorPrimary">#000</item>
     </style>
 
     <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
