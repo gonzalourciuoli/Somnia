@@ -22,19 +22,11 @@ public class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
 
-            db = FirebaseFirestore.getInstance()
-
             init()
-
-            /*val bundle : Bundle
-            bundle = intent.extras!!
-            bundle.getInt("day")
-            bundle.getInt("month")
-            bundle.getInt("year")*/
-
     }
 
     private fun init(){
+        db = FirebaseFirestore.getInstance()
         val calendar = findViewById<CalendarView>(R.id.calendarView) as CalendarView
         calendar.setOnDateChangeListener(this)
 
@@ -53,7 +45,7 @@ public class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
 
         val id = año.toString() + "-" + mes.toString() + "-" + dia.toString()
         var informacio : String? = ""
-        builder.setTitle("Valuation of " + año + "-" + mes + "-" + dia + ":\n")
+        builder.setTitle("Valuation of " + dia + "/" + mes + "/" + año + ":\n")
 
         val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
         val user = userPreferences.getString("email", "")
@@ -73,8 +65,7 @@ public class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
                         val dialog = builder.create()
                         dialog.show()
                     }else{
-                        informacio += ("Date: " + date +"\n")
-                        informacio += ("Rating: " + numStars + "/5 \n")
+                        informacio += ("Rating: " + numStars + " / 5 \n")
                         if (sport_box == "true"){
                             informacio += ("Sport: Yes \n")
                         }else{
@@ -101,9 +92,7 @@ public class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
                     }
                 }
                 .addOnFailureListener {
-                    builder.setMessage("No valuation on this day")
-                    val dialog = builder.create()
-                    dialog.show()
+                    Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
                 }
         }
 

@@ -11,8 +11,11 @@ import java.util.Calendar
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.SharedPreferences
+import android.view.View
 import android.widget.*
 import com.google.firebase.firestore.FirebaseFirestore
+import com.example.somnia.controller.Controller
 
 class Valuations : AppCompatActivity() {
 
@@ -23,11 +26,17 @@ class Valuations : AppCompatActivity() {
     private lateinit var valuation_comment : EditText
     private lateinit var date : Button
     private lateinit var db : FirebaseFirestore
+    private val controller = Controller()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_valuations)
 
+        init()
+    }
+
+
+    private fun init(){
         numStars = findViewById<RatingBar>(R.id.ratingBar)
         sportBox = findViewById<CheckBox>(R.id.checkBox_sport)
         coffeeBox = findViewById<CheckBox>(R.id.checkBox_coffee)
@@ -37,14 +46,9 @@ class Valuations : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-        init()
-    }
-
-
-    private fun init(){
         val save = findViewById<Button>(R.id.saveButton) as Button
         save.setOnClickListener {
-            this.saveValuations()
+            this.saveValuations(it)
         }
 
         val cancel = findViewById<Button>(R.id.cancelButton) as Button
@@ -64,22 +68,11 @@ class Valuations : AppCompatActivity() {
             }, year, month, day)
             dpd.datePicker.maxDate = Calendar.getInstance().timeInMillis
 
-            /*val intent = Intent(this@Valuations, InfoValuations::class.java)
-            val intent2 = Intent(this@Valuations, Calendar::class.java)
-            val intent3 = Intent(this@Valuations, Valuations::class.java)
-            val bundle = Bundle()
-            bundle.putInt("day", day)
-            bundle.putInt("month", month)
-            bundle.putInt("year", year)
-            intent.putExtras(bundle)
-            intent2.putExtras(bundle)
-            intent3.putExtras(bundle)*/
-
             dpd.show()
         }
     }
 
-    private fun saveValuations(){
+    private fun saveValuations(view : View){
         val numStars1 = ratingBar.rating
         val sport_box1 = checkBox_sport.isChecked
         val coffee_box1 = checkBox_coffee.isChecked
@@ -105,6 +98,12 @@ class Valuations : AppCompatActivity() {
                         "valuation_comment" to valuation_comment1
                     ))
                 Toast.makeText(this, "Valuation saved", Toast.LENGTH_LONG).show()
+
+                val userPreferences = view.context.getSharedPreferences("valuations", Context.MODE_PRIVATE)
+                val editor: SharedPreferences.Editor = userPreferences.edit()
+
+                editor.putString("date", date1)
+                editor.apply()
 
                 val intent = Intent(this@Valuations, Home::class.java)
                 startActivity(intent)

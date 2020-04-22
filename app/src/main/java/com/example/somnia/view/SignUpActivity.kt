@@ -1,6 +1,8 @@
 package com.example.somnia.view
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -59,7 +61,8 @@ class SignUpActivity : AppCompatActivity() {
                     task ->
 
                 if (task.isComplete) {
-                    /*val user = hashMapOf(
+                    //existingUser(username, email, password)
+                    val user = hashMapOf(
                         "username" to username,
                         "email" to email,
                         "password" to password
@@ -69,17 +72,6 @@ class SignUpActivity : AppCompatActivity() {
                         .addOnSuccessListener {
                             Toast.makeText(this, "User created", Toast.LENGTH_LONG)
                         }
-                        .addOnFailureListener {
-                            Toast.makeText(this, "User creation failed", Toast.LENGTH_LONG)
-                        }*/
-
-                    db.collection("users").document(email).set(mapOf(
-                        "username" to username,
-                        "email" to email,
-                        "password" to password
-                    )).addOnSuccessListener {
-                        Toast.makeText(this, "User created", Toast.LENGTH_LONG)
-                    }
                         .addOnFailureListener {
                             Toast.makeText(this, "User creation failed", Toast.LENGTH_LONG)
                         }
@@ -108,4 +100,17 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+    /*private fun existingUser(username : String, email : String, password : String){
+        db.collection("users").document(email)
+            .get().addOnSuccessListener {
+                Toast.makeText(this, "This account already exists", Toast.LENGTH_LONG).show()
+            }.addOnFailureListener {
+                db.collection("users").document(email).set(mapOf(
+                    "username" to username,
+                    "email" to email,
+                    "password" to password
+                ))
+                Toast.makeText(this, "User created", Toast.LENGTH_LONG)
+            }
+    }*/
 }

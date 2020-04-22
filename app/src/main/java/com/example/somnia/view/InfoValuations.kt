@@ -6,14 +6,10 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 import com.example.somnia.R
-import java.lang.reflect.Array
-import java.util.*
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.QuerySnapshot
 import java.lang.Exception
 
 class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
@@ -31,35 +27,74 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
         arrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
 
         init()
-
-        /*val bundle: Bundle
-        val day: Int
-        val month: Int
-        val year: Int
-        bundle = intent.extras!!
-        day = bundle.getInt("day")
-        month = bundle.getInt("month")
-        year = bundle.getInt("year")
-        val cadena: String = day.toString() + "/" + month.toString() + "/" + year.toString()*/
     }
 
     private fun init() {
         listView.onItemClickListener = this
 
 
+        val datePreferences = getSharedPreferences("valuations", Context.MODE_PRIVATE)
+        val date = datePreferences.getString("date", "")
+
         val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
         val user = userPreferences.getString("email", "")
 
-        if (user != "") {
-            //EL TEU CODI AQUI
+        if (date != "") {
+            Toast.makeText(this, "Entra" , Toast.LENGTH_LONG).show()
+            /*db.collection("valuations").document(user.toString()).collection(date.toString())
+            .document("data").get().addOnSuccessListener {
+                    val numStars = it.get("numStars").toString()
+                arrayAdapter.add(numStars!!)
+            }*/
+            db.collection("valuations").document(user.toString()).collection(date.toString())
+                .get()
+                .addOnSuccessListener { result ->
+                    for (d in result){
+                        db.collection("valuations").document(user.toString())
+                            .collection(date.toString()).document("data")
+                            .get().addOnSuccessListener {
+                                val date = it.get("date").toString()
+                                val numStars = it.get("numStars").toString()
+                                val sport_box = it.get("sport_box").toString()
+                                val coffee_box = it.get("coffee_box").toString()
+                                val alcohol_box = it.get("alcohol_box").toString()
+                                val valuation_comment = it.get("valuation_comment").toString()
+
+                                var valuation : String? = ""
+
+                                valuation += (date + ":\n")
+                                valuation += ("Rating: " + numStars + " / 5 \n")
+                                if (sport_box == "true"){
+                                    valuation += ("Sport: Yes \n")
+                                }else{
+                                    valuation += ("Sport: No \n")
+                                }
+                                if (coffee_box == "true"){
+                                    valuation += ("Coffee: Yes \n")
+                                }else{
+                                    valuation += ("Coffee: No \n")
+                                }
+                                if (alcohol_box == "true"){
+                                    valuation += ("Alcohol: Yes \n")
+                                }else{
+                                    valuation += ("Alcohol: No \n")
+                                }
+                                if (valuation_comment != ""){
+                                    valuation += (valuation_comment)
+                                }else{
+                                    valuation += ("No comments")
+                                }
+
+                                arrayAdapter.add(valuation)
+                            }
+                    }
+                }
         }
 
 
-        db.collection("valuations").document(user.toString()).collection("data")
-            .document("data").get().addOnSuccessListener {
-                val numStars : String? = it.getString("numStars")
-                arrayAdapter.add(numStars!!)
-            }
+
+
+
         /*if (db.collection("valuations") != null){
             db.collection("valuations")
                 .get()
@@ -114,16 +149,29 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     private fun deleteValuation(valuation: String){
         try{
-            arrayAdapter.remove(valuation)
-            listView.adapter = arrayAdapter
-            /*db.collection("valuations").document(valuation)
+            val builder = AlertDialog.Builder(this, R.style.Theme_AppCompat_Dialog_Alert)
+            builder.setView(layoutInflater.inflate(R.layout.eliminar, null))
+            val dialog: AlertDialog = builder.create()
+            var alertView = layoutInflater.inflate(R.layout.eliminar, null)
+            alertView.findViewById<TextView>(R.id.delete_valuation).text = "Are you sure you want to delete this rating?"
+            alertView.findViewById<Button>(R.id.delete_valuation_alert_cancel).setOnClickListener {
+                dialog.cancel()
+            }
+            alertView.findViewById<Button>(R.id.delete_valuation_alert_confirm).setOnClickListener {
+                arrayAdapter.remove(valuation)
+                listView.adapter = arrayAdapter
+                /*db.collection("valuations").document(valuation)
                 .delete().addOnSuccessListener {
                     Toast.makeText(this, "Valuation successfully deleted", Toast.LENGTH_LONG).show()
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, "Error deleting valuation", Toast.LENGTH_LONG).show()
                 }*/
-            Log.d("TAG", "Valuation successfully deleted!")
+                dialog.cancel()
+                Toast.makeText(this, "Valuation successfully deleted!" , Toast.LENGTH_LONG).show()
+            }
+            dialog.setView(alertView)
+            dialog.show()
 
         }catch(e : Exception){
             Toast.makeText(this, e.message , Toast.LENGTH_LONG).show()
@@ -136,8 +184,7 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
         val builder = AlertDialog.Builder(this)
         val item1 : CharSequence = "Delete"
         val item2 : CharSequence = "Cancel"
-        var items : kotlin.Array<CharSequence>? = null
-        items?.set(0, item1)
+        var items : kotlin.Array<CharSequence>? = kotlin.Array(2){ item1 }
         items?.set(1, item2)
 
         builder.setTitle("Delete valuation")
@@ -146,13 +193,8 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
                     if (parent != null) {
                         this.deleteValuation(parent.getItemAtPosition(position).toString())
                     }
-
-                } else{
-                    val intent = Intent(this@InfoValuations, InfoValuations::class.java)
-                    startActivity(intent)
                 }
             })
-
         val dialog = builder.create()
         dialog.show()
     }

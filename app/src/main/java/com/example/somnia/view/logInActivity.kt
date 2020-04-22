@@ -61,13 +61,11 @@ class logInActivity : AppCompatActivity() {
 
                 if (task.isSuccessful) {
 
-
                     val userPreferences = view.context.getSharedPreferences("users", Context.MODE_PRIVATE)
                     val editor: SharedPreferences.Editor = userPreferences.edit()
 
                     editor.putString("email", username)
                     editor.apply()
-
 
                     startActivity(Intent(this, Home::class.java))
                     Toast.makeText(this, "You logged into your account", Toast.LENGTH_LONG).show()
