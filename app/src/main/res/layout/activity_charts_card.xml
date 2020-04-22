@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/somnia_background2"
+    tools:context=".view.ChartsCard">
+
+    <TextView
+        android:id="@+id/statistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="99dp"
+        android:layout_marginTop="15dp"
+        android:text="STATISTICS"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:textSize="34sp"/>
+
+    <GridView
+        android:id="@+id/my_grid"
+        android:layout_width="match_parent"
+        android:layout_height="443dp"
+        android:columnWidth="150dp"
+        android:horizontalSpacing="15dp"
+        android:numColumns="2"
+        android:padding="18dp"
+        android:layout_marginTop="20dp"
+        android:verticalSpacing="30dp" />
+
+    <fragment
+        android:id="@+id/toolbar"
+        class="com.example.somnia.view.Toolbar"
+        android:layout_width="413dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="0dp"
+        />
+
+
+</LinearLayout>

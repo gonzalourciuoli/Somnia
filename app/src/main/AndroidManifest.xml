@@ -15,25 +15,34 @@
         android:roundIcon="@mipmap/somniaicon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.AlarmsActivity"/>
-        <activity android:name=".view.Calculator"/>
-        <activity android:name=".view.Calendar"/>
-        <activity android:name=".view.ChangeEmail"/>
-        <activity android:name=".view.ChangePassword"/>
-        <activity android:name=".view.Charts"/>
-        <activity android:name=".view.Home"/>
-        <activity android:name=".view.InfoValuations"/>
-        <activity android:name=".view.logInActivity">
+        <activity android:name=".view.Buttons_ListCalendar"></activity>
+        <activity android:name=".view.Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.New_alarmActivity"/>
-        <activity android:name=".view.PresentationAlarm"/>
-        <activity android:name=".view.Settings"/>
-        <activity android:name=".view.SignUpActivity"/>
-        <activity android:name=".view.Valuations"/>
+        <activity android:name=".view.AlarmsActivity" />
+        <activity android:name=".view.Calculator" />
+        <activity android:name=".view.Calendar" />
+        <activity android:name=".view.ChangeEmail" />
+        <activity android:name=".view.ChangePassword" />
+        <activity android:name=".view.ChartsCard" />
+        <activity android:name=".view.BarChart" />
+        <activity android:name=".view.HorizonBarChart" />
+        <activity android:name=".view.PieChart" />
+        <activity android:name=".view.LinearChart" />
+        <activity android:name=".view.ForgotPassword" />
+        <activity android:name=".view.Home" />
+        <activity android:name=".view.InfoValuations" />
+        <activity android:name=".view.logInActivity" />
+        <activity android:name=".view.New_alarmActivity" />
+        <activity android:name=".view.PresentationAlarm" />
+        <activity android:name=".view.Settings" />
+        <activity android:name=".view.SignUpActivity" />
+        <activity android:name=".view.Valuations" />
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

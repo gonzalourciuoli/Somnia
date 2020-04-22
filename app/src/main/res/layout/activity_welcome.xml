@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/animated_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_list">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="WELCOME"
+        android:textAlignment="viewStart"
+        android:textColor="#fff"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/to_somnia"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:id="@+id/to_somnia"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="To Somnia"
+        android:textAlignment="viewStart"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/welcome"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/resume"
+        android:layout_width="220dp"
+        android:layout_height="120dp"
+        android:text="A new way to control sleep wellness rating your sleep, consulting statistics and more."
+        android:textAlignment="viewStart"
+        android:textColor="#fff"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/to_somnia"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/begin"
+        android:layout_width="90dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="120dp"
+        android:background="#00000000"
+        android:text="Let's begin"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resume"
+        android:layout_marginBottom="142dp"/>
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginEnd="340dp"
+        android:layout_marginBottom="140dp"
+        android:background="@drawable/white_arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/begin"
+        app:layout_constraintTop_toBottomOf="@+id/resume" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,13 +23,13 @@ class Toolbar : androidx.fragment.app.Fragment() {
             }
         }
 
-        /*viewActual.button_graph.setOnClickListener { view ->
-            if (activity?.javaClass?.simpleName != Prueba::class.simpleName) {
-                val principal = Intent(activity, Prueba::class.java)
+        viewActual.button_graph.setOnClickListener { view ->
+            if (activity?.javaClass?.simpleName != ChartsCard::class.simpleName) {
+                val principal = Intent(activity, ChartsCard::class.java)
                 startActivity(principal)
             }
         }
-        */
+
         viewActual.button_clock.setOnClickListener { view ->
             if (activity?.javaClass?.simpleName != AlarmsActivity::class.simpleName) {
                 val principal = Intent(activity, AlarmsActivity::class.java)
