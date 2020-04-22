@@ -43,7 +43,7 @@ class PieChart: AppCompatActivity() {
         val range_colors = arrayOf("#9575cd", "#ce93d8","#8e24aa")
         var palette = pie.palette(range_colors)
         background.stroke("#663399")
-        background.fill(GradientKey("#dcd0ff",0,1))
+        //background.fill(GradientKey("#dcd0ff",0,1))
         pieChart.setChart(pie)
     }
 }

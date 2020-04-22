@@ -31,16 +31,14 @@ class AlarmsActivity : AppCompatActivity() {
         list.add(PresentationAlarm("13:15"))
 
         listView.adapter = MyAdapter(this, R.layout.alarm_design,list)
-        /**listView.setOnItemClickListener { parent:AdapterView<*>, view:View, position:Int, id:Long ->
-        }*/
+
 
         val add_button = findViewById<Button>(R.id.add_button)
         add_button.setOnClickListener {
             val intent = Intent(this@AlarmsActivity, New_alarmActivity::class.java)
             startActivity(intent)
         }
-        //val recyclerView:RecyclerView=findViewById(R.id.recycler)
-        //recyclerView.layoutManager=LinearLayoutManager(this,RecyclerView.VERTICAL,false)
+
         val alarms=ArrayList<Alarm>()
         val daysArray=arrayOf("Monday", "Friday")
         val alarm=Alarm("5:45",daysArray)
@@ -54,5 +52,6 @@ class AlarmsActivity : AppCompatActivity() {
 
 
     }
+
 
 }
