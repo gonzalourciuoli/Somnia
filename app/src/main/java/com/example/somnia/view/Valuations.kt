@@ -58,7 +58,7 @@ class Valuations : AppCompatActivity() {
         val day = c.get(Calendar.DAY_OF_MONTH)
 
         pickDate.setOnClickListener{
-            val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, mYear, mMonth, mDay ->
+            val dpd = DatePickerDialog(this, R.style.DatePickerTheme,DatePickerDialog.OnDateSetListener{view, mYear, mMonth, mDay ->
                 pickDate.text = "" + mYear + "-" + (mMonth+1) + "-" + mDay
             }, year, month, day)
 

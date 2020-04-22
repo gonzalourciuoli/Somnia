@@ -19,9 +19,9 @@ class AlarmsActivity : AppCompatActivity() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_alarms_list)
+        setContentView(R.layout.alarms)
 
-        /*var listView : ListView = findViewById(R.id.alarms_list)
+        var listView : ListView = findViewById(R.id.alarms_list)
         var list = mutableListOf<PresentationAlarm>()
 
         list.add(PresentationAlarm("6:30"))
@@ -30,7 +30,7 @@ class AlarmsActivity : AppCompatActivity() {
         list.add(PresentationAlarm("12:05"))
         list.add(PresentationAlarm("13:15"))
 
-        listView.adapter = MyAdapter(this, R.layout.alarm_design,list)*/
+        listView.adapter = MyAdapter(this, R.layout.alarm_design,list)
         /**listView.setOnItemClickListener { parent:AdapterView<*>, view:View, position:Int, id:Long ->
         }*/
 
@@ -39,7 +39,7 @@ class AlarmsActivity : AppCompatActivity() {
             val intent = Intent(this@AlarmsActivity, New_alarmActivity::class.java)
             startActivity(intent)
         }
-        val recyclerView:RecyclerView=findViewById(R.id.recycler)
+        //val recyclerView:RecyclerView=findViewById(R.id.recycler)
         //recyclerView.layoutManager=LinearLayoutManager(this,RecyclerView.VERTICAL,false)
         val alarms=ArrayList<Alarm>()
         val daysArray=arrayOf("Monday", "Friday")
@@ -49,10 +49,10 @@ class AlarmsActivity : AppCompatActivity() {
         alarms.add(alarm2)
         val alarm3=Alarm("9:07",daysArray)
         alarms.add(alarm3)
-        val adapter=AdapterAlarm(alarms)
-        recyclerView.adapter=adapter
+        //val adapter=AdapterAlarm(alarms)
+        //recyclerView.adapter=adapter
 
-        //hola
+
     }
 
 }
