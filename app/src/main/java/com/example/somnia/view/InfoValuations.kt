@@ -22,7 +22,7 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info_valuations)
 
-        listView = findViewById(R.id.valuations_list) as ListView
+        listView = findViewById(R.id.valuations_list)
         db = FirebaseFirestore.getInstance()
         arrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
 
@@ -41,11 +41,7 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         if (date != "") {
             Toast.makeText(this, "Entra" , Toast.LENGTH_LONG).show()
-            /*db.collection("valuations").document(user.toString()).collection(date.toString())
-            .document("data").get().addOnSuccessListener {
-                    val numStars = it.get("numStars").toString()
-                arrayAdapter.add(numStars!!)
-            }*/
+
             db.collection("valuations").document(user.toString()).collection(date.toString())
                 .get()
                 .addOnSuccessListener { result ->
@@ -140,7 +136,7 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
         arrayAdapter.add("valuation 3")
         listView.adapter = arrayAdapter
 
-        val retrn = findViewById<Button>(R.id.retButton) as Button
+        val retrn = findViewById(R.id.retButton) as Button
         retrn.setOnClickListener {
             val intent = Intent(this@InfoValuations, Buttons_ListCalendar::class.java)
             startActivity(intent)
@@ -160,7 +156,7 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
             alertView.findViewById<Button>(R.id.delete_valuation_alert_confirm).setOnClickListener {
                 arrayAdapter.remove(valuation)
                 listView.adapter = arrayAdapter
-                /*db.collection("valuations").document(valuation)
+                /*db.collection("valuations").document(user.toString()).collection().document("data")
                 .delete().addOnSuccessListener {
                     Toast.makeText(this, "Valuation successfully deleted", Toast.LENGTH_LONG).show()
                 }

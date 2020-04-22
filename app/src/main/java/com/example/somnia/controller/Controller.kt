@@ -8,7 +8,7 @@ import kotlin.math.*
 
 class Controller{
 
-    fun controller(){
+    constructor(){
 
     }
 
