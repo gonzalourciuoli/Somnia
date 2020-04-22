@@ -52,7 +52,7 @@ class HorizonBarChart : AppCompatActivity(){
         val rangeColors = arrayOf("#663399")
         bar.palette(rangeColors)
         background.stroke("#663399")
-        background.fill(GradientKey("#dcd0ff",0,1))
+        //background.fill(GradientKey("#dcd0ff",0,1))
         horizonBarChart.setChart(bar)
 
     }

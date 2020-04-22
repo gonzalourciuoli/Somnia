@@ -14,6 +14,13 @@ class New_alarmActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_alarm)
 
-        val monday_switch_act = findViewById<Switch>(R.id.monday_switch)
+        val monday_switch = findViewById<Switch>(R.id.monday_switch)
+        val tuesday_switch = findViewById<Switch>(R.id.tuesday_switch)
+        val wednesday_switch = findViewById<Switch>(R.id.wednesday_switch)
+        val thursday_switch = findViewById<Switch>(R.id.thursday_switch)
+        val friday_switch = findViewById<Switch>(R.id.friday_switch)
+        val saturday_switch = findViewById<Switch>(R.id.saturday_switch)
+        val sunday_switch = findViewById<Switch>(R.id.sunday_switch)
+
     }
 }
