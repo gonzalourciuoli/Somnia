@@ -9,7 +9,7 @@ class New_alarmActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_alarm)
+        setContentView(R.layout.new_alarm)
 
         val monday_switch = findViewById<Switch>(R.id.monday_switch)
         val tuesday_switch = findViewById<Switch>(R.id.tuesday_switch)
