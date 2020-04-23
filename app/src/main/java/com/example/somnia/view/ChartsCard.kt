@@ -52,7 +52,7 @@ class ChartsCard : AppCompatActivity(), AdapterView.OnItemClickListener {
         if (items.name == "AVERAGE")
             startActivity(Intent(this, LinearChart::class.java))
 
-        Toast.makeText(applicationContext, items.name, Toast.LENGTH_LONG).show()
+        //Toast.makeText(applicationContext, items.name, Toast.LENGTH_LONG).show()
 
     }
 }

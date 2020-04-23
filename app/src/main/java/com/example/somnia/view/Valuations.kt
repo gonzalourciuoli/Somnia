@@ -9,9 +9,13 @@ import kotlinx.android.synthetic.main.activity_valuations.*
 import kotlinx.android.synthetic.main.login.view.*
 import java.util.Calendar
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.DialogInterface
+import android.content.SharedPreferences
+import android.view.View
 import android.widget.*
 import com.google.firebase.firestore.FirebaseFirestore
+import com.example.somnia.controller.Controller
 
 class Valuations : AppCompatActivity() {
 
@@ -22,11 +26,17 @@ class Valuations : AppCompatActivity() {
     private lateinit var valuation_comment : EditText
     private lateinit var date : Button
     private lateinit var db : FirebaseFirestore
+    private val controller = Controller()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_valuations)
 
+        init()
+    }
+
+
+    private fun init(){
         numStars = findViewById<RatingBar>(R.id.ratingBar)
         sportBox = findViewById<CheckBox>(R.id.checkBox_sport)
         coffeeBox = findViewById<CheckBox>(R.id.checkBox_coffee)
@@ -36,14 +46,9 @@ class Valuations : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-        init()
-    }
-
-
-    private fun init(){
         val save = findViewById<Button>(R.id.saveButton) as Button
         save.setOnClickListener {
-            this.saveValuations()
+            this.saveValuations(it)
         }
 
         val cancel = findViewById<Button>(R.id.cancelButton) as Button
@@ -58,26 +63,16 @@ class Valuations : AppCompatActivity() {
         val day = c.get(Calendar.DAY_OF_MONTH)
 
         pickDate.setOnClickListener{
-            val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, mYear, mMonth, mDay ->
+            val dpd = DatePickerDialog(this, R.style.DatePickerTheme,DatePickerDialog.OnDateSetListener{view, mYear, mMonth, mDay ->
                 pickDate.text = "" + mYear + "-" + (mMonth+1) + "-" + mDay
             }, year, month, day)
-
-            val intent = Intent(this@Valuations, InfoValuations::class.java)
-            val intent2 = Intent(this@Valuations, Calendar::class.java)
-            val intent3 = Intent(this@Valuations, Valuations::class.java)
-            val bundle = Bundle()
-            bundle.putInt("day", day)
-            bundle.putInt("month", month)
-            bundle.putInt("year", year)
-            intent.putExtras(bundle)
-            intent2.putExtras(bundle)
-            intent3.putExtras(bundle)
+            dpd.datePicker.maxDate = Calendar.getInstance().timeInMillis
 
             dpd.show()
         }
     }
 
-    private fun saveValuations(){
+    private fun saveValuations(view : View){
         val numStars1 = ratingBar.rating
         val sport_box1 = checkBox_sport.isChecked
         val coffee_box1 = checkBox_coffee.isChecked
@@ -86,22 +81,35 @@ class Valuations : AppCompatActivity() {
         val date1 = pickDate.text.toString()
 
 
-        if (date1 == "Pick a date"){
-            Toast.makeText(this, "You need to pick a date", Toast.LENGTH_LONG).show()
-        } else {
-            val valuation = hashMapOf(
-                "date" to date1,
-                "numStars" to numStars1,
-                "sport_box" to sport_box1,
-                "coffee_box" to coffee_box1,
-                "alcohol_box" to alcohol_box1,
-                "valuation_comment" to valuation_comment1
-            )
-            db.collection("valuations").document(date1).set(mapOf("valuation" to valuation))
-            Toast.makeText(this, "Valuation saved", Toast.LENGTH_LONG).show()
+        val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
+        val user = userPreferences.getString("email", "")
 
-            val intent = Intent(this@Valuations, Home::class.java)
-            startActivity(intent)
+        if (user != "") {
+            if (date1 == "Pick a date"){
+                Toast.makeText(this, "You need to pick a date", Toast.LENGTH_LONG).show()
+            } else {
+                db.collection("valuations").document(user.toString()).collection(date1)
+                    .document("data").set(mapOf(
+                        "date" to date1,
+                        "numStars" to numStars1,
+                        "sport_box" to sport_box1,
+                        "coffee_box" to coffee_box1,
+                        "alcohol_box" to alcohol_box1,
+                        "valuation_comment" to valuation_comment1
+                    ))
+                Toast.makeText(this, "Valuation saved", Toast.LENGTH_LONG).show()
+
+                val userPreferences = view.context.getSharedPreferences("valuations", Context.MODE_PRIVATE)
+                val editor: SharedPreferences.Editor = userPreferences.edit()
+
+                editor.putString("date", date1)
+                editor.apply()
+
+                val intent = Intent(this@Valuations, Home::class.java)
+                startActivity(intent)
+            }
+        }else{
+            Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
         }
     }
 
