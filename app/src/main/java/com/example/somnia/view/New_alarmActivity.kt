@@ -54,7 +54,7 @@ class New_alarmActivity : AppCompatActivity() {
     }
 
     private fun addAlarm(){
-        lateinit var weekDays: MutableMap<String, Boolean>
+        val weekDays: MutableMap<String, Boolean> = mutableMapOf<String, Boolean>()
         val title: String = txtTitle.text.toString()
         val hour: String = "Hour: "+timePicker.hour+ " Minute: "+ timePicker.minute
         mondaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->

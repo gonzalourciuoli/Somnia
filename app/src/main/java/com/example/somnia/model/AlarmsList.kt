@@ -1,19 +1,28 @@
 package com.example.somnia.model
-import com.example.somnia.model.Alarm
+import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
 
 class AlarmsList {
     private lateinit var alarmsList:MutableList<Alarm>
+    private lateinit var db: FirebaseFirestore
 
     constructor(alarmsList: MutableList<Alarm>){
         this.alarmsList = alarmsList
+        db = FirebaseFirestore.getInstance()
+
     }
 
     constructor(){
+        alarmsList = mutableListOf<Alarm>()
+        db = FirebaseFirestore.getInstance()
 
     }
 
     fun addAlarm(newAlarm:Alarm){
         alarmsList.add(newAlarm)
+        val infoAlarm: Map<String, Any?> = newAlarm.toMap()
+        db.collection("Alarms")
+            .add(infoAlarm)
     }
 
     fun deleteAlarm(delAlarm: Alarm){
@@ -25,7 +34,6 @@ class AlarmsList {
             }
         }
     }
-
     fun getAlarmsList(): MutableList<Alarm>{
         return this.alarmsList
     }

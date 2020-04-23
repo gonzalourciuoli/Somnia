@@ -18,16 +18,28 @@ import com.example.somnia.model.Alarm
 import com.example.somnia.model.AlarmsList
 
 class AlarmsActivity : AppCompatActivity() {
-    var alarmsList: AlarmsList = AlarmsList()
+    private lateinit var addButton: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        val alarmsList = AlarmsList()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alarms_list)
         val recyclerView: RecyclerView = findViewById(R.id.recycler)
-        recyclerView.layoutManager = LinearLayoutManager(this,RecyclerView.VERTICAL,false)
-
         val list = alarmsList.getAlarmsList()
-        val adapter=AdapterAlarm(list)
-        recyclerView.adapter=adapter
+        recyclerView.adapter = AdapterAlarm(list)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        addButton = findViewById<Button>(R.id.add_button)
+
+        addButton.setOnClickListener {
+            val intent = Intent(this@AlarmsActivity, New_alarmActivity::class.java)
+            startActivity(intent)
+        }
+
+    }
+
+
+
 
 
         /*listView.adapter = MyAdapter(this, R.layout.alarm_design,list)
@@ -49,6 +61,6 @@ class AlarmsActivity : AppCompatActivity() {
         alarms.add(alarm2)
         val alarm3=Alarm("9:07",daysArray)
         alarms.add(alarm3)*/
-    }
+
 
 }
