@@ -11,10 +11,10 @@ class ValuationsList {
         valuationsList = mutableListOf<Valuation>()
         db = FirebaseFirestore.getInstance()
 
-        iniList()
+        initList()
     }
 
-    fun iniList(){
+    fun initList(){
         var valu: Valuation?
         db.collection("valuations")
             .get().addOnSuccessListener {result ->
@@ -56,6 +56,18 @@ class ValuationsList {
             }
         }
         return valu
+    }
+
+    fun getList(user: String): MutableList<String>{
+        var list = mutableListOf<String>()
+        var valu = ""
+        for (valuation in valuationsList){
+            if (valuation.getUserValuation() == user){
+                valu = valuation.toString()
+                list.add(valu)
+            }
+        }
+        return list
     }
 
     fun getValuation(user: String, id: String): Valuation? {

@@ -52,7 +52,6 @@ public class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
 
         if (user != "") {
             informacio = controller.getValuationString(user.toString(), id)
-            Toast.makeText(this, informacio, Toast.LENGTH_LONG).show()
             builder.setMessage(informacio)
             val dialog = builder.create()
             dialog.show()

@@ -123,4 +123,8 @@ class Controller{
             return valuation
         }
     }
+
+    fun listViewValuations(user: String): MutableList<String>{
+        return valuationsList.getList(user)
+    }
 }

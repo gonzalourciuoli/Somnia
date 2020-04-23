@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import com.example.somnia.R
+import com.example.somnia.controller.Controller
 import com.google.firebase.firestore.FirebaseFirestore
 import java.lang.Exception
 
@@ -17,6 +18,7 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
     private lateinit var listView: ListView
     private lateinit var arrayAdapter: ArrayAdapter<String>
     private lateinit var db: FirebaseFirestore
+    private  var controller = Controller()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,10 +41,15 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
         val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
         val user = userPreferences.getString("email", "")
 
-        if (date != "") {
-            Toast.makeText(this, "Entra" , Toast.LENGTH_LONG).show()
+        if (user != "") {
+            var list = controller.listViewValuations(user.toString())
+            Toast.makeText(this, list.toString() , Toast.LENGTH_LONG).show()
 
-            db.collection("valuations").document(user.toString()).collection(date.toString())
+            /*for (item in list){
+                arrayAdapter.add(item)
+            }*/
+
+            /*db.collection("valuations").document(user.toString()).collection(date.toString())
                 .get()
                 .addOnSuccessListener { result ->
                     for (d in result){
@@ -84,52 +91,10 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
                                 arrayAdapter.add(valuation)
                             }
                     }
-                }
+                }*/
         }
 
-
-
-
-
-        /*if (db.collection("valuations") != null){
-            db.collection("valuations")
-                .get()
-                .addOnSuccessListener { result ->
-                    for (valuation in result){
-                        Log.d("TAG", "$valuation.id) => $(valuation.data)")
-                        val date = valuation.id
-                        val numStars = valuation.data.get("numStars").toString()
-                        val sport_box = valuation.data.get("sport_box").toString()
-                        val coffee_box = valuation.data.get("coffee_box").toString()
-                        val alcohol_box = valuation.data.get("alcohol_box").toString()
-                        val valuataion_comment = valuation.data.get("valuation_comment").toString()
-
-                        arrayAdapter.add("Date: " + date +"\n")
-                        arrayAdapter.add("Rating: " + numStars + "/5 \n")
-                        if (sport_box == "true"){
-                            arrayAdapter.add("Sport \n")
-                        }
-                        if (coffee_box == "true"){
-                            arrayAdapter.add("Coffee \n")
-                        }
-                        if (alcohol_box == "true"){
-                            arrayAdapter.add("Alcohol \n")
-                        }
-                        if (valuataion_comment != ""){
-                            arrayAdapter.add(valuataion_comment)
-                        }else{
-                            arrayAdapter.add("No comments")
-                        }
-                        listView.adapter = arrayAdapter
-                    }
-                    Toast.makeText(this, "entra", Toast.LENGTH_LONG).show()
-                }
-                .addOnFailureListener { exception ->
-                    Log.w("TAG", "Error getting valuation. ", exception)
-                }
-        }else{
-            Toast.makeText(this, "There's no valuations" , Toast.LENGTH_LONG).show()
-        }*/
+        
 
         arrayAdapter.add("valuation 1")
         arrayAdapter.add("valuation 2")
