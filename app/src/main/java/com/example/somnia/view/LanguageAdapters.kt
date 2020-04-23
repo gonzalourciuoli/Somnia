@@ -23,7 +23,7 @@ class LanguageAdapters(var context: Context, var arrayList: ArrayList<LanguageIt
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var view : View = View.inflate(context, R.layout.card_view_item_grid, null)
+        var view : View = View.inflate(context, R.layout.activity_card_view_item_grid, null)
         var icons : ImageView = view.findViewById(R.id.icons)
         var names: TextView = view.findViewById(R.id.names)
 

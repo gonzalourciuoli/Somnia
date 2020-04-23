@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.somnia.R
@@ -52,10 +53,11 @@ class Settings : AppCompatActivity() {
 
     private fun deleteAccount(){
         val builder = AlertDialog.Builder(this, R.style.Theme_AppCompat_Dialog_Alert)
-        builder.setView(layoutInflater.inflate(R.layout.eliminar, null))
+        builder.setView(layoutInflater.inflate(R.layout.activity_remove, null))
         val dialog: AlertDialog = builder.create()
-        var alertView = layoutInflater.inflate(R.layout.eliminar, null)
-        alertView.findViewById<TextView>(R.id.delete_valuation).text = "Are you sure you want to delete your account?"
+        var alertView = layoutInflater.inflate(R.layout.activity_remove, null)
+        alertView.findViewById<TextView>(R.id.remove_title).text = "Are you sure you want to delete your account?"
+        alertView.findViewById<TextView>(R.id.remove_description).text = "After you delete it you will be unable to recover any data"
         alertView.findViewById<Button>(R.id.delete_valuation_alert_cancel).setOnClickListener {
             dialog.cancel()
         }
@@ -78,10 +80,12 @@ class Settings : AppCompatActivity() {
 
     private fun logOut(){
         val builder = AlertDialog.Builder(this, R.style.Theme_AppCompat_Dialog_Alert)
-        builder.setView(layoutInflater.inflate(R.layout.eliminar, null))
+        builder.setView(layoutInflater.inflate(R.layout.activity_remove, null))
         val dialog: AlertDialog = builder.create()
-        var alertView = layoutInflater.inflate(R.layout.eliminar, null)
-        alertView.findViewById<TextView>(R.id.delete_valuation).text = "Are you sure you want to log out?"
+        var alertView = layoutInflater.inflate(R.layout.activity_remove, null)
+        alertView.findViewById<TextView>(R.id.remove_title).text = "Are you sure you want to log out?"
+        alertView.findViewById<TextView>(R.id.remove_description).text = ""
+        alertView.findViewById<ImageView>(R.id.remove_icon).setImageResource(R.drawable.ic_error_outline_black_24dp)
         alertView.findViewById<Button>(R.id.delete_valuation_alert_cancel).setOnClickListener {
             dialog.cancel()
         }
