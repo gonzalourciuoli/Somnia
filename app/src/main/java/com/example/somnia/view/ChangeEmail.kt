@@ -7,11 +7,13 @@ import android.view.View
 import android.widget.Button
 import com.example.somnia.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_change_email.*
 
 class ChangeEmail : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

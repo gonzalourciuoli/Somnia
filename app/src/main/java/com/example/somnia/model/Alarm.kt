@@ -1,16 +1,47 @@
 package com.example.somnia.model
 
-class Alarm {
-    var alarmHour:String
-    var alarmDays:Array<String>
-    var activatedAlarm:Boolean
+import com.google.firebase.firestore.FirebaseFirestore
 
-    constructor(alarmHour:String, alarmDays:Array<String>){
-        this.alarmHour=alarmHour
-        this.alarmDays=alarmDays
-        this.activatedAlarm=true
+class Alarm {
+    private var title: String
+    private var hour: String
+    private var weekDays: MutableMap<String, Boolean>
+    private var status: Boolean
+
+
+    constructor(title: String, hour: String, weekDays: MutableMap<String, Boolean>){
+        this.title = title
+        this.hour = hour
+        this.weekDays = weekDays
+        this.status = true
+
     }
-    fun changeStatus(newStatus:Boolean){
-        this.activatedAlarm=newStatus
+    fun setStatus(newStatus:Boolean){
+        this.status=newStatus
+    }
+
+    fun getStatus(): Boolean{
+        return this.status
+    }
+
+    fun getTitle(): String{
+        return this.title
+    }
+
+    fun getHour(): String{
+        return this.hour
+    }
+
+    fun getWeekDays(): MutableMap<String, Boolean> {
+        return this.weekDays
+    }
+
+    fun toMap(): Map<String, Any?>{
+        return mapOf(
+            "Title" to title,
+            "Hour" to hour,
+            "Days of the week" to weekDays,
+            "Alarm on" to status
+        )
     }
 }

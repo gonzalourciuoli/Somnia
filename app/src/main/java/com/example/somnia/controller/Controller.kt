@@ -3,12 +3,16 @@ package com.example.somnia.controller
 import android.widget.EditText
 import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
+import com.example.somnia.model.Alarm
+import com.example.somnia.model.AlarmsList
 import com.example.somnia.view.Valuations
 import kotlin.math.*
 
 class Controller{
+    val alarmsList: AlarmsList = AlarmsList()
 
     constructor(){
+
 
     }
 
@@ -95,5 +99,8 @@ class Controller{
     }
 
 
-
+    public fun addAlarm(title: String, hour: String, weekDays: MutableMap<String, Boolean>){
+        val newAlarm: Alarm = Alarm(title, hour, weekDays)
+        alarmsList.addAlarm(newAlarm)
+    }
 }

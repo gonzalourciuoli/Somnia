@@ -5,22 +5,109 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import com.example.somnia.controller.Controller
 import kotlinx.android.synthetic.main.alarm_design.*
 
 
 class New_alarmActivity : AppCompatActivity() {
 
+    val controller = Controller()
+    private lateinit var txtTitle: EditText
+    private lateinit var timePicker: TimePicker
+    private lateinit var mondaySwitch: Switch
+    private lateinit var tuesdaySwitch: Switch
+    private lateinit var wednesdaySwitch: Switch
+    private lateinit var thursdaySwitch: Switch
+    private lateinit var fridaySwitch: Switch
+    private lateinit var saturdaySwitch: Switch
+    private lateinit var sundaySwitch: Switch
+    private lateinit var addButton: Button
+    private lateinit var cancelButton: Button
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_alarm)
 
-        val monday_switch = findViewById<Switch>(R.id.monday_switch)
-        val tuesday_switch = findViewById<Switch>(R.id.tuesday_switch)
-        val wednesday_switch = findViewById<Switch>(R.id.wednesday_switch)
-        val thursday_switch = findViewById<Switch>(R.id.thursday_switch)
-        val friday_switch = findViewById<Switch>(R.id.friday_switch)
-        val saturday_switch = findViewById<Switch>(R.id.saturday_switch)
-        val sunday_switch = findViewById<Switch>(R.id.sunday_switch)
+        txtTitle = findViewById(R.id.alarmTitle)
+        timePicker = findViewById(R.id.timePicker)
+        mondaySwitch = findViewById(R.id.monday_switch)
+        tuesdaySwitch = findViewById(R.id.tuesday_switch)
+        wednesdaySwitch= findViewById(R.id.wednesday_switch)
+        thursdaySwitch = findViewById(R.id.thursday_switch)
+        fridaySwitch = findViewById(R.id.friday_switch)
+        saturdaySwitch = findViewById(R.id.saturday_switch)
+        sundaySwitch = findViewById(R.id.sunday_switch)
+        addButton = findViewById<Button>(R.id.add)
+        cancelButton = findViewById(R.id.cancel)
+
+        addButton.setOnClickListener {
+            addAlarm()
+            val intent = Intent(this@New_alarmActivity, AlarmsActivity::class.java)
+            startActivity(intent)
+        }
+
+        cancelButton.setOnClickListener {
+            val intent = Intent(this@New_alarmActivity, AlarmsActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun addAlarm(){
+        val weekDays: MutableMap<String, Boolean> = mutableMapOf<String, Boolean>()
+        val title: String = txtTitle.text.toString()
+        val hour: String = "Hour: "+timePicker.hour+ " Minute: "+ timePicker.minute
+        mondaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                weekDays.put("Monday",true)
+            } else {
+                weekDays.put("Monday",false)
+            }
+        }
+        tuesdaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                weekDays.put("Tuesday",true)
+            } else {
+                weekDays.put("Tuesday",false)
+            }
+        }
+        wednesdaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                weekDays.put("Wednesday",true)
+            } else {
+                weekDays.put("Wednesday",false)
+            }
+        }
+        thursdaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                weekDays.put("Thursday",true)
+            } else {
+                weekDays.put("Thursday",false)
+            }
+        }
+        fridaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                weekDays.put("Friday",true)
+            } else {
+                weekDays.put("Friday",false)
+            }
+        }
+        saturdaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                weekDays.put("Saturday",true)
+            } else {
+                weekDays.put("Saturday",false)
+            }
+        }
+        sundaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                weekDays.put("Sunday",true)
+            } else {
+                weekDays.put("Sunday",false)
+            }
+        }
+        controller.addAlarm(title, hour, weekDays)
+
 
     }
 }
