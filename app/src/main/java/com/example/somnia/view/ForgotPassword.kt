@@ -2,21 +2,30 @@ package com.example.somnia.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.somnia.R
+import com.google.firebase.auth.FirebaseAuth
 
 class ForgotPassword: AppCompatActivity()  {
+
+    private lateinit var txtEmailAccount : EditText
+    private lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
 
+        txtEmailAccount = findViewById(R.id.email_account)
+        auth = FirebaseAuth.getInstance()
+
         val send = findViewById<Button>(R.id.send) as Button
         send.setOnClickListener {
-                Toast.makeText(this, "The code has been send to your email" , Toast.LENGTH_SHORT ).show()
+            sendCode()
         }
 
         val skip = findViewById<Button>(R.id.skip) as Button
@@ -24,5 +33,24 @@ class ForgotPassword: AppCompatActivity()  {
             val intent = Intent(this@ForgotPassword, logInActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun sendCode(){
+        val emailAccount : String = txtEmailAccount.text.toString()
+
+        if(TextUtils.isEmpty(emailAccount))
+            Toast.makeText(this, "The field is empty. Type your email" , Toast.LENGTH_SHORT ).show()
+        else{
+            auth.fetchSignInMethodsForEmail(emailAccount)
+                .addOnCompleteListener(this){
+                    task ->
+                    if (task.isSuccessful)
+                        Toast.makeText(this, "Code has been send to your email" , Toast.LENGTH_SHORT ).show()
+                    else
+                        Toast.makeText(this, "Not registered account to this email" , Toast.LENGTH_SHORT ).show()
+                }
+
+        }
+
     }
 }
