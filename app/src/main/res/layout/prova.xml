@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="46dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/alarmsetter" />
+
+        <TextView
+            android:id="@+id/alarm_hour"
+            android:layout_width="205dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="95dp"
+            android:ems="10"
+            android:text="Alarm hour"
+            android:textAlignment="center"
+            android:textColor="#FFFFFFFF"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/sunday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="4dp"
+            android:text="Sun"
+            android:textSize="10sp"
+            android:textColor="#9E9E9E"
+            android:layout_toStartOf="@+id/alarm_hour"
+            android:layout_toEndOf="@+id/alarm_hour" />
+
+        <TextView
+            android:id="@+id/monday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:text="Mon"
+            android:textSize="10sp"
+            android:textColor="#9E9E9E"
+            android:layout_toEndOf="@+id/alarm_hour" />
+
+        <TextView
+            android:id="@+id/wednesday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="4dp"
+            android:text="Wed"
+            android:textSize="10sp"
+            android:textColor="#9E9E9E"
+            android:layout_toEndOf="@+id/alarm_hour"  />
+
+        <TextView
+            android:id="@+id/thursday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="4dp"
+            android:text="Thu"
+            android:textSize="10sp"
+            android:textColor="#9E9E9E"
+            android:layout_toEndOf="@+id/alarm_hour"  />
+
+        <TextView
+            android:id="@+id/tuesday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="4dp"
+            android:text="Tue"
+            android:textSize="10sp"
+            android:textColor="#9E9E9E"
+            android:layout_toEndOf="@+id/alarm_hour"  />
+
+        <TextView
+            android:id="@+id/friday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="4dp"
+            android:text="Fri"
+            android:textSize="10sp"
+            android:textColor="#9E9E9E"
+            android:layout_toEndOf="@+id/alarm_hour" />
+
+        <TextView
+            android:id="@+id/saturday_view"
+            android:layout_width="22dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="192dp"
+            android:layout_marginTop="4dp"
+            android:text="Sat"
+            android:textSize="10sp"
+            android:textColor="#9E9E9E"
+            android:layout_toEndOf="@+id/alarm_hour" />
+
+        <Switch
+            android:id="@+id/toggle_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="20dp"
+            android:theme="@style/SwitchTheme"
+            android:layout_toEndOf="@+id/alarm_hour"  />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
