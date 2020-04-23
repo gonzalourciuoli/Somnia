@@ -84,19 +84,11 @@ class Valuations : AppCompatActivity() {
         val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
         val user = userPreferences.getString("email", "")
 
-        if (user != "") {
+        if (user != "" || user != null) {
             if (date1 == "Pick a date"){
                 Toast.makeText(this, "You need to pick a date", Toast.LENGTH_LONG).show()
             } else {
-                db.collection("valuations").document(user.toString()).collection(date1)
-                    .document("data").set(mapOf(
-                        "date" to date1,
-                        "numStars" to numStars1,
-                        "sport_box" to sport_box1,
-                        "coffee_box" to coffee_box1,
-                        "alcohol_box" to alcohol_box1,
-                        "valuation_comment" to valuation_comment1
-                    ))
+                controller.addValuation(user!!, date1, numStars1, sport_box1, coffee_box1, alcohol_box1, valuation_comment1)
                 Toast.makeText(this, "Valuation saved", Toast.LENGTH_LONG).show()
 
                 val userPreferences = view.context.getSharedPreferences("valuations", Context.MODE_PRIVATE)

@@ -2,9 +2,11 @@ package com.example.somnia.view
 import com.example.somnia.R
 import android.content.Intent
 import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.annotation.RequiresApi
 import com.example.somnia.controller.Controller
 import kotlinx.android.synthetic.main.alarm_design.*
 
@@ -25,6 +27,7 @@ class New_alarmActivity : AppCompatActivity() {
     private lateinit var cancelButton: Button
 
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_alarm)
@@ -53,6 +56,7 @@ class New_alarmActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun addAlarm(){
         val weekDays: MutableMap<String, Boolean> = mutableMapOf<String, Boolean>()
         val title: String = txtTitle.text.toString()

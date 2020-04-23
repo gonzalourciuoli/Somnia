@@ -1,15 +1,20 @@
 package com.example.somnia.controller
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.widget.EditText
 import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
 import com.example.somnia.model.Alarm
 import com.example.somnia.model.AlarmsList
+import com.example.somnia.model.Valuation
+import com.example.somnia.model.ValuationsList
 import com.example.somnia.view.Valuations
 import kotlin.math.*
 
 class Controller{
     val alarmsList: AlarmsList = AlarmsList()
+    val valuationsList : ValuationsList = ValuationsList()
 
     constructor(){
 
@@ -25,7 +30,6 @@ class Controller{
                 this.calculateTimeToWakeUp(timeBed, hoursToSleep, timeWakeUp)
             }
         }
-
 
         cycleSwitch1.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
@@ -102,5 +106,21 @@ class Controller{
     public fun addAlarm(title: String, hour: String, weekDays: MutableMap<String, Boolean>){
         val newAlarm: Alarm = Alarm(title, hour, weekDays)
         alarmsList.addAlarm(newAlarm)
+    }
+
+    fun addValuation(user: String, date: String, numStars: Float, sport_box: Boolean, coffee_box: Boolean,
+                     alcohol_box: Boolean, valuation_comment: String){
+        val newValuation = Valuation(user, date, numStars, sport_box, coffee_box, alcohol_box, valuation_comment)
+        valuationsList.addValuation(newValuation)
+
+    }
+
+    fun getValuationString(user: String, id: String): String {
+        val valuation = valuationsList.getValuationString(user, id)
+        if (valuation == ""){
+            return "No valuation on this day"
+        }else{
+            return valuation
+        }
     }
 }

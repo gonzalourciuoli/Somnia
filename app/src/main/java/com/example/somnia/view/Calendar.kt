@@ -4,7 +4,6 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.renderscript.Int2
 import android.widget.Button
 import android.widget.CalendarView
 import android.widget.Toast
@@ -17,6 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 public class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
 
         private lateinit var db: FirebaseFirestore
+        private val controller = Controller()
 
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +51,15 @@ public class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
         val user = userPreferences.getString("email", "")
 
         if (user != "") {
-            db.collection("valuations").document(user.toString()).collection(id).document("data")
+            informacio = controller.getValuationString(user.toString(), id)
+            Toast.makeText(this, informacio, Toast.LENGTH_LONG).show()
+            builder.setMessage(informacio)
+            val dialog = builder.create()
+            dialog.show()
+        }else {
+            Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+        }
+            /*db.collection("valuations").document(user.toString()).collection(id).document("data")
                 .get().addOnSuccessListener {
                     val date = it.get("date").toString()
                     val numStars = it.get("numStars").toString()
@@ -93,8 +101,7 @@ public class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
-                }
-        }
+                }*/
 
 
     }
