@@ -2,18 +2,14 @@ package com.example.somnia.controller
 
 import android.widget.EditText
 import android.widget.Switch
-import androidx.appcompat.app.AppCompatActivity
 import com.example.somnia.model.Alarm
-import com.example.somnia.model.AlarmsList
-import com.example.somnia.view.Valuations
-import kotlin.math.*
+import com.example.somnia.model.DataBase
 
 class Controller{
-    val alarmsList: AlarmsList = AlarmsList()
+    private var data_base: DataBase
 
-    fun controller(){
-
-
+    constructor(){
+        data_base = DataBase()
     }
 
     fun calculator(cycleSwitch: Switch, cycleSwitch1: Switch, timeWakeUp: EditText, timeBed: EditText, hoursToSleep: EditText) {
@@ -101,6 +97,10 @@ class Controller{
 
     public fun addAlarm(title: String, hour: String, weekDays: MutableMap<String, Boolean>){
         val newAlarm: Alarm = Alarm(title, hour, weekDays)
-        alarmsList.addAlarm(newAlarm)
+        data_base.addAlarm(newAlarm)
     }
+
+    /*fun getAlarmsList(): MutableList<Alarm>{
+        return data_base.getAlarmsList()
+    }*/
 }
