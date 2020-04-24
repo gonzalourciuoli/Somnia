@@ -94,7 +94,7 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
                 }*/
         }
 
-        
+
 
         arrayAdapter.add("valuation 1")
         arrayAdapter.add("valuation 2")
