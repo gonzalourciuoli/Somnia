@@ -1,7 +1,5 @@
 package com.example.somnia.controller
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.widget.EditText
 import android.widget.Switch
 import com.example.somnia.model.Alarm
@@ -102,7 +100,7 @@ class Controller{
     }
 
 
-    public fun addAlarm(title: String, hour: String, weekDays: MutableMap<String, Boolean>){
+    fun addAlarm(title: String, hour: String, weekDays: MutableMap<String, Boolean>){
         val newAlarm: Alarm = Alarm(title, hour, weekDays)
         data_base.addAlarm(newAlarm)
     }
@@ -123,7 +121,7 @@ class Controller{
         }
     }
 
-    fun listViewValuations(user: String): MutableList<String>{
+    fun listViewValuations(user: String): MutableList<String> {
         return valuationsList.getList(user)
     }
 

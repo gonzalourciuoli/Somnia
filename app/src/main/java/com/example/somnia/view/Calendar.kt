@@ -10,11 +10,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.somnia.R
 import com.example.somnia.controller.Controller
-import com.google.firebase.firestore.FirebaseFirestore
 
 class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
 
-        private lateinit var db: FirebaseFirestore
         private val controller = Controller()
 
         override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +23,6 @@ class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
     }
 
     private fun init(){
-        db = FirebaseFirestore.getInstance()
         val calendar = findViewById<CalendarView>(R.id.calendarView) as CalendarView
         calendar.setOnDateChangeListener(this)
 

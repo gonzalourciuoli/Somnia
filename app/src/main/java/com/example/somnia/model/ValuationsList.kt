@@ -3,7 +3,6 @@ package com.example.somnia.model
 
 class ValuationsList {
     private var valuationsList:MutableList<Valuation>
-    private var valuation: Valuation? = null
     private var data_base: DataBase
 
     constructor(){
@@ -38,9 +37,9 @@ class ValuationsList {
         return valu
     }
 
-    fun getList(user: String): MutableList<String>{
-        var list = mutableListOf<String>()
+    fun getList(user: String): MutableList<String> {
         var valu = ""
+        var list = mutableListOf<String>()
         for (valuation in valuationsList){
             if (valuation.getUserValuation() == user){
                 valu = valuation.toString()

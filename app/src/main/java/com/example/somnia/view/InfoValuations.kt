@@ -45,9 +45,9 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
             var list = controller.listViewValuations(user.toString())
             Toast.makeText(this, list.toString() , Toast.LENGTH_LONG).show()
 
-            /*for (item in list){
+            for (item in list){
                 arrayAdapter.add(item)
-            }*/
+            }
 
             /*db.collection("valuations").document(user.toString()).collection(date.toString())
                 .get()
@@ -146,7 +146,7 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
         val builder = AlertDialog.Builder(this)
         val item1 : CharSequence = "Delete"
         val item2 : CharSequence = "Cancel"
-        var items : kotlin.Array<CharSequence>? = kotlin.Array(2){ item1 }
+        var items : Array<CharSequence>? = Array(2){ item1 }
         items?.set(1, item2)
 
         builder.setTitle("Delete valuation")

@@ -4,17 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.somnia.R
-//import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_valuations.*
-import kotlinx.android.synthetic.main.login.view.*
 import java.util.Calendar
 import android.app.DatePickerDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.view.View
 import android.widget.*
-import com.google.firebase.firestore.FirebaseFirestore
 import com.example.somnia.controller.Controller
 
 class Valuations : AppCompatActivity() {
@@ -25,7 +21,6 @@ class Valuations : AppCompatActivity() {
     private lateinit var alcoholBox : CheckBox
     private lateinit var valuation_comment : EditText
     private lateinit var date : Button
-    private lateinit var db : FirebaseFirestore
     private val controller = Controller()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,8 +38,6 @@ class Valuations : AppCompatActivity() {
         alcoholBox = findViewById<CheckBox>(R.id.checkBox_alcohol)
         valuation_comment = findViewById<EditText>(R.id.text_comment)
         date = findViewById<Button>(R.id.pickDate) as Button
-
-        db = FirebaseFirestore.getInstance()
 
         val save = findViewById<Button>(R.id.saveButton) as Button
         save.setOnClickListener {
