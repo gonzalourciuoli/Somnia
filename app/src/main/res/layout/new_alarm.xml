@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/current_Email"
+        android:id="@+id/alarmTitle"
         android:layout_width="306dp"
         android:layout_height="62dp"
         android:layout_marginTop="28dp"
