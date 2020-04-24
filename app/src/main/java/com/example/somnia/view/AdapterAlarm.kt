@@ -11,7 +11,7 @@ import com.example.somnia.R
 class AdapterAlarm (var list: MutableList<Alarm>): RecyclerView.Adapter<AdapterAlarm.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.prova, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.alarm_design, parent, false)
         return ViewHolder(v)
     }
 
