@@ -4,8 +4,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.widget.EditText
 import android.widget.Switch
-import androidx.appcompat.app.AppCompatActivity
 import com.example.somnia.model.Alarm
+import com.example.somnia.model.DataBase
 import com.example.somnia.model.AlarmsList
 import com.example.somnia.model.Valuation
 import com.example.somnia.model.ValuationsList
@@ -16,9 +16,10 @@ class Controller{
     val alarmsList: AlarmsList = AlarmsList()
     val valuationsList : ValuationsList = ValuationsList()
 
+    private var data_base: DataBase
+
     constructor(){
-
-
+        data_base = DataBase()
     }
 
     fun calculator(cycleSwitch: Switch, cycleSwitch1: Switch, timeWakeUp: EditText, timeBed: EditText, hoursToSleep: EditText) {
@@ -105,7 +106,7 @@ class Controller{
 
     public fun addAlarm(title: String, hour: String, weekDays: MutableMap<String, Boolean>){
         val newAlarm: Alarm = Alarm(title, hour, weekDays)
-        alarmsList.addAlarm(newAlarm)
+        data_base.addAlarm(newAlarm)
     }
 
     fun addValuation(user: String, date: String, numStars: Float, sport_box: Boolean, coffee_box: Boolean,
@@ -127,4 +128,8 @@ class Controller{
     fun listViewValuations(user: String): MutableList<String>{
         return valuationsList.getList(user)
     }
+
+    /*fun getAlarmsList(): MutableList<Alarm>{
+        return data_base.getAlarmsList()
+    }*/
 }

@@ -11,7 +11,7 @@ import com.example.somnia.R
 class AdapterAlarm (var list: MutableList<Alarm>): RecyclerView.Adapter<AdapterAlarm.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.prova, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.alarm_design, parent, false)
         return ViewHolder(v)
     }
 
@@ -47,25 +47,25 @@ class AdapterAlarm (var list: MutableList<Alarm>): RecyclerView.Adapter<AdapterA
             }
             val days: MutableMap<String, Boolean> = data.getWeekDays()
             if (days["Monday"] == true) {
-                monday.setTextColor(17170444)
+                monday.setTextColor(-16777216)
             }
             if (days["Tuesday"] == true) {
-                tuesday.setTextColor(17170444)
+                tuesday.setTextColor(-16777216)
             }
             if (days["Wednesday"] == true) {
-                wednesday.setTextColor(17170444)
+                wednesday.setTextColor(-16777216)
             }
             if (days["Thursday"] == true) {
-                thursday.setTextColor(17170444)
+                thursday.setTextColor(-16777216)
             }
             if (days["Friday"] == true) {
-                friday.setTextColor(17170444)
+                friday.setTextColor(-16777216)
             }
             if (days["Saturday"] == true) {
-                saturday.setTextColor(17170444)
+                saturday.setTextColor(-16777216)
             }
             if (days["Sunday"] == true) {
-                sunday.setTextColor(17170444)
+                sunday.setTextColor(-16777216)
             }
         }
 

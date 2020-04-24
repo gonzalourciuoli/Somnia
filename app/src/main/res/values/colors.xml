@@ -7,6 +7,8 @@
     <color name="cardview_light_background">#FFFFFFFF</color>
     <color name="cardview_shadow_end_color">#03000000</color>
     <color name="cardview_shadow_start_color">#37000000</color>
+    <color name="colorRed">#d0312d</color>
+    <color name="colorDarkRed">#801b20</color>
     <color name="wake">#FF9800</color>
     <color name="sleep">#302F33</color>
 </resources>
