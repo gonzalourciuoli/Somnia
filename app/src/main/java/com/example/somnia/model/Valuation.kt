@@ -1,10 +1,5 @@
 package com.example.somnia.model
 
-import android.widget.Toast
-import com.google.firebase.firestore.FirebaseFirestore
-import kotlin.properties.Delegates
-import android.content.Context
-
 class Valuation {
 
     private var user : String
@@ -14,7 +9,6 @@ class Valuation {
     private var coffee_box : Boolean
     private var alcohol_box : Boolean
     private var valuation_comment : String
-    private var db : FirebaseFirestore
 
     constructor(user: String, date : String, numStars : Float, sport_box : Boolean, coffee_box : Boolean,
                 alcohol_box : Boolean, valuation_comment : String){
@@ -25,11 +19,9 @@ class Valuation {
         this.coffee_box = coffee_box
         this.alcohol_box = alcohol_box
         this.valuation_comment = valuation_comment
-
-        db = FirebaseFirestore.getInstance()
     }
 
-    fun addValuation(){
+    /*fun addValuation(){
         /*db.collection("valuations").document(user).set(mapOf(
                 "date" to date,
                 "numStars" to numStars,
@@ -48,6 +40,18 @@ class Valuation {
                 "alcohol_box" to alcohol_box,
                 "valuation_comment" to valuation_comment
             ))
+    }*/
+
+    fun toMap(): Map<String, Any?>{
+        return mapOf(
+            "user" to user,
+            "date" to date,
+            "numStars" to numStars,
+            "sport_box" to sport_box,
+            "coffee_box" to coffee_box,
+            "alcohol_box" to alcohol_box,
+            "valuation_comment" to valuation_comment
+        )
     }
 
     fun getUserValuation(): String{
@@ -78,7 +82,7 @@ class Valuation {
         return this.valuation_comment
     }
 
-    fun getValuationString(user: String, id: String): String {
+    /*fun getValuationString(user: String, id: String): String {
         var valu = ""
         db.collection("valuations").document(user).collection(id).document("data")
             .get().addOnSuccessListener {
@@ -96,7 +100,7 @@ class Valuation {
             }
 
         return valu
-    }
+    }*/
 
     override fun toString(): String{
         var informacio = ""
@@ -162,7 +166,7 @@ class Valuation {
         return informacio
     }
 
-    fun getValuation(user: String, id: String): Valuation{
+    /*fun getValuation(user: String, id: String): Valuation{
         var valu : Valuation? = null
         db.collection("valuations").document(user).collection(id).document("data")
             .get().addOnSuccessListener {
@@ -179,5 +183,5 @@ class Valuation {
                 }
             }
         return valu!!
-    }
+    }*/
 }

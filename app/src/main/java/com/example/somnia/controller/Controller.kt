@@ -6,16 +6,14 @@ import android.widget.EditText
 import android.widget.Switch
 import com.example.somnia.model.Alarm
 import com.example.somnia.model.DataBase
-import com.example.somnia.model.AlarmsList
 import com.example.somnia.model.Valuation
 import com.example.somnia.model.ValuationsList
 import com.example.somnia.view.Valuations
 import kotlin.math.*
 
 class Controller{
-    val alarmsList: AlarmsList = AlarmsList()
-    val valuationsList : ValuationsList = ValuationsList()
 
+    val valuationsList : ValuationsList = ValuationsList()
     private var data_base: DataBase
 
     constructor(){
@@ -113,7 +111,7 @@ class Controller{
                      alcohol_box: Boolean, valuation_comment: String){
         val newValuation = Valuation(user, date, numStars, sport_box, coffee_box, alcohol_box, valuation_comment)
         valuationsList.addValuation(newValuation)
-
+        data_base.addValuation(newValuation)
     }
 
     fun getValuationString(user: String, id: String): String {
