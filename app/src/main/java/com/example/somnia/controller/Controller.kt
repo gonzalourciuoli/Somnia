@@ -29,7 +29,7 @@ class Controller{
                      alcohol_box: Boolean, valuation_comment: String){
         val newValuation = Valuation(user, date, numStars, sport_box, coffee_box, alcohol_box, valuation_comment)
         valuationsList.addValuation(newValuation)
-        data_base.addValuation(newValuation)
+        data_base.addValuation(newValuation, user, date)
     }
 
     fun getValuationString(user: String, id: String): String {
