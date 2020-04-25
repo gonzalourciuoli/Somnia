@@ -65,7 +65,7 @@ class SignUpActivity : AppCompatActivity() {
                         "password" to password
                     )
                     db.collection("users")
-                        .add(user)
+                        .document(email).set(user)
                         .addOnSuccessListener {
                             Toast.makeText(this, "User created", Toast.LENGTH_LONG)
                         }
