@@ -6,10 +6,12 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import com.example.somnia.R
 import com.example.somnia.controller.Controller
+import com.example.somnia.model.Valuation
 import com.google.firebase.firestore.FirebaseFirestore
 import java.lang.Exception
 
@@ -42,17 +44,25 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
         val user = userPreferences.getString("email", "")
 
         if (user != "") {
-            var list = controller.listViewValuations(user.toString())
-            Toast.makeText(this, list.toString() , Toast.LENGTH_LONG).show()
+            var valu = ""
+            //controller.listViewValuations(user.toString())
+            db.collection("valuations")
+                .whereEqualTo("user", user)
+                .get().addOnSuccessListener {result ->
+                    for (valuation in result){
+                        val date = valuation.get("date").toString()
+                        val numStars = valuation.get("numStars").toString()
+                        val sport_box = valuation.get("sport_box").toString()
+                        val coffee_box = valuation.get("coffee_box").toString()
+                        val alcohol_box = valuation.get("alcohol_box").toString()
+                        val valuation_comment = valuation.get("valuation_comment").toString()
+                        valu = Valuation(user!!, date, numStars.toFloat(), sport_box.toBoolean(),
+                                coffee_box.toBoolean(), alcohol_box.toBoolean(), valuation_comment).toStringWithDate()
+                        arrayAdapter.add(valu)
+                    }
+                }
 
-            for (item in list){
-                arrayAdapter.add(item)
-            }
         }
-
-        arrayAdapter.add("valuation 1")
-        arrayAdapter.add("valuation 2")
-        arrayAdapter.add("valuation 3")
         listView.adapter = arrayAdapter
 
         val retrn = findViewById(R.id.retButton) as Button

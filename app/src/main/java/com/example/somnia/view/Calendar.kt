@@ -45,6 +45,8 @@ class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
 
         val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
         val user = userPreferences.getString("email", "")
+        //perque no li pases la vista
+        //tot aixo ho fas al controlador y li pases la instancia d'aquesta clase i ho cambies alla aixi no has de fer return es la manera cutre de fer-ho'
 
         if (user != "") {
             informacio = controller.getValuationString(user.toString(), id)
