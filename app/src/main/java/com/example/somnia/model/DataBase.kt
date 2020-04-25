@@ -1,7 +1,9 @@
 package com.example.somnia.model
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 
 class DataBase {
     private var db: FirebaseFirestore
@@ -16,7 +18,6 @@ class DataBase {
     fun addAlarm(alarm: Alarm){
         val user = auth.currentUser.toString()
         val alarm_map = alarm.toMap()
-        db.collection("Alarms").document(user).set(alarm_map)
     }
 
     fun addValuation(valuation: Valuation){
@@ -111,9 +112,60 @@ class DataBase {
         return list
     }
 
-    /*fun getAlarmsList(): MutableList<Alarm>{
-        return
+    fun getAlarmsList(): MutableList<Alarm>{
+        val user = auth.currentUser.toString()
+        var alarmsList = mutableListOf<Alarm>()
+        db.collection("Alarms").document("alarm"+user).collection("Alarms").get().addOnSuccessListener {list ->
+                    for (alarm in list){
+                        db.collection("Alarms").document("alarm"+user).collection("Alarms").document(alarm.id)
+                            .get().addOnSuccessListener {
+                                val title = it.get("Title").toString()
+                                val hour = it.get("Hour").toString()
+                                val status = it.get("Alarm on").toString()
+                                val monday = it.get("Monday").toString()
+                                val tuesday = it.get("Tuesday").toString()
+                                val wednesday = it.get("Wednesday").toString()
+                                val thursday = it.get("Thursday").toString()
+                                val friday = it.get("Friday").toString()
+                                val saturday = it.get("Saturday").toString()
+                                val sunday = it.get("Sunday").toString()
+                                val weekDays: MutableMap<String, Boolean> = mutableMapOf(
+                                    "Monday" to monday.toBoolean(),
+                                    "Tuesday" to tuesday.toBoolean(),
+                                    "Wednesday" to wednesday.toBoolean(),
+                                    "Thursday" to thursday.toBoolean(),
+                                    "Friday" to friday.toBoolean(),
+                                    "Saturday" to saturday.toBoolean(),
+                                    "Sunday" to sunday.toBoolean())
+                                val id = getAlarmId(it.reference)
+                                val alarm = Alarm(title,hour,weekDays)
+                                alarm.setId(id)
+                                alarm.setStatus(status.toBoolean())
+                                alarmsList.add(alarm)
+
+                            }
+                        }
+                    }
+        return alarmsList
+    }
+
+    fun getAlarmId(alarm: DocumentReference): String{
+        return alarm.id
+    }
+
+    /*fun changeStatus(alarm: Alarm){
+        val user = auth.currentUser.toString()
+        db.collection("Alarms").document("alarm"+user).collection("Alarms").document(alarm.getId())
+        alarm.changeStatus()
     }*/
 
+    fun changePassword(password: String){
+        auth.currentUser?.updatePassword(password)
+        db.collection("users").document(password).update("password",password)
+    }
 
 }
+
+
+
+

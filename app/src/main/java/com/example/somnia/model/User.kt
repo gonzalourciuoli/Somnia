@@ -13,5 +13,25 @@ class User {
         this.password = password
     }
 
+    fun toMap(): Map<String,Any>{
+        return mutableMapOf(
+            "username" to username,
+            "email" to email,
+            "password" to password
+        )
+    }
+
+    fun getUsername(): String{
+        return username
+    }
+
+    fun getEmail(): String{
+        return email
+    }
+
+    fun getPassword(): String{
+        return password
+    }
+
 
 }

@@ -5,11 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import com.example.somnia.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_change_password.*
+import com.example.somnia.controller.Controller
 
 class ChangePassword : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -17,6 +16,7 @@ class ChangePassword : AppCompatActivity() {
     private lateinit var email: TextView
     private lateinit var password: TextView
     private lateinit var new_password: TextView
+    private lateinit var controller: Controller
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +27,16 @@ class ChangePassword : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
+        controller = Controller()
 
         val save_changes_button = findViewById<Button>(R.id.save_changes) as Button
         save_changes_button.setOnClickListener {
-            changePassword()
+            var email = email.text.toString()
+            var password = password.text.toString()
+            var password_new = new_password.text.toString()
+            if (password !=password_new){
+                controller.changePassword(password_new)
+            }
             val intent = Intent(this@ChangePassword, Settings::class.java)
             startActivity(intent)
         }
@@ -42,13 +48,4 @@ class ChangePassword : AppCompatActivity() {
         }
 
     }
-     fun changePassword(){
-        var email = email.text.toString()
-        var password = password.text.toString()
-        var password_new = new_password.text.toString()
-        if (password !=password_new){
-            auth.currentUser?.updatePassword(password_new)
-        }
-    }
-
 }
