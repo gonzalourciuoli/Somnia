@@ -56,7 +56,6 @@ class ChangeEmail : AppCompatActivity() {
                             "email" to new_Email,
                             "password" to base_password
                         )
-                        print("pruebaUpdateEmail")
                         userCollection
                             .document(new_Email).set(user)
                         userCollection
