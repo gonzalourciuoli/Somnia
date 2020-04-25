@@ -12,6 +12,7 @@ class Alarm {
     private var status: Boolean
     private var db: FirebaseFirestore
     private var auth: FirebaseAuth
+    private lateinit var id: String
 
 
     constructor(title: String, hour: String, weekDays: MutableMap<String, Boolean>){
@@ -30,6 +31,14 @@ class Alarm {
     fun getStatus(): Boolean{
         return this.status
     }
+    fun changeStatus(){
+        if(status == true){
+            this.status = false
+        }
+        else{
+            this.status = true
+        }
+    }
 
     fun getTitle(): String{
         return this.title
@@ -43,12 +52,23 @@ class Alarm {
         return this.weekDays
     }
 
-    fun toMap(): Map<String, Any?>{
-        return mapOf(
+    fun toMap(): MutableMap<String, Any>{
+        val alarm_info = mutableMapOf(
             "Title" to title,
             "Hour" to hour,
-            "Days of the week" to weekDays,
             "Alarm on" to status
         )
+        for(day in weekDays){
+            alarm_info.put(day.key,day.value)
+        }
+        return alarm_info
+    }
+
+    fun getId(): String{
+        return this.id
+    }
+
+    fun setId(id:String){
+        this.id = id
     }
 }

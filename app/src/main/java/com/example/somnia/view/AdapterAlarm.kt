@@ -7,8 +7,10 @@ import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.somnia.R
+import com.example.somnia.controller.Controller
 
 class AdapterAlarm (var list: MutableList<Alarm>): RecyclerView.Adapter<AdapterAlarm.ViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.alarm_design, parent, false)
@@ -31,6 +33,7 @@ class AdapterAlarm (var list: MutableList<Alarm>): RecyclerView.Adapter<AdapterA
         val friday: TextView = itemView.findViewById(R.id.friday_view)
         val saturday: TextView = itemView.findViewById(R.id.saturday_view)
         val sunday: TextView = itemView.findViewById(R.id.sunday_view)
+        private var controller = Controller()
 
         fun bindItems(data: Alarm) {
 
@@ -66,6 +69,10 @@ class AdapterAlarm (var list: MutableList<Alarm>): RecyclerView.Adapter<AdapterA
             }
             if (days["Sunday"] == true) {
                 sunday.setTextColor(-16777216)
+            }
+
+            toggleAlarm.setOnClickListener {
+                controller.changeStatus(data)
             }
         }
 

@@ -16,12 +16,12 @@ class AlarmsActivity : AppCompatActivity() {
     private lateinit var controller: Controller
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_alarms_list)
-        val recyclerView: RecyclerView = findViewById(R.id.recycler)
 
-        //val list = controller.getAlarmsList()
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        controller = Controller()
+        val list = controller.getAlarmsList()
+
 
         val weekDays: MutableMap<String, Boolean> = mutableMapOf(
             "Monday" to true,
@@ -33,17 +33,24 @@ class AlarmsActivity : AppCompatActivity() {
             "Sunday" to false
         )
         val alarm1 = Alarm("title","2:09",weekDays)
+        val alarm2 = Alarm("title","2:09",weekDays)
+        list.add(alarm1)
+        list.add(alarm2)
 
-        var list: MutableList<Alarm> = mutableListOf(alarm1)
-            recyclerView.adapter = AdapterAlarm(list)
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_alarms_list)
+        val recyclerView: RecyclerView = findViewById(R.id.recycler)
+
+        recyclerView.adapter = AdapterAlarm(list)
         recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
 
         addButton = findViewById<Button>(R.id.add_button)
-
         addButton.setOnClickListener {
-            //val intent = Intent(this@AlarmsActivity, New_alarmActivity::class.java)
-            //startActivity(intent)
+            val intent = Intent(this@AlarmsActivity, New_alarmActivity::class.java)
+            startActivity(intent)
         }
+
 
     }
 }

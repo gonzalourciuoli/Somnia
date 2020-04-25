@@ -6,6 +6,7 @@ import com.example.somnia.model.Alarm
 import com.example.somnia.model.DataBase
 import com.example.somnia.model.Valuation
 import com.example.somnia.model.ValuationsList
+import com.example.somnia.view.ChangePassword
 import com.example.somnia.view.Valuations
 import kotlin.math.*
 
@@ -125,7 +126,15 @@ class Controller{
         return valuationsList.getList(user)
     }
 
-    /*fun getAlarmsList(): MutableList<Alarm>{
+    fun getAlarmsList(): MutableList<Alarm>{
         return data_base.getAlarmsList()
-    }*/
+    }
+
+    fun changeStatus(alarm: Alarm){
+        data_base.changeStatus(alarm)
+    }
+
+    fun changePassword(password: String){
+        data_base.changePassword(password)
+    }
 }
