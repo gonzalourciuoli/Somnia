@@ -1,9 +1,9 @@
 package com.example.somnia.model
 
 class Calculator {
-    private lateinit var timeWakeUp : String
-    private lateinit var hoursToSleep : String
-    private lateinit var  timeBed: String
+    private var timeWakeUp : String
+    private var hoursToSleep : String
+    private var  timeBed: String
 
     constructor(timeWakeUp : String, hoursToSleep : String, timeBed: String ){
         this.timeWakeUp = timeWakeUp

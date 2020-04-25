@@ -48,53 +48,7 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
             for (item in list){
                 arrayAdapter.add(item)
             }
-
-            /*db.collection("valuations").document(user.toString()).collection(date.toString())
-                .get()
-                .addOnSuccessListener { result ->
-                    for (d in result){
-                        db.collection("valuations").document(user.toString())
-                            .collection(date.toString()).document("data")
-                            .get().addOnSuccessListener {
-                                val date = it.get("date").toString()
-                                val numStars = it.get("numStars").toString()
-                                val sport_box = it.get("sport_box").toString()
-                                val coffee_box = it.get("coffee_box").toString()
-                                val alcohol_box = it.get("alcohol_box").toString()
-                                val valuation_comment = it.get("valuation_comment").toString()
-
-                                var valuation : String? = ""
-
-                                valuation += (date + ":\n")
-                                valuation += ("Rating: " + numStars + " / 5 \n")
-                                if (sport_box == "true"){
-                                    valuation += ("Sport: Yes \n")
-                                }else{
-                                    valuation += ("Sport: No \n")
-                                }
-                                if (coffee_box == "true"){
-                                    valuation += ("Coffee: Yes \n")
-                                }else{
-                                    valuation += ("Coffee: No \n")
-                                }
-                                if (alcohol_box == "true"){
-                                    valuation += ("Alcohol: Yes \n")
-                                }else{
-                                    valuation += ("Alcohol: No \n")
-                                }
-                                if (valuation_comment != ""){
-                                    valuation += (valuation_comment)
-                                }else{
-                                    valuation += ("No comments")
-                                }
-
-                                arrayAdapter.add(valuation)
-                            }
-                    }
-                }*/
         }
-
-
 
         arrayAdapter.add("valuation 1")
         arrayAdapter.add("valuation 2")
