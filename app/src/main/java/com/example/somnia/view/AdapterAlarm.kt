@@ -72,7 +72,7 @@ class AdapterAlarm (var list: MutableList<Alarm>): RecyclerView.Adapter<AdapterA
             }
 
             toggleAlarm.setOnClickListener {
-                controller.changeStatus(data)
+                //controller.changeStatus(data)
             }
         }
 

@@ -20,6 +20,7 @@ class Alarm {
         this.hour = hour
         this.weekDays = weekDays
         this.status = true
+        this.id = ""
         db = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
 

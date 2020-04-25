@@ -153,16 +153,17 @@ class DataBase {
         return alarm.id
     }
 
-    fun changeStatus(alarm: Alarm){
+    /*fun changeStatus(alarm: Alarm){
         val user = auth.currentUser.toString()
         db.collection("Alarms").document("alarm"+user).collection("Alarms").document(alarm.getId())
         alarm.changeStatus()
-    }
+    }*/
 
     fun changePassword(password: String){
         auth.currentUser?.updatePassword(password)
         db.collection("users").document(password).update("password",password)
     }
+
 }
 
 
