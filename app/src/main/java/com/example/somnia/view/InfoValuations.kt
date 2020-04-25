@@ -154,6 +154,7 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
             val dialog: AlertDialog = builder.create()
             var alertView = layoutInflater.inflate(R.layout.activity_remove, null)
             alertView.findViewById<TextView>(R.id.remove_title).text = "Are you sure you want to delete this rating?"
+            alertView.findViewById<TextView>(R.id.remove_description).text = ""
             alertView.findViewById<Button>(R.id.delete_valuation_alert_cancel).setOnClickListener {
                 dialog.cancel()
             }
