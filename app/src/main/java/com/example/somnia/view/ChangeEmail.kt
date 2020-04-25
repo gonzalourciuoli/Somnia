@@ -69,5 +69,4 @@ class ChangeEmail : AppCompatActivity() {
             Toast.makeText(this, "Looks like some of the fields are empty", Toast.LENGTH_LONG).show()
         }
     }
-
 }

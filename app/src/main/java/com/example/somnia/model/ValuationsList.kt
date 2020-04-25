@@ -38,7 +38,7 @@ class ValuationsList {
     }
 
     fun getList(user: String): MutableList<String> {
-        var valu = ""
+        /*var valu = ""
         var list = mutableListOf<String>()
         for (valuation in valuationsList){
             if (valuation.getUserValuation() == user){
@@ -46,7 +46,8 @@ class ValuationsList {
                 list.add(valu)
             }
         }
-        return list
+        return list*/
+        return data_base.getValuationFromUser(user)
     }
 
     fun getValuation(user: String, id: String): Valuation {

@@ -51,27 +51,35 @@ class SignUpActivity : AppCompatActivity() {
 
         if (password != repeat_password) {
             Toast.makeText(this, "The passwords aren't matching", Toast.LENGTH_LONG).show()
+        } else if (password.length < 6){
+            Toast.makeText(this, "The password must be 6 characters minimum", Toast.LENGTH_LONG).show()
         } else if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(repeat_password)) {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) {
                     task ->
 
                 if (task.isComplete) {
-                    //existingUser(username, email, password)
-                    val user = hashMapOf(
-                        "username" to username,
-                        "email" to email,
-                        "password" to password
-                    )
-                    db.collection("users")
-                        .document(email).set(user)
-                        .addOnSuccessListener {
-                            Toast.makeText(this, "User created", Toast.LENGTH_LONG)
-                        }
-                        .addOnFailureListener {
-                            Toast.makeText(this, "User creation failed", Toast.LENGTH_LONG)
-                        }
+                    db.collection("users").document(email)
+                        .get().addOnSuccessListener {
+                            val user = it.get("email").toString()
+                            if (email == user){
+                                Toast.makeText(this, "This account already exists", Toast.LENGTH_LONG).show()
+                            }else{
+                                val user = hashMapOf(
+                                    "username" to username,
+                                    "email" to email,
+                                    "password" to password
+                                )
+                                db.collection("users").document(email).set(user)
+                                    .addOnSuccessListener {
+                                        Toast.makeText(this, "User created", Toast.LENGTH_LONG).show()
+                                        startActivity(Intent(this, logInActivity::class.java))
+                                    }
+                                    .addOnFailureListener {
+                                        Toast.makeText(this, "User creation failed", Toast.LENGTH_LONG).show()
+                                    }
+                            }
 
-                    startActivity(Intent(this, logInActivity::class.java))
+                        }
                 }
             }
         } else {
@@ -94,18 +102,4 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
     }
-
-    /*private fun existingUser(username : String, email : String, password : String){
-        db.collection("users").document(email)
-            .get().addOnSuccessListener {
-                Toast.makeText(this, "This account already exists", Toast.LENGTH_LONG).show()
-            }.addOnFailureListener {
-                db.collection("users").document(email).set(mapOf(
-                    "username" to username,
-                    "email" to email,
-                    "password" to password
-                ))
-                Toast.makeText(this, "User created", Toast.LENGTH_LONG)
-            }
-    }*/
 }

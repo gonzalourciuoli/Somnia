@@ -76,8 +76,10 @@ class DataBase {
         return valu!!
     }
 
-    fun getValuationFromUser(user: String): String{
+    fun getValuationFromUser(user: String): MutableList<String>{
         var valu = ""
+        var list = mutableListOf<String>()
+
         db.collection("valuations")
             .get().addOnSuccessListener {result ->
                 for (valuation in result){
@@ -98,7 +100,7 @@ class DataBase {
                         }
                 }
             }
-        return valu
+        return list
     }
 
     fun getValuationString(user: String, id: String): String {
