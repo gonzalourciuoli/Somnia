@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.somnia.R
 import com.example.somnia.controller.Controller
 
-public class Calculator : AppCompatActivity() {
+class Calculator : AppCompatActivity() {
 
     private lateinit var timeWakeUp : EditText
     private lateinit var hoursToSleep : EditText
