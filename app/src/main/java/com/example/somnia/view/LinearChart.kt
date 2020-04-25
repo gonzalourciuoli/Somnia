@@ -14,12 +14,15 @@ import com.anychart.enums.Anchor
 import com.anychart.enums.MarkerType
 import com.anychart.graphics.vector.GradientKey
 import com.example.somnia.R
+import com.google.firebase.auth.FirebaseAuth
 import kotlin.random.Random
 
 class LinearChart: AppCompatActivity()  {
 
     val ages = ArrayList<Int>()
     val hours4 = ArrayList<Int>()
+
+    private lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +31,8 @@ class LinearChart: AppCompatActivity()  {
         for(i in 18..90){
             ages.add(i)
         }
+
+        auth = FirebaseAuth.getInstance()
 
         val lineChart : AnyChartView = findViewById(R.id.linear_chart)
         APIlib.getInstance().setActiveAnyChartView(lineChart)
@@ -50,7 +55,7 @@ class LinearChart: AppCompatActivity()  {
         }
 
         val set = Set.instantiate()
-        set.data(entries)
+        set.data(entries) //aqui deberia pasarse los datos del firebase
 
         val lineMap: Mapping = set.mapAs("{ x: 'x', value: 'value' }")
 
@@ -69,7 +74,7 @@ class LinearChart: AppCompatActivity()  {
         val range_colors = arrayOf("#9933FF")
         line.palette(range_colors)
         background.stroke("#663399")
-        background.fill(GradientKey("#dcd0ff",0,1))
+        //background.fill(GradientKey("#dcd0ff",0,1))
         lineChart.setChart(line)
     }
 

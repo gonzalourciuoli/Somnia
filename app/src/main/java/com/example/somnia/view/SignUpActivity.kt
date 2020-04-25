@@ -1,13 +1,10 @@
 package com.example.somnia.view
 
 import android.content.Intent
-import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.somnia.R
@@ -26,7 +23,7 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.signup)
+        setContentView(R.layout.activity_signup)
 
         txtUsername = findViewById(R.id.name)
         txtEmail = findViewById(R.id.email)
@@ -59,6 +56,7 @@ class SignUpActivity : AppCompatActivity() {
                     task ->
 
                 if (task.isComplete) {
+                    //existingUser(username, email, password)
                     val user = hashMapOf(
                         "username" to username,
                         "email" to email,
@@ -72,6 +70,7 @@ class SignUpActivity : AppCompatActivity() {
                         .addOnFailureListener {
                             Toast.makeText(this, "User creation failed", Toast.LENGTH_LONG)
                         }
+
                     startActivity(Intent(this, logInActivity::class.java))
                 }
             }
@@ -95,4 +94,18 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
     }
+
+    /*private fun existingUser(username : String, email : String, password : String){
+        db.collection("users").document(email)
+            .get().addOnSuccessListener {
+                Toast.makeText(this, "This account already exists", Toast.LENGTH_LONG).show()
+            }.addOnFailureListener {
+                db.collection("users").document(email).set(mapOf(
+                    "username" to username,
+                    "email" to email,
+                    "password" to password
+                ))
+                Toast.makeText(this, "User created", Toast.LENGTH_LONG)
+            }
+    }*/
 }

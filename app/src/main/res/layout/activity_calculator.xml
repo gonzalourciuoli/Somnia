@@ -27,7 +27,7 @@
         android:layout_marginTop="48dp"
         android:text="@string/i_m_waking_up_at"
         android:fontFamily="@font/reef"
-        android:textSize="25sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/top_calculator"
         app:layout_constraintTop_toBottomOf="@+id/top_calculator" />
 
@@ -49,7 +49,7 @@
         android:id="@+id/bar1"
         android:layout_width="250dp"
         android:layout_height="3dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:background="#B1AEC2"
         app:layout_constraintStart_toStartOf="@+id/waking_up"
         app:layout_constraintTop_toBottomOf="@+id/waking_up" />
@@ -58,21 +58,21 @@
         android:id="@+id/to_sleep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/in_order_to_sleep"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/reef"
-        android:textSize="25sp"
+        android:text="@string/in_order_to_sleep"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/waking_up"
         app:layout_constraintTop_toBottomOf="@+id/waking_up" />
 
     <EditText
         android:id="@+id/hoursToSleep"
-        android:layout_width="26dp"
-        android:layout_height="54dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="25dp"
         android:autofillHints=""
-        android:inputType="numberSigned"
+        android:inputType="time"
         android:text="@string/hours_to_sleep"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/to_sleep"
@@ -82,7 +82,7 @@
         android:id="@+id/hours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="33dp"
         android:text="@string/hours"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/hoursToSleep"
@@ -92,7 +92,7 @@
         android:id="@+id/bar2"
         android:layout_width="250dp"
         android:layout_height="3dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:background="#B1AEC2"
         app:layout_constraintStart_toStartOf="@+id/to_sleep"
         app:layout_constraintTop_toBottomOf="@+id/to_sleep" />
@@ -101,10 +101,10 @@
         android:id="@+id/in_bed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/i_must_get_in_bed_at"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/reef"
-        android:textSize="25sp"
+        android:text="@string/i_must_get_in_bed_at"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/to_sleep"
         app:layout_constraintTop_toBottomOf="@+id/to_sleep" />
 
@@ -113,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
         android:autofillHints=""
         android:inputType="time"
@@ -126,19 +126,19 @@
         android:id="@+id/bar3"
         android:layout_width="250dp"
         android:layout_height="3dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:background="#B1AEC2"
         app:layout_constraintStart_toStartOf="@+id/to_sleep"
         app:layout_constraintTop_toBottomOf="@+id/in_bed" />
 
     <TextView
         android:id="@+id/sleepingCycle"
-        android:layout_width="wrap_content"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/sleeping_cycle"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/reef"
-        android:textSize="25sp"
+        android:text="@string/calculate_time_i_must_wake_up"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="@+id/in_bed"
         app:layout_constraintTop_toBottomOf="@+id/in_bed" />
 
@@ -146,18 +146,42 @@
         android:id="@+id/cycleSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
         android:theme="@style/SwitchTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/sleepingCycle"
         app:layout_constraintTop_toBottomOf="@+id/timeBed" />
 
+    <TextView
+        android:id="@+id/sleepingCycle1"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/reef"
+        android:text="@string/calculate_time_i_must_get_in_bed"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="@+id/in_bed"
+        app:layout_constraintTop_toBottomOf="@+id/sleepingCycle" />
+
+    <Switch
+        android:id="@+id/cycleSwitch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        android:theme="@style/SwitchTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sleepingCycle1"
+        app:layout_constraintTop_toBottomOf="@+id/sleepingCycle" />
+
     <View
         android:id="@+id/bar4"
         android:layout_width="250dp"
         android:layout_height="3dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:background="#B1AEC2"
         app:layout_constraintStart_toStartOf="@+id/to_sleep"
         app:layout_constraintTop_toBottomOf="@+id/sleepingCycle" />
@@ -171,16 +195,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
     </fragment>
-
-    <Button
-        android:id="@+id/calendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="250dp"
-        android:text="Calendar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

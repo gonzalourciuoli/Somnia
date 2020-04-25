@@ -23,7 +23,7 @@ class Home : AppCompatActivity() {
 
         val see_your_ratings_button = findViewById<Button>(R.id.see_your_ratings)
         see_your_ratings_button.setOnClickListener {
-            val intent = Intent(this@Home, InfoValuations::class.java)
+            val intent = Intent(this@Home, Buttons_ListCalendar::class.java)
             startActivity(intent)
         }
 
