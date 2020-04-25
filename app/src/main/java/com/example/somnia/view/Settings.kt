@@ -1,6 +1,7 @@
 package com.example.somnia.view
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -52,6 +53,9 @@ class Settings : AppCompatActivity() {
     }
 
     private fun deleteAccount(){
+        val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
+        val user = userPreferences.getString("email", "")
+
         val builder = AlertDialog.Builder(this, R.style.Theme_AppCompat_Dialog_Alert)
         builder.setView(layoutInflater.inflate(R.layout.activity_remove, null))
         val dialog: AlertDialog = builder.create()
@@ -65,6 +69,7 @@ class Settings : AppCompatActivity() {
             auth.currentUser?.uid?.let { db.collection("users").document(it).delete()
                 .addOnSuccessListener {
                     auth.currentUser!!.delete().addOnCompleteListener {
+                        db.collection("users").document(user.toString()).delete()
                         Toast.makeText(this, "Account successfuly deleted", Toast.LENGTH_LONG).show()
                         val intent = Intent(this@Settings, logInActivity::class.java)
                         startActivity(intent)
