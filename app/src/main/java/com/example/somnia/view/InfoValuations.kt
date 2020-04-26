@@ -36,10 +36,6 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
     private fun init() {
         listView.onItemClickListener = this
 
-
-        val datePreferences = getSharedPreferences("valuations", Context.MODE_PRIVATE)
-        val date = datePreferences.getString("date", "")
-
         val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
         val user = userPreferences.getString("email", "")
 
@@ -73,6 +69,10 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
     }
 
     private fun deleteValuation(valuation: String){
+
+        val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
+        val user = userPreferences.getString("email", "")
+
         try{
             val builder = AlertDialog.Builder(this, R.style.Theme_AppCompat_Dialog_Alert)
             builder.setView(layoutInflater.inflate(R.layout.activity_remove, null))
@@ -84,15 +84,17 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
                 dialog.cancel()
             }
             alertView.findViewById<Button>(R.id.delete_valuation_alert_confirm).setOnClickListener {
-                arrayAdapter.remove(valuation)
-                listView.adapter = arrayAdapter
-                /*db.collection("valuations").document(user.toString()).collection().document("data")
-                .delete().addOnSuccessListener {
+                val date =(valuation.substringBefore("Rating"))
+                db.collection("valuations").document(user.toString() + "@" + date)
+                    .delete().addOnSuccessListener {
+                        db.collection("valuations").document(user.toString() + "@" + date).delete()
+                    arrayAdapter.remove(valuation)
+                    listView.adapter = arrayAdapter
                     Toast.makeText(this, "Valuation successfully deleted", Toast.LENGTH_LONG).show()
                 }
-                .addOnFailureListener {
-                    Toast.makeText(this, "Error deleting valuation", Toast.LENGTH_LONG).show()
-                }*/
+                    .addOnFailureListener {
+                        Toast.makeText(this, "Error deleting valuation", Toast.LENGTH_LONG).show()
+                    }
                 dialog.cancel()
                 Toast.makeText(this, "Valuation successfully deleted!" , Toast.LENGTH_LONG).show()
             }
