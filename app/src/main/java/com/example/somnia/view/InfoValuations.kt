@@ -59,12 +59,6 @@ class InfoValuations : AppCompatActivity(){
                     listView.layoutManager = LinearLayoutManager(this)
                     listView.setHasFixedSize(true)
 
-                    /*val del = findViewById(R.id.deleteImage) as Button
-                    del.setOnClickListener{
-                        valuationsList.remove()
-                        listView.adapter = AdapterValuations(valuationsList)
-                    }*/
-
                 }
         }
 
