@@ -1,14 +1,13 @@
 package com.example.somnia.model
 
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.QuerySnapshot
 
 class DataBase {
     private var db: FirebaseFirestore
     private var auth: FirebaseAuth
-
 
     constructor(){
         db = FirebaseFirestore.getInstance()
@@ -20,10 +19,12 @@ class DataBase {
         val alarm_map = alarm.toMap()
     }
 
-    fun addValuation(valuation: Valuation){
+    fun addValuation(valuation: Valuation, user: String, date: String){
         val valuation_map = valuation.toMap()
-        db.collection("valuations")
-            .add(valuation_map)
+        db.collection("valuations"). document(user + "@" + date)
+            .set(valuation_map).addOnSuccessListener {
+
+            }
     }
 
     fun getValuations(): MutableList<Valuation>{
@@ -53,7 +54,19 @@ class DataBase {
 
     fun getValuation(user: String, id: String): Valuation{
         var valu : Valuation? = null
-        db.collection("valuations")
+        db.collection("valuations").document(user + "@" + id)
+            .get().addOnSuccessListener {
+                val date = it.get("date").toString()
+                val numStars = it.get("numStars").toString()
+                val sport_box = it.get("sport_box").toString()
+                val coffee_box = it.get("coffee_box").toString()
+                val alcohol_box = it.get("alcohol_box").toString()
+                val valuation_comment = it.get("valuation_comment").toString()
+
+                valu = Valuation(user, date, numStars.toFloat(), sport_box.toBoolean(),
+                    coffee_box.toBoolean(), alcohol_box.toBoolean(), valuation_comment)
+            }
+        /*db.collection("valuations")
             .get().addOnSuccessListener {result ->
                 for (valuation in result){
                     db.collection("valuation").document(valuation.id)
@@ -72,35 +85,26 @@ class DataBase {
                             }
                         }
                 }
-            }
+            }*/
         return valu!!
     }
 
-    fun getValuationFromUser(user: String): MutableList<String>{
-        var valu = ""
-        var list = mutableListOf<String>()
-
+    fun getAllValuationsFromUser(user: String){
         db.collection("valuations")
+            .whereEqualTo("user", user)
             .get().addOnSuccessListener {result ->
                 for (valuation in result){
-                    db.collection("valuation").document(valuation.id)
-                        .get().addOnSuccessListener {
-                            val user1 = it.get("user").toString()
-                            if(user1 == user){
-                                val date = it.get("date").toString()
-                                val numStars = it.get("numStars").toString()
-                                val sport_box = it.get("sport_box").toString()
-                                val coffee_box = it.get("coffee_box").toString()
-                                val alcohol_box = it.get("alcohol_box").toString()
-                                val valuation_comment = it.get("valuation_comment").toString()
-
-                                valu = Valuation(user, date, numStars.toFloat(), sport_box.toBoolean(),
-                                    coffee_box.toBoolean(), alcohol_box.toBoolean(), valuation_comment).toString()
-                            }
-                        }
+                    val date = valuation.get("date").toString()
+                    val numStars = valuation.get("numStars").toString()
+                    val sport_box = valuation.get("sport_box").toString()
+                    val coffee_box = valuation.get("coffee_box").toString()
+                    val alcohol_box = valuation.get("alcohol_box").toString()
+                    val valuation_comment = valuation.get("valuation_comment").toString()
+                    val valu = Valuation(user, date, numStars.toFloat(), sport_box.toBoolean(),
+                        coffee_box.toBoolean(), alcohol_box.toBoolean(), valuation_comment)
+                    Log.d("myApp", valu.toString())
                 }
             }
-        return list
     }
 
     fun getValuationString(user: String, id: String): String {

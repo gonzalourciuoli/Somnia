@@ -19,7 +19,6 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-
 class LinearChart: AppCompatActivity()  {
 
     val ages = ArrayList<Int>()
@@ -29,13 +28,16 @@ class LinearChart: AppCompatActivity()  {
     private lateinit var db: FirebaseFirestore
     private lateinit var dataCollection : CollectionReference
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_linear_chart)
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
+
         dataCollection = db.collection("linear_chart")
+
 
         val lineChart : AnyChartView = findViewById(R.id.linear_chart)
         APIlib.getInstance().setActiveAnyChartView(lineChart)
@@ -89,8 +91,6 @@ class LinearChart: AppCompatActivity()  {
             .addOnFailureListener { exception ->
                 Log.w("Linear chart data", "Error getting documents: ", exception)
             }
-
-
 
     }
 

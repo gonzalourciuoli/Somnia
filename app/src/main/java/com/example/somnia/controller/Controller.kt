@@ -10,6 +10,7 @@ class Controller{
     constructor(){
         data_base = DataBase()
     }
+
     fun calculateTimeToGoBed(timeWakeUp: String, hoursToSleep: String, timeBed: String): String {
         val calculator = Calculator(timeWakeUp, hoursToSleep, timeBed)
         return calculator.calculateTimeToGoBed()
@@ -29,7 +30,7 @@ class Controller{
                      alcohol_box: Boolean, valuation_comment: String){
         val newValuation = Valuation(user, date, numStars, sport_box, coffee_box, alcohol_box, valuation_comment)
         valuationsList.addValuation(newValuation)
-        data_base.addValuation(newValuation)
+        data_base.addValuation(newValuation, user, date)
     }
 
     fun getValuationString(user: String, id: String): String {
@@ -41,7 +42,7 @@ class Controller{
         }
     }
 
-    fun listViewValuations(user: String): MutableList<String> {
+    fun listViewValuations(user: String) {
         return valuationsList.getList(user)
     }
 

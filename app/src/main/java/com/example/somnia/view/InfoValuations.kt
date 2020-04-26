@@ -6,10 +6,12 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import com.example.somnia.R
 import com.example.somnia.controller.Controller
+import com.example.somnia.model.Valuation
 import com.google.firebase.firestore.FirebaseFirestore
 import java.lang.Exception
 
@@ -42,63 +44,25 @@ class InfoValuations : AppCompatActivity(), AdapterView.OnItemClickListener {
         val user = userPreferences.getString("email", "")
 
         if (user != "") {
-            var list = controller.listViewValuations(user.toString())
-            Toast.makeText(this, list.toString() , Toast.LENGTH_LONG).show()
-
-            for (item in list){
-                arrayAdapter.add(item)
-            }
-
-            /*db.collection("valuations").document(user.toString()).collection(date.toString())
-                .get()
-                .addOnSuccessListener { result ->
-                    for (d in result){
-                        db.collection("valuations").document(user.toString())
-                            .collection(date.toString()).document("data")
-                            .get().addOnSuccessListener {
-                                val date = it.get("date").toString()
-                                val numStars = it.get("numStars").toString()
-                                val sport_box = it.get("sport_box").toString()
-                                val coffee_box = it.get("coffee_box").toString()
-                                val alcohol_box = it.get("alcohol_box").toString()
-                                val valuation_comment = it.get("valuation_comment").toString()
-
-                                var valuation : String? = ""
-
-                                valuation += (date + ":\n")
-                                valuation += ("Rating: " + numStars + " / 5 \n")
-                                if (sport_box == "true"){
-                                    valuation += ("Sport: Yes \n")
-                                }else{
-                                    valuation += ("Sport: No \n")
-                                }
-                                if (coffee_box == "true"){
-                                    valuation += ("Coffee: Yes \n")
-                                }else{
-                                    valuation += ("Coffee: No \n")
-                                }
-                                if (alcohol_box == "true"){
-                                    valuation += ("Alcohol: Yes \n")
-                                }else{
-                                    valuation += ("Alcohol: No \n")
-                                }
-                                if (valuation_comment != ""){
-                                    valuation += (valuation_comment)
-                                }else{
-                                    valuation += ("No comments")
-                                }
-
-                                arrayAdapter.add(valuation)
-                            }
+            var valu = ""
+            //controller.listViewValuations(user.toString())
+            db.collection("valuations")
+                .whereEqualTo("user", user)
+                .get().addOnSuccessListener {result ->
+                    for (valuation in result){
+                        val date = valuation.get("date").toString()
+                        val numStars = valuation.get("numStars").toString()
+                        val sport_box = valuation.get("sport_box").toString()
+                        val coffee_box = valuation.get("coffee_box").toString()
+                        val alcohol_box = valuation.get("alcohol_box").toString()
+                        val valuation_comment = valuation.get("valuation_comment").toString()
+                        valu = Valuation(user!!, date, numStars.toFloat(), sport_box.toBoolean(),
+                                coffee_box.toBoolean(), alcohol_box.toBoolean(), valuation_comment).toStringWithDate()
+                        arrayAdapter.add(valu)
                     }
-                }*/
+                }
+
         }
-
-
-
-        arrayAdapter.add("valuation 1")
-        arrayAdapter.add("valuation 2")
-        arrayAdapter.add("valuation 3")
         listView.adapter = arrayAdapter
 
         val retrn = findViewById(R.id.retButton) as Button
