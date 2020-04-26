@@ -44,9 +44,25 @@ class ForgotPassword: AppCompatActivity()  {
             auth.fetchSignInMethodsForEmail(emailAccount)
                 .addOnCompleteListener(this){
                     task ->
-                    if (task.isSuccessful)
-                        Toast.makeText(this, "Code has been send to your email" , Toast.LENGTH_SHORT ).show()
-                    else
+                    if (task.isSuccessful) {
+                        auth.sendPasswordResetEmail(emailAccount)
+                            .addOnCompleteListener(this) {
+                                    task ->
+                                if (task.isSuccessful)
+                                    Toast.makeText(
+                                        this,
+                                        "Code has been send to your email",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                else
+                                    Toast.makeText(
+                                        this,
+                                        "Fail to send the code",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                            }
+
+                    }else
                         Toast.makeText(this, "Not registered account to this email" , Toast.LENGTH_SHORT ).show()
                 }
 
