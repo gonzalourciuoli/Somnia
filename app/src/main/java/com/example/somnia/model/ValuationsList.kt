@@ -13,7 +13,7 @@ class ValuationsList {
     }
 
     private fun initList(){
-        valuationsList = data_base.getValuations()
+        //valuationsList = data_base.getValuations()
     }
 
     fun addValuation(newValuation: Valuation){

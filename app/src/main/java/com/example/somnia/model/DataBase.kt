@@ -1,9 +1,23 @@
 package com.example.somnia.model
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.content.ContextWrapper
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.example.somnia.R
+import kotlinx.android.synthetic.main.activity_valuations.*
+import java.util.Calendar
+import android.app.DatePickerDialog
+import android.view.View
+import android.widget.*
+import com.example.somnia.controller.Controller
+
 
 class DataBase {
     private var db: FirebaseFirestore
@@ -15,8 +29,8 @@ class DataBase {
     }
 
     fun addAlarm(alarm: Alarm){
-        val user = auth.currentUser.toString()
         val alarm_map = alarm.toMap()
+        db.collection("Alarms").add(alarm_map)
     }
 
     fun addValuation(valuation: Valuation, user: String, date: String){
@@ -27,7 +41,7 @@ class DataBase {
             }
     }
 
-    fun getValuations(): MutableList<Valuation>{
+    /*fun getValuations(): MutableList<Valuation>{
         var valu: Valuation?
         var valuationsList = mutableListOf<Valuation>()
         db.collection("valuations")
@@ -50,7 +64,7 @@ class DataBase {
                 }
             }
         return valuationsList
-    }
+    }*/
 
     fun getValuation(user: String, id: String): Valuation{
         var valu : Valuation? = null
@@ -112,13 +126,13 @@ class DataBase {
         return valu
     }
 
-    fun getListValuations(user: String): MutableList<String>{
+    /*fun getListValuations(user: String): MutableList<String>{
         var list = mutableListOf<String>()
         list.add(this.getValuations().toString())
         return list
-    }
+    }*/
 
-    fun getAlarmsList(): MutableList<Alarm>{
+    /*fun getAlarmsList(): MutableList<Alarm>{
         val user = auth.currentUser.toString()
         var alarmsList = mutableListOf<Alarm>()
         db.collection("Alarms").document("alarm"+user).collection("Alarms").get().addOnSuccessListener {list ->
@@ -153,7 +167,7 @@ class DataBase {
                         }
                     }
         return alarmsList
-    }
+    }*/
 
     fun getAlarmId(alarm: DocumentReference): String{
         return alarm.id
