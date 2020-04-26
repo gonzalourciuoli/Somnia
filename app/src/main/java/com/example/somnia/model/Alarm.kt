@@ -70,4 +70,15 @@ class Alarm {
         this.user = user
     }
 
+    override fun toString(): String{
+        var alarma = ""
+        alarma += (title + "\n")
+        alarma += (hour + "\n")
+        for (day in weekDays){
+            alarma += (day.key + ": " + day.value.toString() + "\n")
+        }
+        alarma += status.toString()
+        return alarma
+    }
+
 }
