@@ -37,7 +37,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="530dp"
+        android:layout_height="570dp"
         android:background="@drawable/somnia_background2"/>
 
     <fragment
@@ -45,9 +45,6 @@
         class="com.example.somnia.view.Toolbar"
         android:layout_width="413dp"
         android:layout_height="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-    </fragment>
+        android:layout_gravity="bottom"></fragment>
 
 </LinearLayout>
