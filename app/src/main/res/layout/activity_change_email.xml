@@ -9,13 +9,14 @@
 
     <TextView
         android:id="@+id/top_chEmail"
-        android:layout_width="265dp"
+        android:layout_width="wrap_content"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/ch_Email"
         style="@style/Title"
-        android:fontFamily="@font/reef"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

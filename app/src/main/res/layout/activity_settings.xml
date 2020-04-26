@@ -15,7 +15,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/top_settings"
-        android:fontFamily="@font/reef"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,6 +28,7 @@
         android:layout_marginTop="48dp"
         android:text="@string/ch_Email"
         android:fontFamily="@font/reef"
+        android:textColor="#ffffff"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="@+id/top_settings"
         app:layout_constraintTop_toBottomOf="@+id/top_settings" />
@@ -48,6 +50,7 @@
         android:layout_marginTop="50dp"
         android:text="@string/ch_Pass"
         android:fontFamily="@font/reef"
+        android:textColor="#ffffff"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="@+id/ch_Email"
         app:layout_constraintTop_toBottomOf="@+id/ch_Email" />
@@ -68,6 +71,7 @@
         android:layout_marginTop="50dp"
         android:text="@string/log_out"
         android:fontFamily="@font/reef"
+        android:textColor="#ffffff"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="@+id/ch_Pass"
         app:layout_constraintTop_toBottomOf="@+id/ch_Pass" />
@@ -88,6 +92,7 @@
         android:layout_marginTop="50dp"
         android:text="@string/del_Acc"
         android:fontFamily="@font/reef"
+        android:textColor="#ffffff"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="@+id/log_out"
         app:layout_constraintTop_toBottomOf="@+id/log_out" />
