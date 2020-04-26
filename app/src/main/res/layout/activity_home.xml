@@ -66,6 +66,7 @@
         android:layout_height="35dp"
         android:checked="false"
         android:fontFamily="@font/reef"
+        android:textColor="#ffffff"
         android:text="@string/toggle_Sleep"
         android:textSize="20sp"
         android:theme="@style/SwitchTheme"
