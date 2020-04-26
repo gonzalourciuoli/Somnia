@@ -88,8 +88,9 @@ class AlarmsActivity : AppCompatActivity() {
                     alarm.setStatus(status.toBoolean())
                     alarmsList.add(alarm)
                 }
+                recyclerView.adapter = AdapterAlarm(alarmsList)
             }
-        recyclerView.adapter = AdapterAlarm(alarmsList)
+
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
     }
