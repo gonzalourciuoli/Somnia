@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.InfoValuations"
-
-    android:background="@drawable/background">
+    android:background="@drawable/somnia_background2">
 
     <TextView
         android:id="@+id/valuations"
