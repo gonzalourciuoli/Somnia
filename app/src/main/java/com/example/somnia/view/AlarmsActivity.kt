@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.example.somnia.R
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
@@ -61,7 +60,6 @@ class AlarmsActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.recycler)
         val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
         val user = userPreferences.getString("email", "")
-
         var alarmsList = mutableListOf<Alarm>()
         db.collection("Alarms")
             .whereEqualTo("User", user)
@@ -89,15 +87,12 @@ class AlarmsActivity : AppCompatActivity() {
                     val alarm = Alarm(title, hour, weekDays)
                     alarm.setStatus(status.toBoolean())
                     alarmsList.add(alarm)
-                    Log.d("alarms", alarm.toString())
-
                 }
-
                 recyclerView.adapter = AdapterAlarm(alarmsList)
-                recyclerView.layoutManager = LinearLayoutManager(this)
-                recyclerView.setHasFixedSize(true)
             }
 
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
     }
     fun getAlarmsList(): MutableList<Alarm>{
         db = FirebaseFirestore.getInstance()

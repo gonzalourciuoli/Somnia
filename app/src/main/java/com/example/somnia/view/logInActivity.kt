@@ -70,6 +70,7 @@ class logInActivity : AppCompatActivity() {
                     startActivity(Intent(this, Home::class.java))
                     Toast.makeText(this, "You logged into your account", Toast.LENGTH_LONG).show()
                 } else {
+
                     Toast.makeText(this, "Authentication failed", Toast.LENGTH_LONG).show()
                 }
             }

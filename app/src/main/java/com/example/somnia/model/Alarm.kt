@@ -16,7 +16,11 @@ class Alarm {
 
 
     constructor(title: String, hour: String, weekDays: MutableMap<String, Boolean>){
-        this.title = title
+        if(title == ""){
+            this.title = "Title"
+        }else {
+            this.title = title
+        }
         this.hour = hour
         this.weekDays = weekDays
         this.status = true
@@ -53,32 +57,25 @@ class Alarm {
         return this.weekDays
     }
 
-    fun toMap(): MutableMap<String, Any> {
-        val alarm_info = mutableMapOf(
+    fun toMap(): MutableMap<String, Any?>{
+        val alarm_info: MutableMap<String, Any?> = mutableMapOf(
             "Title" to title,
             "Hour" to hour,
             "Alarm on" to status,
-            "User" to user
+            "User" to user,
+            "Monday" to weekDays["Monday"],
+            "Tuesday" to weekDays["Tuesday"],
+            "Wednesday" to weekDays["Wednesday"],
+            "Thursday" to weekDays["Thursday"],
+            "Friday" to weekDays["Friday"],
+            "Saturday" to weekDays["Saturday"],
+            "Sunday" to weekDays["Sunday"]
         )
-        for(day in weekDays){
-            alarm_info.put(day.key,day.value)
-        }
         return alarm_info
     }
 
     fun setUser(user: String){
         this.user = user
-    }
-
-    override fun toString(): String{
-        var alarma = ""
-        alarma += (title + "\n")
-        alarma += (hour + "\n")
-        for (day in weekDays){
-            alarma += (day.key + ": " + day.value.toString() + "\n")
-        }
-        alarma += status.toString()
-        return alarma
     }
 
 }
