@@ -16,12 +16,11 @@
 
         <TextView
             android:id="@+id/statistics"
-            android:layout_width="171dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="127dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginLeft="93dp"
+            android:layout_marginTop="11dp"
             android:layout_marginBottom="1dp"
-            android:fontFamily="@font/reef"
             android:text="STATISTICS"
             android:textColor="#ffffff"
             android:textSize="41sp"

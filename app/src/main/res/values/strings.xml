@@ -26,7 +26,7 @@
     <string name="alarmSwitch_text">Alarm \n hour </string>
     <string name="alarmSwitch_text2">Alarm 2 \n hour </string>
     <string name="alarmSwitch_text3">Alarm  3 \n hour </string>
-    <string name="alarm_layout_title">Alarms</string>
+    <string name="alarm_layout_title">ALARMS</string>
     <string name="go_bed">22:30</string>
     <string name="i_must_get_in_bed_at">I must get in bed at:</string>
     <string name="sleeping_cycle">Sleeping cycle</string>
