@@ -1,4 +1,5 @@
 package com.example.somnia.view
+import android.content.Context
 import com.example.somnia.R
 import android.content.Intent
 import android.graphics.Color
@@ -48,6 +49,7 @@ class New_alarmActivity : AppCompatActivity() {
             addAlarm()
             val intent = Intent(this@New_alarmActivity, AlarmsActivity::class.java)
             startActivity(intent)
+
         }
 
         cancelButton.setOnClickListener {
@@ -58,59 +60,50 @@ class New_alarmActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun addAlarm(){
-        val weekDays: MutableMap<String, Boolean> = mutableMapOf<String, Boolean>()
+        val weekDays: MutableMap<String, Boolean> = mutableMapOf()
         val title: String = txtTitle.text.toString()
-        val hour: String = "Hour: "+timePicker.hour+ " Minute: "+ timePicker.minute
-        mondaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
+        val hour: String = timePicker.hour.toString() + ":" + timePicker.minute.toString()
+        if(mondaySwitch.isChecked) {
                 weekDays.put("Monday",true)
-            } else {
+        } else {
                 weekDays.put("Monday",false)
-            }
         }
-        tuesdaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
+        if(tuesdaySwitch.isChecked) {
                 weekDays.put("Tuesday",true)
             } else {
                 weekDays.put("Tuesday",false)
             }
-        }
-        wednesdaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
+
+        if (wednesdaySwitch.isChecked) {
                 weekDays.put("Wednesday",true)
             } else {
                 weekDays.put("Wednesday",false)
             }
-        }
-        thursdaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
+        if(thursdaySwitch.isChecked) {
                 weekDays.put("Thursday",true)
             } else {
                 weekDays.put("Thursday",false)
-            }
         }
-        fridaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
+        if(fridaySwitch.isChecked) {
                 weekDays.put("Friday",true)
             } else {
                 weekDays.put("Friday",false)
-            }
         }
-        saturdaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
+        if(saturdaySwitch.isChecked) {
                 weekDays.put("Saturday",true)
             } else {
                 weekDays.put("Saturday",false)
-            }
+
         }
-        sundaySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
+        if(sundaySwitch.isChecked) {
                 weekDays.put("Sunday",true)
             } else {
                 weekDays.put("Sunday",false)
-            }
+
         }
-        controller.addAlarm(title, hour, weekDays)
+        val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
+        val user = userPreferences.getString("email", "")
+        controller.addAlarm(title, hour, weekDays,user!!)
 
 
     }

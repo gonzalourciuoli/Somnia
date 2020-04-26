@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.example.somnia.R
+import com.example.somnia.controller.Controller
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -20,6 +21,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var txtRepeat_password : EditText
     private lateinit var db : FirebaseFirestore
     private lateinit var auth : FirebaseAuth
+    private val controller = Controller()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -10,10 +10,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.somnia.R
 import com.example.somnia.controller.Controller
+import com.example.somnia.model.Valuation
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
 
         private val controller = Controller()
+        private lateinit var db : FirebaseFirestore
 
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +26,7 @@ class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
     }
 
     private fun init(){
+        db = FirebaseFirestore.getInstance()
         val calendar = findViewById<CalendarView>(R.id.calendarView) as CalendarView
         calendar.setOnDateChangeListener(this)
 
@@ -45,15 +49,49 @@ class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
 
         val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
         val user = userPreferences.getString("email", "")
-        //perque no li pases la vista
-        //tot aixo ho fas al controlador y li pases la instancia d'aquesta clase i ho cambies alla aixi no has de fer return es la manera cutre de fer-ho'
 
         if (user != "") {
-            informacio = controller.getValuationString(user.toString(), id)
-            builder.setMessage(informacio)
-            val dialog = builder.create()
-            dialog.show()
-        }else {
+
+            //informacio = controller.getValuationString(user.toString(), id)
+
+            var valuationsList = mutableListOf<Valuation>()
+            db.collection("valuations")
+                .whereEqualTo("user", user)
+                .get().addOnSuccessListener {result ->
+                    for (valuation in result){
+                        val user = valuation.get("user").toString()
+                        val date = valuation.get("date").toString()
+                        val numStars = valuation.get("numStars").toString()
+                        val sport_box = valuation.get("sport_box").toString()
+                        val coffee_box = valuation.get("coffee_box").toString()
+                        val alcohol_box = valuation.get("alcohol_box").toString()
+                        val valuation_comment = valuation.get("valuation_comment").toString()
+
+                        val valu = Valuation(user, date, numStars.toFloat(), sport_box.toBoolean(),
+                            coffee_box.toBoolean(), alcohol_box.toBoolean(), valuation_comment)
+                        valuationsList.add(valu!!)
+                    }
+                    var valu = ""
+                    for (valuation in valuationsList){
+                        if (valuation.getUserValuation() == user){
+                            if (valuation.getDateValuation() == id){
+                                valu = valuation.toString()
+                            }
+                        }
+                    }
+
+                    if (valu == ""){
+                        builder.setMessage("No valuation on this day")
+                        val dialog = builder.create()
+                        dialog.show()
+                    }else{
+                        builder.setMessage(valu)
+                        val dialog = builder.create()
+                        dialog.show()
+                    }
+                }
+        }
+        else {
             Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
         }
     }

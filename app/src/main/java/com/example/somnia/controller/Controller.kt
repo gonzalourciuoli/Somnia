@@ -10,19 +10,19 @@ class Controller{
     constructor(){
         data_base = DataBase()
     }
-
     fun calculateTimeToGoBed(timeWakeUp: String, hoursToSleep: String, timeBed: String): String {
         val calculator = Calculator(timeWakeUp, hoursToSleep, timeBed)
         return calculator.calculateTimeToGoBed()
     }
-    fun calculateTimeToWakeUp(timeBed: String, hoursToSleep: String, timeWakeUp: String): String{
+    fun calculateTimeToWakeUp(timeWakeUp: String, hoursToSleep: String, timeBed: String): String{
         val calculator = Calculator(timeWakeUp, hoursToSleep, timeBed)
         return calculator.calculateTimeToWakeUp()
     }
 
 
-    fun addAlarm(title: String, hour: String, weekDays: MutableMap<String, Boolean>){
+    fun addAlarm(title: String, hour: String, weekDays: MutableMap<String, Boolean>, user: String){
         val newAlarm: Alarm = Alarm(title, hour, weekDays)
+        newAlarm.setUser(user)
         data_base.addAlarm(newAlarm)
     }
 
@@ -42,13 +42,13 @@ class Controller{
         }
     }
 
-    fun listViewValuations(user: String) {
+    /*fun listViewValuations(user: String): MutableList<String> {
         return valuationsList.getList(user)
-    }
+    }*/
 
-    fun getAlarmsList(): MutableList<Alarm>{
+    /*fun getAlarmsList(): MutableList<Alarm>{
         return data_base.getAlarmsList()
-    }
+    }*/
 
     /*fun changeStatus(alarm: Alarm){
         data_base.changeStatus(alarm)
