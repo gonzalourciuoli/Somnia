@@ -10,13 +10,14 @@
     <TextView
         android:id="@+id/top_calculator"
         style="@style/Title"
-        android:layout_width="270dp"
+        android:layout_width="wrap_content"
         android:layout_height="63dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/sleep_calculator"
-        android:fontFamily="@font/reef"
-        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:textSize="38sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,6 +28,7 @@
         android:layout_marginTop="48dp"
         android:text="@string/i_m_waking_up_at"
         android:fontFamily="@font/reef"
+        android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/top_calculator"
         app:layout_constraintTop_toBottomOf="@+id/top_calculator" />
@@ -40,6 +42,7 @@
         android:autofillHints=""
         android:inputType="time"
         android:text="@string/wake_up"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/waking_up"
         app:layout_constraintTop_toBottomOf="@+id/top_calculator" />
@@ -60,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/reef"
+        android:textColor="#ffffff"
         android:text="@string/in_order_to_sleep"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/waking_up"
@@ -74,6 +78,7 @@
         android:autofillHints=""
         android:inputType="time"
         android:text="@string/hours_to_sleep"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/to_sleep"
         app:layout_constraintTop_toBottomOf="@+id/timeWakeUp" />
@@ -84,6 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
         android:text="@string/hours"
+        android:textColor="#ffffff"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/hoursToSleep"
         app:layout_constraintTop_toBottomOf="@+id/timeWakeUp" />
@@ -103,6 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/reef"
+        android:textColor="#ffffff"
         android:text="@string/i_must_get_in_bed_at"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/to_sleep"
@@ -118,6 +125,7 @@
         android:autofillHints=""
         android:inputType="time"
         android:text="@string/go_bed"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/in_bed"
         app:layout_constraintTop_toBottomOf="@+id/hoursToSleep" />
@@ -137,6 +145,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/reef"
+        android:textColor="#ffffff"
         android:text="@string/calculate_time_i_must_wake_up"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="@+id/in_bed"
@@ -160,6 +169,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/reef"
+        android:textColor="#ffffff"
         android:text="@string/calculate_time_i_must_get_in_bed"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="@+id/in_bed"
