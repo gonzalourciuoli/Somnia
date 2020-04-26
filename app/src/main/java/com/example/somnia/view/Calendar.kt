@@ -49,36 +49,46 @@ class Calendar : AppCompatActivity(), CalendarView.OnDateChangeListener {
 
         val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
         val user = userPreferences.getString("email", "")
-        //perque no li pases la vista
-        //tot aixo ho fas al controlador y li pases la instancia d'aquesta clase i ho cambies alla aixi no has de fer return es la manera cutre de fer-ho'
 
         if (user != "") {
+
             //informacio = controller.getValuationString(user.toString(), id)
-            db.collection("valuations").document(user.toString() + "@" + id)
-                .get().addOnSuccessListener {
-                    val date = it.get("date").toString()
-                    val numStars = it.get("numStars").toString()
-                    val sport_box = it.get("sport_box").toString()
-                    val coffee_box = it.get("coffee_box").toString()
-                    val alcohol_box = it.get("alcohol_box").toString()
-                    val valuation_comment = it.get("valuation_comment").toString()
-                    val valu = Valuation(user!!, date, numStars.toFloat(), sport_box.toBoolean(),
-                        coffee_box.toBoolean(), alcohol_box.toBoolean(), valuation_comment)
-                    if (valu.getDateValuation() == id){
-                        builder.setMessage(valu.toString())
-                        val dialog = builder.create()
-                        dialog.show()
-                    }else{
+
+            var valuationsList = mutableListOf<Valuation>()
+            db.collection("valuations")
+                .whereEqualTo("user", user)
+                .get().addOnSuccessListener {result ->
+                    for (valuation in result){
+                        val user = valuation.get("user").toString()
+                        val date = valuation.get("date").toString()
+                        val numStars = valuation.get("numStars").toString()
+                        val sport_box = valuation.get("sport_box").toString()
+                        val coffee_box = valuation.get("coffee_box").toString()
+                        val alcohol_box = valuation.get("alcohol_box").toString()
+                        val valuation_comment = valuation.get("valuation_comment").toString()
+
+                        val valu = Valuation(user, date, numStars.toFloat(), sport_box.toBoolean(),
+                            coffee_box.toBoolean(), alcohol_box.toBoolean(), valuation_comment)
+                        valuationsList.add(valu!!)
+                    }
+                    var valu = ""
+                    for (valuation in valuationsList){
+                        if (valuation.getUserValuation() == user){
+                            if (valuation.getDateValuation() == id){
+                                valu = valuation.toString()
+                            }
+                        }
+                    }
+
+                    if (valu == ""){
                         builder.setMessage("No valuation on this day")
                         val dialog = builder.create()
                         dialog.show()
+                    }else{
+                        builder.setMessage(valu)
+                        val dialog = builder.create()
+                        dialog.show()
                     }
-
-                }
-                .addOnFailureListener {
-                    builder.setMessage("No valuation on this day")
-                    val dialog = builder.create()
-                    dialog.show()
                 }
         }
         else {
