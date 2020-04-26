@@ -30,15 +30,17 @@ class Calculator : AppCompatActivity() {
         val cycleSwitch = findViewById<Button>(R.id.cycleSwitch) as Switch
         val cycleSwitch1 = findViewById<Button>(R.id.cycleSwitch1) as Switch
 
-        val timeWakeUpText =  timeWakeUp.toString()
-        val hoursToSleepText = hoursToSleep.toString()
-        val timeBedText = timeBed.toString()
+        val timeWakeUpText =  timeWakeUp.text.toString()
+        val hoursToSleepText = hoursToSleep.text.toString()
+        val timeBedText = timeBed.text.toString()
         cycleSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
                 if (cycleSwitch1.isChecked){
                     cycleSwitch1.isChecked = false
                 }
-                timeBed.setText(controller.calculateTimeToWakeUp(timeBedText, hoursToSleepText, timeWakeUpText))
+                val result = controller.calculateTimeToWakeUp(timeWakeUpText, hoursToSleepText,timeBedText)
+                this.timeWakeUp.setText(result)
+
             }
         }
 
@@ -47,7 +49,8 @@ class Calculator : AppCompatActivity() {
                 if (cycleSwitch.isChecked){
                     cycleSwitch.isChecked = false
                 }
-                timeWakeUp.setText(controller.calculateTimeToGoBed(timeWakeUpText, hoursToSleepText, timeBedText))
+                val result = controller.calculateTimeToGoBed(timeWakeUpText, hoursToSleepText, timeBedText)
+                this.timeBed.setText(result)
             }
         }
 

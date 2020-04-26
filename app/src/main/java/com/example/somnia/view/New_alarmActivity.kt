@@ -1,4 +1,5 @@
 package com.example.somnia.view
+import android.content.Context
 import com.example.somnia.R
 import android.content.Intent
 import android.graphics.Color
@@ -48,6 +49,7 @@ class New_alarmActivity : AppCompatActivity() {
             addAlarm()
             val intent = Intent(this@New_alarmActivity, AlarmsActivity::class.java)
             startActivity(intent)
+
         }
 
         cancelButton.setOnClickListener {
@@ -110,7 +112,9 @@ class New_alarmActivity : AppCompatActivity() {
                 weekDays.put("Sunday",false)
             }
         }
-        controller.addAlarm(title, hour, weekDays)
+        val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
+        val user = userPreferences.getString("email", "")
+        controller.addAlarm(title, hour, weekDays,user!!)
 
 
     }
