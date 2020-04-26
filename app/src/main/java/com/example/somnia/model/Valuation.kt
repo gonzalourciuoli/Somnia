@@ -41,9 +41,29 @@ class Valuation {
         return this.date
     }
 
+    fun getNumStarsValuation(): String{
+        return this.numStars.toString()
+    }
+
+    fun getSportBoxValuation(): String{
+        return this.sport_box.toString()
+    }
+
+    fun getCoffeeBoxValuation(): String{
+        return this.coffee_box.toString()
+    }
+
+    fun getAlcoholBoxValuation(): String{
+        return this.alcohol_box.toString()
+    }
+
+    fun getValuationComment(): String{
+        return this.valuation_comment
+    }
+
     override fun toString(): String{
         var informacio = ""
-        if (date == null || date == "null"){
+        if (date == null || date == "null" || date == ""){
             informacio = "No valuation on this day"
         }else{
             informacio += ("Rating: " + numStars.toString() + " / 5 \n")
