@@ -10,11 +10,9 @@
     <com.anychart.AnyChartView
         android:id="@+id/linear_chart"
         android:layout_width="match_parent"
-        android:layout_height="528dp"
+        android:layout_height="580dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-
-        android:layout_marginBottom="248dp"
         app:layout_constraintBottom_toTopOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

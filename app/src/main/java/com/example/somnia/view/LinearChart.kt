@@ -1,6 +1,6 @@
 package com.example.somnia.view
-
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.anychart.APIlib
 import com.anychart.AnyChart
@@ -17,7 +17,7 @@ import com.example.somnia.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlin.random.Random
+
 
 class LinearChart: AppCompatActivity()  {
 
@@ -25,8 +25,9 @@ class LinearChart: AppCompatActivity()  {
     val hours4 = ArrayList<Int>()
 
     private lateinit var auth : FirebaseAuth
-    private lateinit var db : FirebaseFirestore
-    private lateinit var layoutCollection : CollectionReference
+    private lateinit var db: FirebaseFirestore
+    private lateinit var dataCollection : CollectionReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +35,9 @@ class LinearChart: AppCompatActivity()  {
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
-        layoutCollection = db.collection("linear_chart")
+
+        dataCollection = db.collection("linear_chart")
+
 
         val lineChart : AnyChartView = findViewById(R.id.linear_chart)
         APIlib.getInstance().setActiveAnyChartView(lineChart)
@@ -50,42 +53,47 @@ class LinearChart: AppCompatActivity()  {
 
         line.animation(true)
 
-        layoutCollection.get().addOnSuccessListener {
-            for (doc in it) {
-                ages.add(Integer.parseInt(doc.get("xValue").toString()))
-                hours4.add(Integer.parseInt(doc.get("yValue").toString()))
+
+        dataCollection
+            .get()
+            .addOnSuccessListener {
+
+                for (document in it) {
+                    ages.add(Integer.parseInt(document.get("xValue").toString()!!))
+                    hours4.add(Integer.parseInt(document.get("yValue").toString()!!))
+                }
+                for (i in ages.indices){
+                    entries.add(ValueDataEntry(ages[i],hours4[i]))
+                }
+                val set = Set.instantiate()
+                set.data(entries)
+
+                val lineMap: Mapping = set.mapAs("{ x: 'x', value: 'value' }")
+
+                val l: Line = line.line(lineMap)
+                l.name("People")
+                l.hovered().markers().enabled(true)
+                l.hovered().markers().type(MarkerType.CIRCLE).size(4.0)
+                l.tooltip().position("right").anchor(Anchor.LEFT_CENTER).offsetX(5.0).offsetY(5.0)
+
+
+                line.title("AVERAGE OF POPULATION")
+                line.yAxis(0).title("Hours of sleep")
+                line.xAxis(0).title("Age")
+                line.legend(true)
+
+                val range_colors = arrayOf("#9933FF")
+                line.palette(range_colors)
+                background.stroke("#663399")
+                //background.fill(GradientKey("#dcd0ff",0,1))
+                lineChart.setChart(line)
             }
-
-            for (i in ages.indices) {
-                //val value = Random.nextFloat()* 24
-                //hours4.add(value.toInt())
-                entries.add(ValueDataEntry(ages[i], hours4[i]))
+            .addOnFailureListener { exception ->
+                Log.w("Linear chart data", "Error getting documents: ", exception)
             }
-
-            val set = Set.instantiate()
-            set.data(entries) //aqui deberia pasarse los datos del firebase
-
-            val lineMap: Mapping = set.mapAs("{ x: 'x', value: 'value' }")
-
-            val l: Line = line.line(lineMap)
-            l.name("People")
-            l.hovered().markers().enabled(true)
-            l.hovered().markers().type(MarkerType.CIRCLE).size(4.0)
-            l.tooltip().position("right").anchor(Anchor.LEFT_CENTER).offsetX(5.0).offsetY(5.0)
-
-
-            line.title("AVERAGE OF POPULATION")
-            line.yAxis(0).title("Hours")
-            line.xAxis(0).title("Age")
-            line.legend(true)
-
-            val range_colors = arrayOf("#9933FF")
-            line.palette(range_colors)
-            background.stroke("#663399")
-            //background.fill(GradientKey("#dcd0ff",0,1))
-            lineChart.setChart(line)
-        }
 
     }
 
+
 }
+
