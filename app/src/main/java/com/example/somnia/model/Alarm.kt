@@ -53,7 +53,7 @@ class Alarm {
         return this.weekDays
     }
 
-    fun toMap(): MutableMap<String, Any>{
+    fun toMap(): MutableMap<String, Any> {
         val alarm_info = mutableMapOf(
             "Title" to title,
             "Hour" to hour,
