@@ -32,7 +32,9 @@
     <style name="CalenderViewMonthCustomText" parent="android:TextAppearance.DeviceDefault.Small">
         <item name="android:textColor">#000</item>
     </style>
-
-
+    
+    <style name="SwitchTheme2" parent="Theme.AppCompat.Light">
+        <item name="android:colorControlActivated">#B697DA</item>
+    </style>
 
 </resources>
