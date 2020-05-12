@@ -1,7 +1,5 @@
 package com.example.somnia.model
 
-import android.content.Context
-import android.content.SharedPreferences
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -12,10 +10,10 @@ class Alarm {
     private var status: Boolean
     private var db: FirebaseFirestore
     private var auth: FirebaseAuth
-    private lateinit var user: String
+    private var user: String
 
 
-    constructor(title: String, hour: String, weekDays: MutableMap<String, Boolean>){
+    constructor(title: String, hour: String, weekDays: MutableMap<String, Boolean>, user: String){
         if(title == ""){
             this.title = "Title"
         }else {
@@ -24,7 +22,7 @@ class Alarm {
         this.hour = hour
         this.weekDays = weekDays
         this.status = true
-        this.user = ""
+        this.user = user
         db = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
 
@@ -76,6 +74,9 @@ class Alarm {
 
     fun setUser(user: String){
         this.user = user
+    }
+    fun getUserAlarm(): String{
+        return this.user
     }
 
 }

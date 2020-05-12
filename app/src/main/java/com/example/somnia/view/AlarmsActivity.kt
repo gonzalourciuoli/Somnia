@@ -84,7 +84,7 @@ class AlarmsActivity : AppCompatActivity() {
                         "Saturday" to saturday.toBoolean(),
                         "Sunday" to sunday.toBoolean()
                     )
-                    val alarm = Alarm(title, hour, weekDays)
+                    val alarm = Alarm(title, hour, weekDays, user!!)
                     alarm.setStatus(status.toBoolean())
                     alarmsList.add(alarm)
                 }
@@ -121,7 +121,7 @@ class AlarmsActivity : AppCompatActivity() {
                     "Saturday" to saturday.toBoolean(),
                     "Sunday" to sunday.toBoolean()
                 )
-                val alarm = Alarm(title, hour, weekDays)
+                val alarm = Alarm(title, hour, weekDays, user!!)
                 alarm.setStatus(status.toBoolean())
                 alarmsList.add(alarm)
             }

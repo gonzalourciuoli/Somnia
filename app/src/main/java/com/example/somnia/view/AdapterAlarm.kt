@@ -1,13 +1,17 @@
 package com.example.somnia.view
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import com.example.somnia.model.Alarm
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Switch
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.somnia.R
 import com.example.somnia.controller.Controller
+import com.google.firebase.firestore.FirebaseFirestore
 
 class AdapterAlarm (var list: MutableList<Alarm>): RecyclerView.Adapter<AdapterAlarm.ViewHolder>() {
 
@@ -21,6 +25,33 @@ class AdapterAlarm (var list: MutableList<Alarm>): RecyclerView.Adapter<AdapterA
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItems(list[position])
+        holder.deleteButton.setOnClickListener {
+            val db = FirebaseFirestore.getInstance()
+            val layoutInflater : LayoutInflater = LayoutInflater.from(it.context)
+            val builder = AlertDialog.Builder(it.context, R.style.Theme_AppCompat_Dialog_Alert)
+            builder.setView(layoutInflater.inflate(R.layout.activity_remove, null))
+            val dialog: AlertDialog = builder.create()
+            var alertView = layoutInflater.inflate(R.layout.activity_remove, null)
+            alertView.findViewById<TextView>(R.id.remove_title).text = "Are you sure you want to delete this alarm?"
+            alertView.findViewById<TextView>(R.id.remove_description).text= "After you delete it you will be unable to recover the alarm"
+            alertView.findViewById<Button>(R.id.delete_valuation_alert_cancel).setOnClickListener {
+                dialog.cancel()
+            }
+            alertView.findViewById<Button>(R.id.delete_valuation_alert_confirm).setOnClickListener {
+                val alarm = list.removeAt(position)
+                val title = alarm.getTitle()
+                val user = alarm.getUserAlarm()
+                val hour = alarm.getHour()
+                Toast.makeText(it.context, user + "@" + title + "@" + hour, Toast.LENGTH_LONG).show()
+                db.collection("Alarms").document(user + "@" + title + "@" + hour).delete()
+                notifyItemRemoved(position)
+                notifyItemRangeChanged(position, list.size)
+                //Toast.makeText(it.context, "Alarm successfully deleted", Toast.LENGTH_LONG).show()
+                dialog.cancel()
+            }
+            dialog.setView(alertView)
+            dialog.show()
+        }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -33,6 +64,7 @@ class AdapterAlarm (var list: MutableList<Alarm>): RecyclerView.Adapter<AdapterA
         val friday: TextView = itemView.findViewById(R.id.friday_view)
         val saturday: TextView = itemView.findViewById(R.id.saturday_view)
         val sunday: TextView = itemView.findViewById(R.id.sunday_view)
+        val deleteButton = itemView.findViewById<Button>(R.id.deleteAlarm) as Button
         private var controller = Controller()
 
         fun bindItems(data: Alarm) {
