@@ -4,7 +4,7 @@ import com.example.somnia.model.*
 
 class Controller{
 
-    val valuationsList : ValuationsList = ValuationsList()
+    private val valuationsList : ValuationsList = ValuationsList()
     private var data_base: DataBase
 
     constructor(){
@@ -21,7 +21,7 @@ class Controller{
 
 
     fun addAlarm(title: String, hour: String, weekDays: MutableMap<String, Boolean>, user: String){
-        val newAlarm: Alarm = Alarm(title, hour, weekDays, user)
+        val newAlarm = Alarm(title, hour, weekDays, user)
         newAlarm.setUser(user)
         data_base.addAlarm(newAlarm)
     }

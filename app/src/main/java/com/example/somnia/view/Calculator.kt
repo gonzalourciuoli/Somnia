@@ -20,7 +20,6 @@ class Calculator : AppCompatActivity() {
         setContentView(R.layout.activity_calculator)
 
         init()
-
     }
 
     private fun init(){
@@ -30,10 +29,10 @@ class Calculator : AppCompatActivity() {
         val cycleSwitch = findViewById<Button>(R.id.cycleSwitch) as Switch
         val cycleSwitch1 = findViewById<Button>(R.id.cycleSwitch1) as Switch
 
-        val timeWakeUpText =  timeWakeUp.text.toString()
-        val hoursToSleepText = hoursToSleep.text.toString()
-        val timeBedText = timeBed.text.toString()
         cycleSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            val timeWakeUpText =  timeWakeUp.text.toString()
+            val hoursToSleepText = hoursToSleep.text.toString()
+            val timeBedText = timeBed.text.toString()
             if(isChecked){
                 if (cycleSwitch1.isChecked){
                     cycleSwitch1.isChecked = false
@@ -45,6 +44,9 @@ class Calculator : AppCompatActivity() {
         }
 
         cycleSwitch1.setOnCheckedChangeListener { buttonView, isChecked ->
+            val timeWakeUpText =  timeWakeUp.text.toString()
+            val hoursToSleepText = hoursToSleep.text.toString()
+            val timeBedText = timeBed.text.toString()
             if(isChecked){
                 if (cycleSwitch.isChecked){
                     cycleSwitch.isChecked = false
