@@ -131,17 +131,6 @@ class Valuations : AppCompatActivity() {
                             startActivity(intent)
                         }
                     }
-                /*controller.addValuation(user!!, date1, numStars1, sport_box1, coffee_box1, alcohol_box1, valuation_comment1)
-                Toast.makeText(this, "Valuation saved", Toast.LENGTH_LONG).show()
-
-                val userPreferences = view.context.getSharedPreferences("valuations", Context.MODE_PRIVATE)
-                val editor: SharedPreferences.Editor = userPreferences.edit()
-
-                editor.putString("date", date1)
-                editor.apply()
-
-                val intent = Intent(this@Valuations, Home::class.java)
-                startActivity(intent)*/
             }
         }else{
             Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
