@@ -21,7 +21,7 @@ class Controller{
 
 
     fun addAlarm(title: String, hour: String, weekDays: MutableMap<String, Boolean>, user: String){
-        val newAlarm: Alarm = Alarm(title, hour, weekDays)
+        val newAlarm: Alarm = Alarm(title, hour, weekDays, user)
         newAlarm.setUser(user)
         data_base.addAlarm(newAlarm)
     }
