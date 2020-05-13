@@ -24,6 +24,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var db : FirebaseFirestore
     private lateinit var auth : FirebaseAuth
     private val controller = Controller()
+    private val hasher = Hasher()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,7 +74,7 @@ class SignUpActivity : AppCompatActivity() {
                                 val user = hashMapOf(
                                     "username" to username,
                                     "email" to email,
-                                    "password" to password
+                                    "password" to hasher.hash(password)
                                 )
                                 db.collection("users").document(email).set(user)
                                     .addOnSuccessListener {

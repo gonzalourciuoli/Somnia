@@ -13,32 +13,32 @@
         style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="63dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
         android:text="@string/newAlarm_layout_title"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/alarmTitle"
         android:layout_width="306dp"
         android:layout_height="62dp"
         android:layout_marginTop="28dp"
+        android:layout_marginStart="40dp"
         android:autofillHints="@string/alarm_title"
         android:ems="10"
         android:fontFamily="@font/reef_family"
-        android:textColorHint="#fff"
-        android:textColor="#fff"
         android:hint="@string/alarm_title"
         android:inputType="textEmailAddress"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/newAlarmLayoutTitle"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newAlarmLayoutTitle"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -59,31 +59,48 @@
         app:layout_constraintTop_toBottomOf="@+id/alarmTitle"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
+
+    <com.spark.submitbutton.SubmitButton
         android:id="@+id/add"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
+        android:layout_width="382dp"
+        android:layout_height="399dp"
         android:layout_marginTop="52dp"
         android:layout_marginBottom="65dp"
-        android:text="@string/add_button"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="40dp"
+        android:text=" ADD"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cancel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wednesday_switch" />
+        app:layout_constraintTop_toBottomOf="@id/wednesday_switch"
+        app:sub_btn_background="#b99aff"
+        app:sub_btn_duration="1500"
+        app:sub_btn_line_color="#dbc7ff"
+        app:sub_btn_ripple_color="#b99aff"
+        app:sub_btn_tick_color="@color/white" />
+
+
 
     <Button
         android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="66dp"
         android:layout_gravity="right"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="88dp"
         android:layout_marginBottom="65dp"
         android:text="@string/cancel_button"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@drawable/button_cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saturday_switch" />
+        app:layout_constraintTop_toBottomOf="@+id/saturday_switch"
+        app:layout_constraintStart_toEndOf="@id/add"/>
 
     <Switch
         android:id="@+id/monday_switch"
