@@ -54,7 +54,6 @@ class Calculator {
             resultMinuts = i
             resultHours += 1
         }
-        val result = resultHours.toString() + ":" + resultMinuts.toString()
-        return result
+        return (resultHours.toString() + ":" + resultMinuts.toString())
     }
 }

@@ -91,7 +91,7 @@ class Charts : AppCompatActivity() {
 
     }
 
-    fun createHorizonBarChart(horizonBarChart: AnyChartView){
+    fun createHorizonBarChart(horizonBarChart: AnyChartView) {
 
         val bar = AnyChart.bar()
         val background = bar.background()

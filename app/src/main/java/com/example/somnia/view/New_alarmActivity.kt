@@ -7,6 +7,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.provider.AlarmClock
 import android.widget.*
 import androidx.annotation.RequiresApi
 import com.example.somnia.controller.Controller
@@ -50,8 +51,6 @@ class New_alarmActivity : AppCompatActivity() {
 
         addButton.setOnClickListener {
             addAlarm()
-            //val intent = Intent(this@New_alarmActivity, AlarmsActivity::class.java)
-            //startActivity(intent)
             Handler().postDelayed({ startActivity(Intent(this@New_alarmActivity, AlarmsActivity::class.java)) }, 2000)
         }
 
@@ -64,50 +63,68 @@ class New_alarmActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     private fun addAlarm(){
         val weekDays: MutableMap<String, Boolean> = mutableMapOf()
+        val alarmDays = IntArray(7)
         val title: String = txtTitle.text.toString()
         val hour: String = timePicker.hour.toString() + ":" + timePicker.minute.toString()
         if(mondaySwitch.isChecked) {
                 weekDays.put("Monday",true)
+                alarmDays[0] = 1
         } else {
                 weekDays.put("Monday",false)
         }
         if(tuesdaySwitch.isChecked) {
                 weekDays.put("Tuesday",true)
+                alarmDays[1] = 2
             } else {
                 weekDays.put("Tuesday",false)
             }
 
         if (wednesdaySwitch.isChecked) {
                 weekDays.put("Wednesday",true)
+                alarmDays[2] = 3
             } else {
                 weekDays.put("Wednesday",false)
             }
         if(thursdaySwitch.isChecked) {
                 weekDays.put("Thursday",true)
+                alarmDays[3] = 4
             } else {
                 weekDays.put("Thursday",false)
         }
         if(fridaySwitch.isChecked) {
+                alarmDays[4] = 5
                 weekDays.put("Friday",true)
             } else {
                 weekDays.put("Friday",false)
         }
         if(saturdaySwitch.isChecked) {
+                alarmDays[5] = 6
                 weekDays.put("Saturday",true)
             } else {
                 weekDays.put("Saturday",false)
 
         }
         if(sundaySwitch.isChecked) {
+                alarmDays[6] = 7
                 weekDays.put("Sunday",true)
             } else {
                 weekDays.put("Sunday",false)
 
         }
+
         val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
         val user = userPreferences.getString("email", "")
         controller.addAlarm(title, hour, weekDays,user!!)
 
+        val intent = Intent(AlarmClock.ACTION_SET_ALARM)
+        intent.putExtra(AlarmClock.EXTRA_HOUR, timePicker.hour)
+        intent.putExtra(AlarmClock.EXTRA_MINUTES, timePicker.minute)
+        intent.putExtra(AlarmClock.EXTRA_DAYS, alarmDays)
+        startActivity(intent)
 
+        Thread.sleep(5000)
+
+        val intent1 = Intent(this@New_alarmActivity, AlarmsActivity::class.java)
+        startActivity(intent1)
     }
 }
