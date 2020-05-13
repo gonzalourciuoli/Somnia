@@ -21,6 +21,7 @@ class logInActivity : AppCompatActivity() {
     private lateinit var txtUsername : EditText
     private lateinit var txtPassword : EditText
     private lateinit var auth : FirebaseAuth
+    private val hasher = Hasher()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +57,7 @@ class logInActivity : AppCompatActivity() {
         val password : String = txtPassword.text.toString()
 
         if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
-            auth.signInWithEmailAndPassword(username, password).addOnCompleteListener(this) {
+            auth.signInWithEmailAndPassword(username, hasher.hash(password)).addOnCompleteListener(this) {
                 task ->
 
                 if (task.isSuccessful) {
@@ -70,7 +71,6 @@ class logInActivity : AppCompatActivity() {
                     startActivity(Intent(this, Home::class.java))
                     Toast.makeText(this, "You logged into your account", Toast.LENGTH_LONG).show()
                 } else {
-
                     Toast.makeText(this, "Authentication failed", Toast.LENGTH_LONG).show()
                 }
             }

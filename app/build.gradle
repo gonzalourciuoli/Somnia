@@ -60,4 +60,6 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation 'com.google.guava:guava:27.0.1-android'
+
+    implementation 'me.spark:submitbutton:1.0.1'
 }

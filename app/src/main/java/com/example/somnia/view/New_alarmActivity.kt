@@ -6,10 +6,13 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.widget.*
 import androidx.annotation.RequiresApi
 import com.example.somnia.controller.Controller
+import com.spark.submitbutton.SubmitButton
 import kotlinx.android.synthetic.main.alarm_design.*
+
 
 
 class New_alarmActivity : AppCompatActivity() {
@@ -24,7 +27,7 @@ class New_alarmActivity : AppCompatActivity() {
     private lateinit var fridaySwitch: Switch
     private lateinit var saturdaySwitch: Switch
     private lateinit var sundaySwitch: Switch
-    private lateinit var addButton: Button
+    private lateinit var addButton: SubmitButton
     private lateinit var cancelButton: Button
 
 
@@ -42,14 +45,14 @@ class New_alarmActivity : AppCompatActivity() {
         fridaySwitch = findViewById(R.id.friday_switch)
         saturdaySwitch = findViewById(R.id.saturday_switch)
         sundaySwitch = findViewById(R.id.sunday_switch)
-        addButton = findViewById<Button>(R.id.add)
+        addButton = findViewById<SubmitButton>(R.id.add)
         cancelButton = findViewById(R.id.cancel)
 
         addButton.setOnClickListener {
             addAlarm()
-            val intent = Intent(this@New_alarmActivity, AlarmsActivity::class.java)
-            startActivity(intent)
-
+            //val intent = Intent(this@New_alarmActivity, AlarmsActivity::class.java)
+            //startActivity(intent)
+            Handler().postDelayed({ startActivity(Intent(this@New_alarmActivity, AlarmsActivity::class.java)) }, 2000)
         }
 
         cancelButton.setOnClickListener {
