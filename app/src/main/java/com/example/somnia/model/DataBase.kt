@@ -30,7 +30,12 @@ class DataBase {
 
     fun addAlarm(alarm: Alarm){
         val alarm_map = alarm.toMap()
-        db.collection("Alarms").add(alarm_map)
+        //db.collection("Alarms").add(alarm_map)
+        db.collection("Alarms").document(alarm.getUserAlarm() + "@" +
+                alarm.getTitle() + "@" + alarm.getHour())
+            .set(alarm_map).addOnSuccessListener {
+
+            }
     }
 
     fun addValuation(valuation: Valuation, user: String, date: String){

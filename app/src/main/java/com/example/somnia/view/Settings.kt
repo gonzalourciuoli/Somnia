@@ -70,6 +70,23 @@ class Settings : AppCompatActivity() {
                 .addOnSuccessListener {
                     auth.currentUser!!.delete().addOnCompleteListener {
                         db.collection("users").document(user.toString()).delete()
+                        db.collection("valuations")
+                            .whereEqualTo("user", user)
+                            .get().addOnSuccessListener { list ->
+                                for (valuation in list){
+                                    val date = valuation.get("date").toString()
+                                    db.collection("valuations").document(user.toString() + "@" + date).delete()
+                                }
+                            }
+                        db.collection("Alarms")
+                            .whereEqualTo("User", user)
+                            .get().addOnSuccessListener { list ->
+                                for (alarm in list){
+                                    val title = alarm.get("Title").toString()
+                                    val hour = alarm.get("Hour").toString()
+                                    db.collection("Alarms").document(user.toString() + "@" + title + "@" + hour).delete()
+                                }
+                            }
                         Toast.makeText(this, "Account successfuly deleted", Toast.LENGTH_LONG).show()
                         val intent = Intent(this@Settings, logInActivity::class.java)
                         startActivity(intent)

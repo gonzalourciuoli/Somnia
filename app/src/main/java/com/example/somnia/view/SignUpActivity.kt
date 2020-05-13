@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Patterns
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -12,6 +13,7 @@ import com.example.somnia.controller.Controller
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -56,6 +58,8 @@ class SignUpActivity : AppCompatActivity() {
             Toast.makeText(this, "The passwords aren't matching", Toast.LENGTH_LONG).show()
         } else if (password.length < 6){
             Toast.makeText(this, "The password must be 6 characters minimum", Toast.LENGTH_LONG).show()
+        } else if (!validarEmail(email)){
+            Toast.makeText(this, "This email is invalid", Toast.LENGTH_LONG).show()
         } else if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(repeat_password)) {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) {
                     task ->
@@ -104,5 +108,11 @@ class SignUpActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    private fun validarEmail(email: String): Boolean{
+        val pattern : Pattern = Patterns.EMAIL_ADDRESS
+        return pattern.matcher(email).matches()
+
     }
 }
