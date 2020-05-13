@@ -21,7 +21,6 @@ class logInActivity : AppCompatActivity() {
     private lateinit var txtUsername : EditText
     private lateinit var txtPassword : EditText
     private lateinit var auth : FirebaseAuth
-    private val hasher = Hasher()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,11 +54,6 @@ class logInActivity : AppCompatActivity() {
     private fun loginUser(view : View) {
         val username : String = txtUsername.text.toString()
         val password : String = txtPassword.text.toString()
-
-        print("Contraseña hasheada")
-        print(hasher.hash(password))
-        print("Contraseña sin hashear")
-        print(password)
 
         if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
 
