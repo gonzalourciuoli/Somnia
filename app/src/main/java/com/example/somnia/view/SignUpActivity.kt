@@ -70,7 +70,7 @@ class SignUpActivity : AppCompatActivity() {
                                 val user = hashMapOf(
                                     "username" to username,
                                     "email" to email,
-                                    "password" to password
+                                    "password" to hasher.hash(password)
                                 )
                                 db.collection("users").document(email).set(user)
                                     .addOnSuccessListener {

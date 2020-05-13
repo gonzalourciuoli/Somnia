@@ -56,8 +56,14 @@ class logInActivity : AppCompatActivity() {
         val username : String = txtUsername.text.toString()
         val password : String = txtPassword.text.toString()
 
+        print("Contraseña hasheada")
+        print(hasher.hash(password))
+        print("Contraseña sin hashear")
+        print(password)
+
         if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
-            auth.signInWithEmailAndPassword(username, hasher.hash(password)).addOnCompleteListener(this) {
+
+            auth.signInWithEmailAndPassword(username, password).addOnCompleteListener(this) {
                 task ->
 
                 if (task.isSuccessful) {
