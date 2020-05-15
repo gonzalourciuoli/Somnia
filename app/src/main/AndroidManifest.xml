@@ -45,6 +45,10 @@
         <activity android:name=".view.Settings" />
         <activity android:name=".view.SignUpActivity" />
         <activity android:name=".view.Valuations" />
+        <receiver android:name=".model.AlarmReceiver"></receiver>
+        <service android:name=".model.RingtoneService"
+            android:enabled="true" />
+
 
         <meta-data
             android:name="com.google.android.gms.version"

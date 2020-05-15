@@ -51,6 +51,19 @@ class Alarm {
         return this.hour
     }
 
+    fun getTimeLong(): Long{
+        var hour_long = (this.hour.substringBefore(":")).toLong()
+        var min_long = (this.hour.substringAfter(":")).toLong()
+        if (min_long < 10){
+            min_long = min_long / 10
+        }
+        else{
+            min_long = min_long / 100
+        }
+        return hour_long + min_long
+
+    }
+
     fun getWeekDays(): MutableMap<String, Boolean> {
         return this.weekDays
     }
