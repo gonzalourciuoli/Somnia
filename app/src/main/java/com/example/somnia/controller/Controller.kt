@@ -1,14 +1,24 @@
 package com.example.somnia.controller
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import com.example.somnia.model.*
+import kotlinx.android.synthetic.main.activity_calendar.*
 
-class Controller{
+class Controller : AppCompatActivity{
 
     private val valuationsList : ValuationsList = ValuationsList()
     private var data_base: DataBase
+    private lateinit var manager: Manager
+
 
     constructor(){
         data_base = DataBase()
+
+
     }
     fun calculateTimeToGoBed(timeWakeUp: String, hoursToSleep: String, timeBed: String): String {
         val calculator = Calculator(timeWakeUp, hoursToSleep, timeBed)
@@ -20,10 +30,12 @@ class Controller{
     }
 
 
-    fun addAlarm(title: String, hour: String, weekDays: MutableMap<String, Boolean>, user: String){
+    fun addAlarm(title: String, hour: String, weekDays: MutableMap<String, Boolean>, user: String): Alarm{
         val newAlarm = Alarm(title, hour, weekDays, user)
         newAlarm.setUser(user)
         data_base.addAlarm(newAlarm)
+       return newAlarm
+
     }
 
     fun addValuation(user: String, date: String, numStars: Float, sport_box: Boolean, coffee_box: Boolean,
