@@ -78,8 +78,22 @@ class SignUpActivity : AppCompatActivity() {
                                 )
                                 db.collection("users").document(email).set(user)
                                     .addOnSuccessListener {
+
                                         Toast.makeText(this, "User created", Toast.LENGTH_LONG).show()
                                         startActivity(Intent(this, logInActivity::class.java))
+                                        var user = auth.currentUser?.sendEmailVerification()?.addOnCompleteListener(this) { task ->
+                                            if (task.isComplete) {
+                                                Toast.makeText(this, "Verify your email", Toast.LENGTH_LONG).show()
+                                            } else {
+                                                Toast.makeText(
+                                                    this,
+                                                    "An error occurred trying to send the email verification",
+                                                    Toast.LENGTH_LONG
+                                                ).show()
+
+                                            }
+                                        }
+
                                     }
                                     .addOnFailureListener {
                                         Toast.makeText(this, "User creation failed", Toast.LENGTH_LONG).show()
@@ -91,22 +105,6 @@ class SignUpActivity : AppCompatActivity() {
             }
         } else {
             Toast.makeText(this, "Looks like some of the fields are empty", Toast.LENGTH_LONG).show()
-        }
-    }
-
-    private fun verifyEmail(user: FirebaseUser?) {
-        user?.sendEmailVerification()?.addOnCompleteListener(this) { task ->
-
-            if (task.isComplete) {
-                Toast.makeText(this, "Email sent", Toast.LENGTH_LONG).show()
-            } else {
-                Toast.makeText(
-                    this,
-                    "An error occurred trying to send the email",
-                    Toast.LENGTH_LONG
-                ).show()
-
-            }
         }
     }
 
