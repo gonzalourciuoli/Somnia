@@ -86,8 +86,14 @@ class New_alarmActivity : AppCompatActivity() {
         val weekDays: MutableMap<String, Boolean> = mutableMapOf()
         val alarmDays = IntArray(7)
         val title: String = txtTitle.text.toString()
-
-        val hour: String = timePicker.hour.toString() + ":" + timePicker.minute.toString()
+        var minute = ""
+        if (timePicker.minute<10){
+            minute = "0" + timePicker.minute.toString()
+        }
+        else{
+            minute = timePicker.minute.toString()
+        }
+        val hour: String = timePicker.hour.toString() + ":" + minute
         if(mondaySwitch.isChecked) {
                 weekDays.put("Monday",true)
                 alarmDays[0] = 1
