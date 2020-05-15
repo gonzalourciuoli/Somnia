@@ -30,6 +30,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginStart="40dp"
         android:autofillHints="@string/alarm_title"
+        android:textCursorDrawable="@drawable/color_cursor"
         android:ems="10"
         android:fontFamily="@font/reef_family"
         android:hint="@string/alarm_title"
