@@ -1,4 +1,7 @@
 package com.example.somnia.view
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.ComponentCallbacks2
 import android.content.Context
 import com.example.somnia.R
 import android.content.Intent
@@ -6,11 +9,16 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.provider.AlarmClock
 import android.widget.*
 import androidx.annotation.RequiresApi
 import com.example.somnia.controller.Controller
+import com.example.somnia.model.Alarm
+import com.example.somnia.model.AlarmReceiver
+import com.spark.submitbutton.SubmitButton
 import kotlinx.android.synthetic.main.alarm_design.*
+import java.util.Calendar
 
 
 class New_alarmActivity : AppCompatActivity() {
@@ -25,15 +33,20 @@ class New_alarmActivity : AppCompatActivity() {
     private lateinit var fridaySwitch: Switch
     private lateinit var saturdaySwitch: Switch
     private lateinit var sundaySwitch: Switch
-    private lateinit var addButton: Button
+    private lateinit var addButton: SubmitButton
     private lateinit var cancelButton: Button
+    lateinit private var am: AlarmManager
+    lateinit private var cont: Context
+    lateinit private var pi: PendingIntent
+    lateinit  private var alarm: Alarm
 
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_alarm)
-
+        this.cont = this
+        am = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         txtTitle = findViewById(R.id.alarmTitle)
         timePicker = findViewById(R.id.timePicker)
         mondaySwitch = findViewById(R.id.monday_switch)
@@ -43,11 +56,22 @@ class New_alarmActivity : AppCompatActivity() {
         fridaySwitch = findViewById(R.id.friday_switch)
         saturdaySwitch = findViewById(R.id.saturday_switch)
         sundaySwitch = findViewById(R.id.sunday_switch)
-        addButton = findViewById<Button>(R.id.add)
+        addButton = findViewById<SubmitButton>(R.id.add)
         cancelButton = findViewById(R.id.cancel)
+        var intent_reciver: Intent = Intent(this, AlarmReceiver::class.java)
+        var calendar: Calendar = Calendar.getInstance()
+
 
         addButton.setOnClickListener {
             addAlarm()
+            calendar.set(Calendar.HOUR_OF_DAY, timePicker.hour)
+            calendar.set(Calendar.MINUTE, timePicker.minute)
+            calendar.set(Calendar.SECOND, 0)
+            calendar.set(Calendar.MILLISECOND, 0)
+            pi = PendingIntent.getBroadcast(this@New_alarmActivity,0,intent_reciver,PendingIntent.FLAG_UPDATE_CURRENT)
+            am.setExact(AlarmManager.RTC_WAKEUP,calendar.timeInMillis,pi)
+            intent_reciver.putExtra("extra","on")
+            Handler().postDelayed({ startActivity(Intent(this@New_alarmActivity, AlarmsActivity::class.java)) }, 2000)
         }
 
         cancelButton.setOnClickListener {
@@ -58,10 +82,18 @@ class New_alarmActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun addAlarm(){
+
         val weekDays: MutableMap<String, Boolean> = mutableMapOf()
         val alarmDays = IntArray(7)
         val title: String = txtTitle.text.toString()
-        val hour: String = timePicker.hour.toString() + ":" + timePicker.minute.toString()
+        var minute = ""
+        if (timePicker.minute<10){
+            minute = "0" + timePicker.minute.toString()
+        }
+        else{
+            minute = timePicker.minute.toString()
+        }
+        val hour: String = timePicker.hour.toString() + ":" + minute
         if(mondaySwitch.isChecked) {
                 weekDays.put("Monday",true)
                 alarmDays[0] = 1
@@ -110,9 +142,14 @@ class New_alarmActivity : AppCompatActivity() {
 
         val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
         val user = userPreferences.getString("email", "")
-        controller.addAlarm(title, hour, weekDays,user!!)
+        alarm = controller.addAlarm(title, hour, weekDays,user!!)
 
-        val intent = Intent(AlarmClock.ACTION_SET_ALARM)
+
+
+
+
+
+        /*val intent = Intent(AlarmClock.ACTION_SET_ALARM)
         intent.putExtra(AlarmClock.EXTRA_HOUR, timePicker.hour)
         intent.putExtra(AlarmClock.EXTRA_MINUTES, timePicker.minute)
         intent.putExtra(AlarmClock.EXTRA_DAYS, alarmDays)
@@ -121,6 +158,16 @@ class New_alarmActivity : AppCompatActivity() {
         Thread.sleep(5000)
 
         val intent1 = Intent(this@New_alarmActivity, AlarmsActivity::class.java)
-        startActivity(intent1)
+        startActivity(intent1)*/
+    }
+    private fun setAlarm(){
+
+    }
+
+    private fun stopAlarm(){
+        pi = PendingIntent.getBroadcast(this@New_alarmActivity,0,intent,PendingIntent.FLAG_UPDATE_CURRENT)
+        am.cancel(pi)
+        intent.putExtra("extra","off")
+        sendBroadcast(intent)
     }
 }

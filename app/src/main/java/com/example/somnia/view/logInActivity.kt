@@ -56,6 +56,7 @@ class logInActivity : AppCompatActivity() {
         val password : String = txtPassword.text.toString()
 
         if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+
             auth.signInWithEmailAndPassword(username, password).addOnCompleteListener(this) {
                 task ->
 
@@ -70,7 +71,6 @@ class logInActivity : AppCompatActivity() {
                     startActivity(Intent(this, Home::class.java))
                     Toast.makeText(this, "You logged into your account", Toast.LENGTH_LONG).show()
                 } else {
-
                     Toast.makeText(this, "Authentication failed", Toast.LENGTH_LONG).show()
                 }
             }

@@ -189,6 +189,10 @@ class DataBase {
         db.collection("users").document(password).update("password",password)
     }
 
+    fun changeStatus(new_status: String){
+        //db.document().update("password", new_password)
+    }
+
 }
 
 

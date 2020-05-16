@@ -10,9 +10,9 @@ import com.example.somnia.controller.Controller
 
 class Calculator : AppCompatActivity() {
 
-    private lateinit var timeWakeUp : EditText
-    private lateinit var hoursToSleep : EditText
-    private lateinit var  timeBed: EditText
+    private lateinit var timeWakeUp: EditText
+    private lateinit var hoursToSleep: EditText
+    private lateinit var timeBed: EditText
     private val controller = Controller()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +22,7 @@ class Calculator : AppCompatActivity() {
         init()
     }
 
-    private fun init(){
+    private fun init() {
         timeWakeUp = findViewById(R.id.timeWakeUp)
         hoursToSleep = findViewById(R.id.hoursToSleep)
         timeBed = findViewById(R.id.timeBed)
@@ -30,28 +30,30 @@ class Calculator : AppCompatActivity() {
         val cycleSwitch1 = findViewById<Button>(R.id.cycleSwitch1) as Switch
 
         cycleSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
-            val timeWakeUpText =  timeWakeUp.text.toString()
+            val timeWakeUpText = timeWakeUp.text.toString()
             val hoursToSleepText = hoursToSleep.text.toString()
             val timeBedText = timeBed.text.toString()
-            if(isChecked){
-                if (cycleSwitch1.isChecked){
+            if (isChecked) {
+                if (cycleSwitch1.isChecked) {
                     cycleSwitch1.isChecked = false
                 }
-                val result = controller.calculateTimeToWakeUp(timeWakeUpText, hoursToSleepText,timeBedText)
+                val result =
+                    controller.calculateTimeToWakeUp(timeWakeUpText, hoursToSleepText, timeBedText)
                 this.timeWakeUp.setText(result)
 
             }
         }
 
         cycleSwitch1.setOnCheckedChangeListener { buttonView, isChecked ->
-            val timeWakeUpText =  timeWakeUp.text.toString()
+            val timeWakeUpText = timeWakeUp.text.toString()
             val hoursToSleepText = hoursToSleep.text.toString()
             val timeBedText = timeBed.text.toString()
-            if(isChecked){
-                if (cycleSwitch.isChecked){
+            if (isChecked) {
+                if (cycleSwitch.isChecked) {
                     cycleSwitch.isChecked = false
                 }
-                val result = controller.calculateTimeToGoBed(timeWakeUpText, hoursToSleepText, timeBedText)
+                val result =
+                    controller.calculateTimeToGoBed(timeWakeUpText, hoursToSleepText, timeBedText)
                 this.timeBed.setText(result)
             }
         }
@@ -70,3 +72,4 @@ class Calculator : AppCompatActivity() {
         }
     }
 }
+
