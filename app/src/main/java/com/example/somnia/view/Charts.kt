@@ -1,7 +1,17 @@
 package com.example.somnia.view
 
+import android.annotation.TargetApi
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothHealth
+import android.bluetooth.BluetoothProfile
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.anychart.APIlib
 import com.anychart.AnyChart
 import com.anychart.AnyChartView
@@ -13,6 +23,7 @@ import com.anychart.data.Set
 import com.anychart.enums.Anchor
 import com.anychart.enums.MarkerType
 import com.example.somnia.R
+import java.util.jar.Manifest
 import kotlin.random.Random
 
 class Charts : AppCompatActivity() {
@@ -65,7 +76,6 @@ class Charts : AppCompatActivity() {
         val lineChart : AnyChartView= findViewById(R.id.linear_chart)
         APIlib.getInstance().setActiveAnyChartView(lineChart)
         createRangeChart(lineChart)
-
     }
 
     fun createBarChart(barChart: AnyChartView){
