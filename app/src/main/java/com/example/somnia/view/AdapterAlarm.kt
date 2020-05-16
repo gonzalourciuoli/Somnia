@@ -42,11 +42,10 @@ class AdapterAlarm (var list: MutableList<Alarm>): RecyclerView.Adapter<AdapterA
                 val title = alarm.getTitle()
                 val user = alarm.getUserAlarm()
                 val hour = alarm.getHour()
-                Toast.makeText(it.context, user + "@" + title + "@" + hour, Toast.LENGTH_LONG).show()
                 db.collection("Alarms").document(user + "@" + title + "@" + hour).delete()
                 notifyItemRemoved(position)
                 notifyItemRangeChanged(position, list.size)
-                //Toast.makeText(it.context, "Alarm successfully deleted", Toast.LENGTH_LONG).show()
+                Toast.makeText(it.context, "Alarm successfully deleted", Toast.LENGTH_LONG).show()
                 dialog.cancel()
             }
             dialog.setView(alertView)

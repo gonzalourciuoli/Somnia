@@ -37,4 +37,16 @@
         <item name="android:colorControlActivated">#B697DA</item>
     </style>
 
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+
+    <style name="Log" parent="AppTheme">
+        <item name="android:typeface">monospace</item>
+
+        <item name="android:padding">@dimen/margin_medium</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
 </resources>

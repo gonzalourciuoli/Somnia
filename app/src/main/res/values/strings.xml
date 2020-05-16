@@ -68,6 +68,14 @@
     <string name="list">List</string>
     <string name="calculate_time_i_must_get_in_bed">Calculate time I must get in bed</string>
     <string name="calculate_time_i_must_wake_up">Calculate time I must wake up</string>
+    <string name="intro_text">Hi! Let\'s listen to some available data sources! Check the menu for more actions!</string>
+    <string name="settings">Settings</string>
+    <string name="ok">OK</string>
+    <string name="permission_denied_explanation">Permission was denied, but is needed for core
+        functionality.</string>
+    <string name="permission_rationale">Location data is used as part of the Google Fit API</string>
+    <string name="action_unregister_listener">Unregister listener</string>
+    <string name="action_settings">Settings</string>
     <string-array name="repeat_array">
         <item>None</item>
         <item>Weekly</item>
