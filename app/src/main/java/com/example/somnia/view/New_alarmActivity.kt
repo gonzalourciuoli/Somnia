@@ -45,8 +45,8 @@ class New_alarmActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_alarm)
-        this.cont = this
         am = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        this.cont = this
         txtTitle = findViewById(R.id.alarmTitle)
         timePicker = findViewById(R.id.timePicker)
         mondaySwitch = findViewById(R.id.monday_switch)
@@ -56,7 +56,7 @@ class New_alarmActivity : AppCompatActivity() {
         fridaySwitch = findViewById(R.id.friday_switch)
         saturdaySwitch = findViewById(R.id.saturday_switch)
         sundaySwitch = findViewById(R.id.sunday_switch)
-        addButton = findViewById<SubmitButton>(R.id.add)
+        addButton = findViewById(R.id.add)
         cancelButton = findViewById(R.id.cancel)
         var intent_reciver: Intent = Intent(this, AlarmReceiver::class.java)
         var calendar: Calendar = Calendar.getInstance()
@@ -68,9 +68,9 @@ class New_alarmActivity : AppCompatActivity() {
             calendar.set(Calendar.MINUTE, timePicker.minute)
             calendar.set(Calendar.SECOND, 0)
             calendar.set(Calendar.MILLISECOND, 0)
+            intent_reciver.putExtra("on/off","on")
             pi = PendingIntent.getBroadcast(this@New_alarmActivity,0,intent_reciver,PendingIntent.FLAG_UPDATE_CURRENT)
             am.setExact(AlarmManager.RTC_WAKEUP,calendar.timeInMillis,pi)
-            intent_reciver.putExtra("extra","on")
             Handler().postDelayed({ startActivity(Intent(this@New_alarmActivity, AlarmsActivity::class.java)) }, 2000)
         }
 
@@ -162,10 +162,11 @@ class New_alarmActivity : AppCompatActivity() {
     }
 
 
-    private fun stopAlarm(){
-        pi = PendingIntent.getBroadcast(this@New_alarmActivity,0,intent,PendingIntent.FLAG_UPDATE_CURRENT)
+     fun stopAlarm(){
+
+         intent.putExtra("on/off","off")
+        pi = PendingIntent.getBroadcast(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT)
         am.cancel(pi)
-        intent.putExtra("extra","off")
-        sendBroadcast(intent)
+
     }
 }

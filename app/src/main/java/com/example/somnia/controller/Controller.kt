@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import com.example.somnia.model.*
+import com.example.somnia.view.New_alarmActivity
 import kotlinx.android.synthetic.main.activity_calendar.*
 
 class Controller : AppCompatActivity{
@@ -54,8 +55,8 @@ class Controller : AppCompatActivity{
         }
     }
     fun stopAlarm(){
-        var stop: RingtoneService = RingtoneService()
-        stop.onDestroy()
+        var stop = New_alarmActivity()
+        stop.stopAlarm()
     }
 
     /*fun listViewValuations(user: String): MutableList<String> {

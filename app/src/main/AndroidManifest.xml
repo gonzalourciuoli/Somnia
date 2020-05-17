@@ -63,6 +63,14 @@
         <receiver android:name=".model.AlarmReceiver"></receiver>
         <service android:name=".model.RingtoneService"
             android:enabled="true" />
+
+        <activity
+            android:name=".view.AlarmMangerActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:excludeFromRecents="true">
+        </activity>
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
