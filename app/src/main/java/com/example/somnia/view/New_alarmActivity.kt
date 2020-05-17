@@ -70,6 +70,7 @@ class New_alarmActivity : AppCompatActivity() {
             calendar.set(Calendar.SECOND, 0)
             calendar.set(Calendar.MILLISECOND, 0)
             intent_reciver.putExtra("on/off","on")
+            intent_reciver.putExtra("alarmTitle",txtTitle.text.toString())
             pi = PendingIntent.getBroadcast(this@New_alarmActivity,0,intent_reciver,PendingIntent.FLAG_UPDATE_CURRENT)
             am.setExact(AlarmManager.RTC_WAKEUP,calendar.timeInMillis,pi)
             Handler().postDelayed({ startActivity(Intent(this@New_alarmActivity, AlarmsActivity::class.java)) }, 2000)

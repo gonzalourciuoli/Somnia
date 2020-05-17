@@ -47,6 +47,7 @@
     <string name="ch_Pass">CHANGE PASSWORD</string>
     <string name="password">Introduce your password</string>
     <string name="new_Password">Introduce your new password</string>
+    <string name="repeat_new_Password">Repeat your new password</string>
     <string name="save_changes">SAVE CHANGES</string>
     <string name="ret">RETURN</string>
     <string name="current_Email">Introduce your current e-mail</string>
