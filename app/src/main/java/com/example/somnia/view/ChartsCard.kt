@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.GridView
-import android.widget.Toast
 import com.example.somnia.R
 
 class ChartsCard : AppCompatActivity(), AdapterView.OnItemClickListener {
@@ -25,7 +24,6 @@ class ChartsCard : AppCompatActivity(), AdapterView.OnItemClickListener {
         languageAdapters = LanguageAdapters(applicationContext, arrayList!!)
         gridView?.adapter = languageAdapters
         gridView?.onItemClickListener = this
-
     }
 
     private fun setDataList() :ArrayList<LanguageItem>{
