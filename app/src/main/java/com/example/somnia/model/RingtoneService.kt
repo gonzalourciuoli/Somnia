@@ -48,7 +48,7 @@ class RingtoneService : Service() {
             this.id = 0
         }
         else if(this.isRunning && id == 1){
-            this.isRunning = false
+            this.isRunning = true
             this.id = 1
         }
         return START_NOT_STICKY
@@ -58,7 +58,6 @@ class RingtoneService : Service() {
         var alarmUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
         if (alarmUri==null){
             alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-
         }
         r = RingtoneManager.getRingtone(baseContext,alarmUri)
         r.play()
