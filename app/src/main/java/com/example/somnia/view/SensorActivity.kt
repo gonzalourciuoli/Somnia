@@ -60,6 +60,7 @@ class SensorActivity : AppCompatActivity(){
 
     // [START auth_oncreate_setup]
     override fun onCreate(savedInstanceState: Bundle?) {
+        setContentView(R.layout.prueba)
         super.onCreate(savedInstanceState)
         // Put application specific code here.
         setContentView(R.layout.activity_sensor)
