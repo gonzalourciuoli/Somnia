@@ -43,7 +43,11 @@ class ChangeEmail : AppCompatActivity() {
         val new_Email : String = new_Email.text.toString()
 
         if(TextUtils.isEmpty(current_Email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(new_Email)) {
-            Toast.makeText(this, "Looks like some of the fields are empty", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Looks like some of the fields are empty", Toast.LENGTH_LONG)
+                .show()
+        }else if(current_Email == new_Email){
+            Toast.makeText(this, "This is not a new email", Toast.LENGTH_LONG)
+                .show()
         } else {
             auth.signInWithEmailAndPassword(current_Email, password).addOnCompleteListener {
                 task ->
