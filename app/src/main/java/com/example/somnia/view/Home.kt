@@ -27,6 +27,12 @@ class Home : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val google_account = findViewById<Button>(R.id.google_account)
+        google_account.setOnClickListener {
+            val intent = Intent(this@Home, FitnessActivity::class.java)
+            startActivity(intent)
+        }
+
         val toggle_Wake_Sleep = findViewById<Switch>(R.id.toggle_Wake_Sleep)
         val timePicker_sleep_act = findViewById<TimePicker>(R.id.timePicker_sleep)
         val timePicker_wake_act = findViewById<TimePicker>(R.id.timePicker_wake)

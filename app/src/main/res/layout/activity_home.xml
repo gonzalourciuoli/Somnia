@@ -22,7 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/timePicker_sleep"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.60" />
 
     <Button
         android:id="@+id/see_your_ratings"
@@ -37,7 +37,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/timePicker_sleep"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintVertical_bias="0.70" />
+
+    <Button
+        android:id="@+id/google_account"
+        android:layout_width="317dp"
+        android:layout_height="52dp"
+        android:background="@drawable/button_gradient_rounded"
+        android:fontFamily="@font/reef_family"
+        android:text="Log in into your Google Account"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/timePicker_sleep"
+        app:layout_constraintVertical_bias="0.80"
+        tools:ignore="MissingConstraints" />
 
     <TimePicker
         android:id="@+id/timePicker_sleep"

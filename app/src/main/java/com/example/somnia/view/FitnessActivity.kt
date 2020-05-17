@@ -40,7 +40,7 @@ class FitnessActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.prueba)
+        setContentView(R.layout.activity_google_account)
 
 
         //2
@@ -48,7 +48,7 @@ class FitnessActivity: AppCompatActivity() {
         Log.d("HV",account.email)
         Log.d("HV", if (account == null) "isNull" else "notNull")
 
-        (findViewById<Button>(R.id.boto) as Button).setOnClickListener {
+        (findViewById<Button>(R.id.log_in_google) as Button).setOnClickListener {
 
 
             //3
@@ -58,11 +58,12 @@ class FitnessActivity: AppCompatActivity() {
 
             } else{
                 accessGoogleFit()
+                startActivity(Intent(this, Home::class.java))
             }
         }
 
-        /*
-        val fitnessOptions: GoogleSignInOptionsExtension = FitnessOptions.builder()
+
+        /*val fitnessOptions: GoogleSignInOptionsExtension = FitnessOptions.builder()
             .addDataType(
                 DataType.TYPE_STEP_COUNT_DELTA,
                 FitnessOptions.ACCESS_READ
@@ -96,8 +97,8 @@ class FitnessActivity: AppCompatActivity() {
                 Log.d("HV",if (task.isSuccessful) "Y" else "N")
                 Log.d("HV",task.exception.toString())
             }
-        }
-        */
+        }*/
+
 
 
         //val intent = Intent(this, FitnessDataDownloadService::class.java)
@@ -105,12 +106,12 @@ class FitnessActivity: AppCompatActivity() {
         //intent.putExtra("response", response)
         //this.startService(intent)
 
-        /*
-        val readDataResult: DataReadResponse = Tasks.await(response)
-        val dataSet = readDataResult.getDataSet(DataType.TYPE_STEP_COUNT_DELTA)
 
-        print(dataSet.dataPoints)
-        */
+        //val readDataResult: DataReadResponse = Tasks.await(response)
+        //val dataSet = readDataResult.getDataSet(DataType.TYPE_STEP_COUNT_DELTA)
+
+        //print(dataSet.dataPoints)
+
 
         //Thread(Runnable {
         //}).start()
