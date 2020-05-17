@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.icu.text.CaseMap
 import android.media.Ringtone
 import android.media.RingtoneManager
 import android.net.Uri
@@ -30,6 +31,7 @@ class RingtoneService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         var state: String? = intent!!.getStringExtra("on/off")
+        var title: String? = intent!!.getStringExtra("alarmTitle")
         assert(state!=null)
         //fireNotification()
         //playAlarm()
@@ -42,7 +44,7 @@ class RingtoneService : Service() {
             playAlarm()
             this.isRunning =true
             this.id = 0
-            fireNotification()
+            fireNotification(title)
         }
         else if(this.isRunning && id == 0){
             r.stop()
@@ -72,7 +74,7 @@ class RingtoneService : Service() {
         r.play()
     }
 
-    private fun fireNotification(){
+    private fun fireNotification(title: String?){
         var mainintent: Intent = Intent(this, AlarmMangerActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
@@ -81,15 +83,14 @@ class RingtoneService : Service() {
 
         var notify_manager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         var notification: Notification = NotificationCompat.Builder(this,"Alarms")
-            .setContentTitle("title")
-            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentTitle(title)
+            .setSmallIcon(R.drawable.somnia)
             .setSound(defaultSoundUri)
-            .setContentText("click")
+            .setContentText("Click here")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pi)
             .setAutoCancel(true)
             .build()
-
         notify_manager.notify(0,notification)
     }
 

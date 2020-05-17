@@ -11,8 +11,10 @@ class AlarmReceiver: BroadcastReceiver() {
         if(getState == ""){
             getState = "no"
         }
+        var alarmTitle: String? = intent!!.getStringExtra("alarmTitle")
 
         var service_intent: Intent = Intent(context, RingtoneService::class.java)
+        service_intent.putExtra("alarmTitle",alarmTitle)
         service_intent.putExtra("on/off",getResult)
         service_intent.putExtra("isRunning",getState)
         context!!.startService(service_intent)
