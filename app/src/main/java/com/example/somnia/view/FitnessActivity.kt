@@ -2,12 +2,15 @@ package com.example.somnia.view
 
 import android.app.Activity
 import android.bluetooth.BluetoothManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.common.api.PendingResult
+import com.google.android.gms.common.api.Status
 import com.google.android.gms.fitness.Fitness
 import com.google.android.gms.fitness.FitnessOptions
 import com.google.android.gms.fitness.data.BleDevice
@@ -25,6 +28,8 @@ import java.util.concurrent.TimeUnit
 val GOOGLE_FIT_PERMISSIONS_REQUEST_CODE : Int = 1
 
 class FitnessActivity: AppCompatActivity() {
+
+    private lateinit var ble : BluetoothManager
 
     var fitnessOptions = FitnessOptions.builder()
         .addDataType(DataType.TYPE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
@@ -85,7 +90,7 @@ class FitnessActivity: AppCompatActivity() {
             .addOnFailureListener { e -> Toast.makeText(this, "OnFailure()" + e.toString(), Toast.LENGTH_LONG).show() }
     }
 
-    private fun findFitnessDataSources(){
+    /*private fun findFitnessDataSources(){
         val response: Task<Void> =
             Fitness.getSensorsClient(this, account)
                 .add(
@@ -97,10 +102,15 @@ class FitnessActivity: AppCompatActivity() {
                         ) // sample once per minute
                         .build(), myStepCountListener
                 )
-    }
+    }*/
 
-    /*private fun buildBLE() {
-        val callback: BluetoothManager = object : BluetoothManager() {
+    private fun buildBLE() {
+        ble = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+
+        val pendingResult: PendingResult<Status>
+
+        
+        /*val callback: BluetoothManager = object : BluetoothManager() {
             override fun onDeviceFound(device: BleDevice) {
                 Log.d(FragmentActivity.TAG, "Found bluetooth Device")
                 // A device that provides the requested data types is available
@@ -125,8 +135,8 @@ class FitnessActivity: AppCompatActivity() {
             Log.d(FragmentActivity.TAG, "Pending result: " + pendingResult.toString())
         } else {
             Log.d(FragmentActivity.TAG, "API client is null")
-        }
-    }*/
+        }*/
+    }
 
 
     /*private val RC_SIGN_IN = 9001

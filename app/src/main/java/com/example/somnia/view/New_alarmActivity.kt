@@ -1,6 +1,7 @@
 package com.example.somnia.view
 import android.app.AlarmManager
 import android.app.PendingIntent
+import android.bluetooth.BluetoothManager
 import android.content.ComponentCallbacks2
 import android.content.Context
 import com.example.somnia.R
@@ -35,10 +36,10 @@ class New_alarmActivity : AppCompatActivity() {
     private lateinit var sundaySwitch: Switch
     private lateinit var addButton: SubmitButton
     private lateinit var cancelButton: Button
-    lateinit private var am: AlarmManager
-    lateinit private var cont: Context
-    lateinit private var pi: PendingIntent
-    lateinit  private var alarm: Alarm
+    private lateinit var am: AlarmManager
+    private lateinit var cont: Context
+    private lateinit var pi: PendingIntent
+    private lateinit var alarm: Alarm
 
 
     @RequiresApi(Build.VERSION_CODES.M)
