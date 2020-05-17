@@ -21,6 +21,7 @@ class RingtoneService : Service() {
     companion object{
         lateinit var r: Ringtone
     }
+
     var id: Int = 0
     var isRunning: Boolean = false
     override fun onBind(intent: Intent?): IBinder? {
@@ -28,21 +29,20 @@ class RingtoneService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        var state: String? = intent!!.getStringExtra("extra")
+        var state: String? = intent!!.getStringExtra("on/off")
         assert(state!=null)
-        playAlarm()
-        when(state){
-            "on" -> id =1
+        //fireNotification()
+        //playAlarm()
+        when (state){
+            "on" -> id = 1
             "off" -> id = 0
         }
+
         if (!this.isRunning && id == 1){
-            val principal = Intent(this, AlarmMangerActivity::class.java)
-            startActivity(principal)
             playAlarm()
-            this.isRunning = true
+            this.isRunning =true
             this.id = 0
-
-
+            fireNotification()
         }
         else if(this.isRunning && id == 0){
             r.stop()
@@ -54,8 +54,11 @@ class RingtoneService : Service() {
             this.id = 0
         }
         else if(this.isRunning && id == 1){
-            this.isRunning = true
+            this.isRunning = false
             this.id = 1
+        }
+        else{
+
         }
         return START_NOT_STICKY
     }
@@ -70,19 +73,31 @@ class RingtoneService : Service() {
     }
 
     private fun fireNotification(){
-        var mainintent: Intent = Intent(this, Home::class.java)
+        var mainintent: Intent = Intent(this, AlarmMangerActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
         var pi: PendingIntent = PendingIntent.getActivity(this,0,mainintent,0)
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 
         var notify_manager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        var notification: Notification = NotificationCompat.Builder(this).setContentTitle("title").setSmallIcon(
-            R.mipmap.ic_launcher).setSound(defaultSoundUri).setContentText("click").setContentIntent(pi).setAutoCancel(true).build()
+        var notification: Notification = NotificationCompat.Builder(this,"Alarms")
+            .setContentTitle("title")
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setSound(defaultSoundUri)
+            .setContentText("click")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(pi)
+            .setAutoCancel(true)
+            .build()
+
         notify_manager.notify(0,notification)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        this.isRunning = false
     }
+
+    /*var mainintent: Intent = Intent(this, Home::class.java)
+    var pi: PendingIntent = PendingIntent.getActivity(this,0,mainintent,0)*/
 
 }
