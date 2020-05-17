@@ -12,6 +12,9 @@ import android.net.Uri
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import com.example.somnia.R
+import com.example.somnia.view.AlarmMangerActivity
+import com.example.somnia.view.AlarmsActivity
+import com.example.somnia.view.Home
 import com.example.somnia.view.New_alarmActivity
 
 class RingtoneService : Service() {
@@ -33,10 +36,13 @@ class RingtoneService : Service() {
             "off" -> id = 0
         }
         if (!this.isRunning && id == 1){
+            val principal = Intent(this, AlarmMangerActivity::class.java)
+            startActivity(principal)
             playAlarm()
             this.isRunning = true
             this.id = 0
-            fireNotification()
+
+
         }
         else if(this.isRunning && id == 0){
             r.stop()
@@ -64,8 +70,8 @@ class RingtoneService : Service() {
     }
 
     private fun fireNotification(){
-        var main_intent: Intent = Intent(this, New_alarmActivity::class.java)
-        var pi: PendingIntent = PendingIntent.getActivity(this,0,main_intent,0)
+        var mainintent: Intent = Intent(this, Home::class.java)
+        var pi: PendingIntent = PendingIntent.getActivity(this,0,mainintent,0)
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 
         var notify_manager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

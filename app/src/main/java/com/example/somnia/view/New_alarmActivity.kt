@@ -160,9 +160,7 @@ class New_alarmActivity : AppCompatActivity() {
         val intent1 = Intent(this@New_alarmActivity, AlarmsActivity::class.java)
         startActivity(intent1)*/
     }
-    private fun setAlarm(){
 
-    }
 
     private fun stopAlarm(){
         pi = PendingIntent.getBroadcast(this@New_alarmActivity,0,intent,PendingIntent.FLAG_UPDATE_CURRENT)

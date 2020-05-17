@@ -53,6 +53,10 @@ class Controller : AppCompatActivity{
             return valuation
         }
     }
+    fun stopAlarm(){
+        var stop: RingtoneService = RingtoneService()
+        stop.onDestroy()
+    }
 
     /*fun listViewValuations(user: String): MutableList<String> {
         return valuationsList.getList(user)

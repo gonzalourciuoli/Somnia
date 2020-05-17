@@ -12,6 +12,4 @@ class AlarmReceiver: BroadcastReceiver() {
         service_intent.putExtra("extra",getResult)
         context!!.startService(service_intent)
     }
-
-
 }
