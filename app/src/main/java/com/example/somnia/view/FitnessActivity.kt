@@ -32,8 +32,6 @@ class FitnessActivity: AppCompatActivity() {
 
 
 
-
-
     //permisos
     override fun onCreate(savedInstanceState: Bundle?) {
 
