@@ -4,24 +4,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_pink_sky">
 
-    <TextView
-        android:id="@+id/alarm"
-        android:layout_width="191dp"
-        android:layout_height="56dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="205dp" />
 
-    <Button
-        android:id="@+id/stopButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="264dp"
-        android:text="Stop Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#a0000000"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="221dp"
+            android:layout_height="185dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/somnia"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/alarm"
+            android:layout_width="158dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:text="Alarm"
+            android:textAlignment="viewStart"
+            android:textColor="#fff"
+            android:textColorHint="#ccc"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/stopButton"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_gradient_rounded"
+            android:text="Stop Button"
+            android:textColor="#fff"
+            android:textSize="18dp" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

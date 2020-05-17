@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -33,6 +34,9 @@ class AlarmMangerActivity : AppCompatActivity() {
 
         stopButton =  findViewById(R.id.stopButton)
         alarmTitle =  findViewById(R.id.alarm)
+
+        alarmTitle.text = "Alarm"
+
 
         stopButton.setOnClickListener {
             intent_reciver.putExtra("on/off","off")
