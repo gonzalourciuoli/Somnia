@@ -55,11 +55,12 @@ class logInActivity : AppCompatActivity() {
         val username : String = txtUsername.text.toString()
         val password : String = txtPassword.text.toString()
 
-        if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
-
+        if(TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "Looks like some of the fields are empty", Toast.LENGTH_LONG)
+                .show()
+        } else {
             auth.signInWithEmailAndPassword(username, password).addOnCompleteListener(this) {
                 task ->
-
                 if (task.isSuccessful) {
 
                     val userPreferences = view.context.getSharedPreferences("users", Context.MODE_PRIVATE)
@@ -75,5 +76,6 @@ class logInActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
 }

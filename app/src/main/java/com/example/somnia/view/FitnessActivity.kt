@@ -1,10 +1,15 @@
 package com.example.somnia.view
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.somnia.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignIn.getAccountForExtension
 import com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension
 import com.google.android.gms.fitness.Fitness
 import com.google.android.gms.fitness.FitnessOptions
@@ -19,6 +24,7 @@ val GOOGLE_FIT_PERMISSIONS_REQUEST_CODE : Int = 1
 
 class FitnessActivity: AppCompatActivity() {
 
+    //1
     var fitnessOptions = FitnessOptions.builder()
         .addDataType(DataType.TYPE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
         .addDataType(DataType.AGGREGATE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
@@ -30,26 +36,32 @@ class FitnessActivity: AppCompatActivity() {
     //account object to use with the API
     //var account = GoogleSignIn.getAccountForExtension(this, fitnessOptions)
 
-
-
-
-
     //permisos
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.prueba)
 
-        var account = GoogleSignIn.getAccountForExtension(this, fitnessOptions)
 
-        if  (!GoogleSignIn.hasPermissions(account, fitnessOptions)){
+        //2
+        var account = getAccountForExtension(this, fitnessOptions)
+        Log.d("HV",account.email)
+        Log.d("HV", if (account == null) "isNull" else "notNull")
 
-            GoogleSignIn.requestPermissions(this, GOOGLE_FIT_PERMISSIONS_REQUEST_CODE,
-                account, fitnessOptions)
-        } else{
+        (findViewById<Button>(R.id.boto) as Button).setOnClickListener {
 
-            accessGoogleFit()
+
+            //3
+            if  (!GoogleSignIn.hasPermissions(account, fitnessOptions)){
+                GoogleSignIn.requestPermissions(this, GOOGLE_FIT_PERMISSIONS_REQUEST_CODE,
+                    account, fitnessOptions)
+
+            } else{
+                accessGoogleFit()
+            }
         }
 
+        /*
         val fitnessOptions: GoogleSignInOptionsExtension = FitnessOptions.builder()
             .addDataType(
                 DataType.TYPE_STEP_COUNT_DELTA,
@@ -85,6 +97,8 @@ class FitnessActivity: AppCompatActivity() {
                 Log.d("HV",task.exception.toString())
             }
         }
+        */
+
 
         //val intent = Intent(this, FitnessDataDownloadService::class.java)
         //intent.putExtra("N","UMBERWANG!")
@@ -103,7 +117,6 @@ class FitnessActivity: AppCompatActivity() {
 
     }
 
-    /*
     override fun onActivityResult(
         requestCode: Int,
         resultCode: Int,
@@ -116,7 +129,7 @@ class FitnessActivity: AppCompatActivity() {
             }
         }
     }
-    */
+
     //crea un cliente (API Client)
     private fun accessGoogleFit() {
         val cal: Calendar = Calendar.getInstance()
@@ -132,15 +145,17 @@ class FitnessActivity: AppCompatActivity() {
             .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
             .bucketByTime(1, TimeUnit.DAYS)
             .build()
-        val account = GoogleSignIn
-            .getAccountForExtension(this, fitnessOptions)
+        val account = getAccountForExtension(this, fitnessOptions)
         Fitness.getHistoryClient(this, account)
             .readData(readRequest)
             .addOnSuccessListener { response ->
                 // Use response data here
+                Log.d("HV","bueno")
                 Toast.makeText(this, "OnSuccess()", Toast.LENGTH_LONG).show()
             }
-            .addOnFailureListener { e -> Toast.makeText(this, "OnFailure()" + e.toString(), Toast.LENGTH_LONG).show() }
+            .addOnFailureListener { e ->
+                Log.d("HV","no bueno")
+                Toast.makeText(this, "OnFailure()" + e.toString(), Toast.LENGTH_LONG).show() }
     }
 
     /*
