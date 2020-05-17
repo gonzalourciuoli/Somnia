@@ -26,7 +26,11 @@
         android:theme="@style/AppTheme">
         <activity android:name=".view.Buttons_ListCalendar"></activity>
         <activity android:name=".view.Welcome">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".view.AlarmsActivity" />
         <activity android:name=".view.Calculator" />
@@ -48,11 +52,7 @@
         <activity android:name=".view.SignUpActivity" />
         <activity android:name=".view.Valuations" />
         <activity android:name=".view.FitnessActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".common.Log" />
         <activity android:name=".common.LogNode" />
