@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/somnia_background2"
+    tools:context=".view.GoogleAccountActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#a0000000"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/google_icono"
+            android:layout_width="204dp"
+            android:layout_height="174dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/common_google_signin_btn_icon_dark" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Google Authentication"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="304dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="In order to track your amount and quality of sleep Somnia uses Google API to connect it with a wereable. So, first you need to sign in into your Google account to access this functionality"
+            android:textColor="#ccc"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/log_in_google"
+            android:layout_width="317dp"
+            android:layout_height="52dp"
+            android:background="@drawable/button_gradient_rounded"
+            android:fontFamily="@font/reef_family"
+            android:text="Log in into your Google Account"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.499"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
