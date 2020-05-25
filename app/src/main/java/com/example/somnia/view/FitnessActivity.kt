@@ -42,6 +42,12 @@ class FitnessActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_google_account)
 
+        val ret = findViewById<Button>(R.id.returnHome_button)
+        ret.setOnClickListener {
+            val intent = Intent(this, Home::class.java)
+            startActivity(intent)
+        }
+
 
         //2
         var account = getAccountForExtension(this, fitnessOptions)
