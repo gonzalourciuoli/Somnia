@@ -8,11 +8,12 @@
     tools:context=".view.GoogleAccountActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="#a0000000"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/google_icono"
@@ -28,15 +29,15 @@
             android:textAlignment="center"
             android:textColor="#fff"
             android:textSize="30sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="304dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:text="In order to track your amount and quality of sleep Somnia uses Google API to connect it with a wereable. So, first you need to sign in into your Google account to access this functionality"
-            android:textColor="#ccc"
             android:textAlignment="center"
+            android:textColor="#ccc"
             android:textSize="16sp"
             tools:ignore="MissingConstraints" />
 
@@ -56,5 +57,16 @@
             app:layout_constraintVertical_bias="0.499"
             tools:ignore="MissingConstraints" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/returnHome_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/left_white_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
