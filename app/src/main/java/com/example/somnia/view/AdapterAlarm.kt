@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.somnia.R
+import com.example.somnia.common.Log
 import com.example.somnia.controller.Controller
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -42,7 +43,16 @@ class AdapterAlarm (var list: MutableList<Alarm>): RecyclerView.Adapter<AdapterA
                 val title = alarm.getTitle()
                 val user = alarm.getUserAlarm()
                 val hour = alarm.getHour()
+                Log.d("HV","olo")
+                Log.d("HV",db.collection("Alarms").document(user + "@" + title + "@" + hour).path as String)
                 db.collection("Alarms").document(user + "@" + title + "@" + hour).delete()
+                    .addOnCompleteListener(){task ->
+                        if(task.isSuccessful){
+                            Toast.makeText(it.context, "Alarm successfully deleted from database", Toast.LENGTH_LONG).show()
+                        }else{
+                            Toast.makeText(it.context, "database wonked", Toast.LENGTH_LONG).show()
+                        }
+                    }
                 notifyItemRemoved(position)
                 notifyItemRangeChanged(position, list.size)
                 Toast.makeText(it.context, "Alarm successfully deleted", Toast.LENGTH_LONG).show()
