@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/somnia_background2"
+    android:background="@drawable/n2"
     tools:context=".view.GoogleAccountActivity">
 
     <LinearLayout
@@ -45,7 +45,7 @@
             android:id="@+id/log_in_google"
             android:layout_width="317dp"
             android:layout_height="52dp"
-            android:background="@drawable/button_gradient_rounded"
+            android:background="@drawable/button_google"
             android:fontFamily="@font/reef_family"
             android:text="Log in into your Google Account"
             android:textColor="#fff"
