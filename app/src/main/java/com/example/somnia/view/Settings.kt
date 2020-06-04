@@ -3,6 +3,7 @@ package com.example.somnia.view
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -113,6 +114,11 @@ class Settings : AppCompatActivity() {
         }
         alertView.findViewById<Button>(R.id.delete_valuation_alert_confirm).setOnClickListener {
             auth.signOut()
+            val preferences : SharedPreferences = getSharedPreferences("checkbox", Context.MODE_PRIVATE)
+            val editor2 : SharedPreferences.Editor = preferences.edit()
+            editor2.putString("remember", "false")
+            editor2.apply()
+            finish()
             Toast.makeText(this, "Log out", Toast.LENGTH_LONG).show()
             val intent = Intent(this@Settings, logInActivity::class.java)
             startActivity(intent)
