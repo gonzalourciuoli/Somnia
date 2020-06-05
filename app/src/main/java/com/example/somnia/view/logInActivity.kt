@@ -82,15 +82,18 @@ class logInActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(username, password).addOnCompleteListener(this) {
                 task ->
                 if (task.isSuccessful) {
+                    if (auth.currentUser?.isEmailVerified!!){
+                        val userPreferences = view.context.getSharedPreferences("users", Context.MODE_PRIVATE)
+                        val editor: SharedPreferences.Editor = userPreferences.edit()
 
-                    val userPreferences = view.context.getSharedPreferences("users", Context.MODE_PRIVATE)
-                    val editor: SharedPreferences.Editor = userPreferences.edit()
+                        editor.putString("email", username)
+                        editor.apply()
 
-                    editor.putString("email", username)
-                    editor.apply()
-
-                    startActivity(Intent(this, Home::class.java))
-                    Toast.makeText(this, "You logged into your account", Toast.LENGTH_LONG).show()
+                        startActivity(Intent(this, Home::class.java))
+                        Toast.makeText(this, "You logged into your account", Toast.LENGTH_LONG).show()
+                    } else{
+                        Toast.makeText(this, "You need to verify your email first", Toast.LENGTH_LONG).show()
+                    }
                 } else {
                     Toast.makeText(this, "Authentication failed", Toast.LENGTH_LONG).show()
                 }
