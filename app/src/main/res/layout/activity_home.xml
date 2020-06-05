@@ -117,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="110dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/button_gradient_rounded"
+        android:background="@drawable/button_gradient_home"
         android:fontFamily="@font/reef_family"
         android:text="Set"
         android:textColor="#fff"
