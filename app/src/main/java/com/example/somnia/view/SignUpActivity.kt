@@ -78,19 +78,13 @@ class SignUpActivity : AppCompatActivity() {
                                 )
                                 db.collection("users").document(email).set(user)
                                     .addOnSuccessListener {
-
                                         Toast.makeText(this, "User created", Toast.LENGTH_LONG).show()
                                         startActivity(Intent(this, logInActivity::class.java))
                                         var user = auth.currentUser?.sendEmailVerification()?.addOnCompleteListener(this) { task ->
                                             if (task.isComplete) {
                                                 Toast.makeText(this, "Verify your email", Toast.LENGTH_LONG).show()
                                             } else {
-                                                Toast.makeText(
-                                                    this,
-                                                    "An error occurred trying to send the email verification",
-                                                    Toast.LENGTH_LONG
-                                                ).show()
-
+                                                Toast.makeText(this,"An error occurred trying to send the email verification",Toast.LENGTH_LONG).show()
                                             }
                                         }
 
