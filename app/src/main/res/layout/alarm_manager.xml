@@ -11,17 +11,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="#a0000000"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <ImageView
             android:id="@+id/logo"
             android:layout_width="221dp"
             android:layout_height="185dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/Somnia"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"
+            android:src="@drawable/somnia"/>
+
 
         <TextView
             android:id="@+id/alarm"
@@ -42,19 +45,44 @@
             android:textSize="40sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editTextDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date" />
 
-        <EditText
-            android:id="@+id/editTextTime"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView_Date"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="15dp"
             android:ems="10"
-            android:inputType="time" />
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:text="Date"
+            android:textAlignment="viewStart"
+            android:textColor="#fff"
+            android:textColorHint="#ccc"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_Hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:text="Hour"
+            android:textAlignment="viewStart"
+            android:textColor="#fff"
+            android:textColorHint="#ccc"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/stopButton"
