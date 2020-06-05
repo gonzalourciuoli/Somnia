@@ -4,16 +4,20 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 
 import com.example.somnia.R
 import com.example.somnia.controller.Controller
 import com.example.somnia.model.AlarmReceiver
 import kotlinx.android.synthetic.main.new_alarm.*
+import java.time.LocalDateTime
+import java.util.*
 
 class AlarmMangerActivity : AppCompatActivity() {
     private lateinit var stopButton: Button
@@ -22,8 +26,11 @@ class AlarmMangerActivity : AppCompatActivity() {
     lateinit private var am: AlarmManager
     lateinit private var cont: Context
     lateinit private var pi: PendingIntent
+    private lateinit var dateTxt: TextView
+    private lateinit var hourTxt: TextView
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.alarm_manager)
@@ -34,10 +41,17 @@ class AlarmMangerActivity : AppCompatActivity() {
 
         stopButton =  findViewById(R.id.stopButton)
         alarmTitle =  findViewById(R.id.alarm)
-
+        val title = intent_reciver!!.getStringExtra("alarmTitle")
         alarmTitle.text = "Alarm"
 
-
+        dateTxt = findViewById(R.id.textView_Date)
+        hourTxt = findViewById(R.id.textView_Hour)
+        val current = LocalDateTime.now().toString()
+        val date = current.substringBefore("T")
+        var hour = current.substringAfter("T")
+        hour = hour.substringBeforeLast(":")
+        dateTxt.text = date
+        hourTxt.text = hour
         stopButton.setOnClickListener {
             intent_reciver.putExtra("on/off","off")
             pi = PendingIntent.getBroadcast(this,0,intent_reciver,PendingIntent.FLAG_UPDATE_CURRENT)
@@ -45,7 +59,6 @@ class AlarmMangerActivity : AppCompatActivity() {
             sendBroadcast(intent_reciver)
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
-
         }
     }
 
