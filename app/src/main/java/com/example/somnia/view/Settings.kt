@@ -88,6 +88,11 @@ class Settings : AppCompatActivity() {
                                     db.collection("Alarms").document(user.toString() + "@" + title + "@" + hour).delete()
                                 }
                             }
+                        val preferences : SharedPreferences = getSharedPreferences("checkbox", Context.MODE_PRIVATE)
+                        val editor2 : SharedPreferences.Editor = preferences.edit()
+                        editor2.putString("remember", "false")
+                        editor2.apply()
+                        finish()
                         Toast.makeText(this, "Account successfuly deleted", Toast.LENGTH_LONG).show()
                         val intent = Intent(this@Settings, logInActivity::class.java)
                         startActivity(intent)
