@@ -132,12 +132,5 @@
 
          />
 
-    <Button
-        android:id="@+id/keyboard_button"
-        android:layout_width="76dp"
-        android:layout_height="70dp"
-        android:background="@drawable/keyboard_foreground"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="339dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
