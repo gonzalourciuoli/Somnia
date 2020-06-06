@@ -7,6 +7,13 @@
     tools:context=".view.Valuations"
     android:background="@drawable/n2">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#a0000000"
+        ></LinearLayout>
+
     <TextView
         android:id="@+id/valuations"
         style="@style/Title"
