@@ -165,7 +165,6 @@ class New_alarmActivity : AppCompatActivity() {
 
 
      fun stopAlarm(){
-
          intent.putExtra("on/off","off")
         pi = PendingIntent.getBroadcast(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT)
         am.cancel(pi)
