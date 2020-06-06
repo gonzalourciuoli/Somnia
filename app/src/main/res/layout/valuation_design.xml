@@ -9,7 +9,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:background="#a0000000">
+        android:background="@drawable/nnnn">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#a0000000"
+            ></LinearLayout>
 
         <RelativeLayout
             android:layout_width="370dp"

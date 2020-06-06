@@ -8,7 +8,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:background="#a0000000">
+        android:background="@drawable/nnnn">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#a0000000"
+            ></LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="365dp"

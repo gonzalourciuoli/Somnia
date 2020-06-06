@@ -32,7 +32,7 @@
     <GridView
         android:id="@+id/my_grid"
         android:layout_width="match_parent"
-        android:layout_height="473dp"
+        android:layout_height="463dp"
         android:columnWidth="150dp"
         android:horizontalSpacing="15dp"
         android:numColumns="2"
@@ -48,6 +48,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
+        android:background="#a0000000"
         />
 
 
