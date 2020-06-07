@@ -54,18 +54,63 @@ class BarChart : AppCompatActivity(){
 
         val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
         val user = userPreferences.getString("email", "")
-
         val current = LocalDateTime.now()
-        val data : String = current.year.toString() + "-" + current.monthValue.toString() + "-" + current.dayOfMonth.toString()
+
+        val sem1 = ArrayList<Int>()
+        val sem2 = ArrayList<Int>()
+        val sem3 = ArrayList<Int>()
+        val sem4 = ArrayList<Int>()
+        val h1 = ArrayList<Float>()
+        val h2 = ArrayList<Float>()
+        val h3 = ArrayList<Float>()
+        val h4 = ArrayList<Float>()
 
         dataCollection.whereEqualTo("usuari", user)
             .get()
             .addOnSuccessListener {result ->
                 for (document in result){
                     if (document.get("mes") == current.monthValue.toString()){
-                        days.add(document.get("dia").toString().toInt())
-                        hours1.add(document.get("horas").toString().toFloat())
+                        if (document.get("dia").toString().toInt() < 10){
+                            sem1.add(document.get("dia").toString().toInt())
+                            h1.add(document.get("horas").toString().toFloat())
+                        } else if (document.get("dia").toString().toInt() in 10..19){
+                            sem2.add(document.get("dia").toString().toInt())
+                            h2.add(document.get("horas").toString().toFloat())
+                        } else if (document.get("dia").toString().toInt() in 20..29){
+                            sem3.add(document.get("dia").toString().toInt())
+                            h3.add(document.get("horas").toString().toFloat())
+                        } else{
+                            sem4.add(document.get("dia").toString().toInt())
+                            h4.add(document.get("horas").toString().toFloat())
+                        }
+                        //days.add(document.get("dia").toString().toInt())
+                        //hours1.add(document.get("horas").toString().toFloat())
                     }
+                }
+
+                for (i in sem1){
+                    days.add(i)
+                }
+                for (j in h1){
+                    hours1.add(j)
+                }
+                for (i in sem2){
+                    days.add(i)
+                }
+                for (j in h2){
+                    hours1.add(j)
+                }
+                for (i in sem3){
+                    days.add(i)
+                }
+                for (j in h3){
+                    hours1.add(j)
+                }
+                for (i in sem4){
+                    days.add(i)
+                }
+                for (j in h4){
+                    hours1.add(j)
                 }
 
                 /*for (document in it) {
