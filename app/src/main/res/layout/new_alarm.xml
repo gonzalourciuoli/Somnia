@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/n2">
+    android:background="@drawable/somnia_background2">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,11 +56,14 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="324dp"
         android:timePickerMode="spinner"
-        android:amPmTextColor="#ffffff"
-        android:numbersTextColor="#ffffff"
-        android:numbersInnerTextColor="#ffffff"
-        android:numbersSelectorColor="#ffffff"
-        android:amPmBackgroundColor="#ffffff"
+        android:amPmTextColor="#fff"
+        android:numbersTextColor="#fff"
+        android:numbersInnerTextColor="#fff"
+        android:numbersSelectorColor="#fff"
+        android:amPmBackgroundColor="#fff"
+        android:outlineSpotShadowColor ="#fff"
+        android:outlineAmbientShadowColor = "#fff"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/alarmTitle"
         app:layout_constraintTop_toBottomOf="@+id/alarmTitle"
