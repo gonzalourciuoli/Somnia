@@ -38,7 +38,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="570dp"
+        android:layout_height="482dp"
         android:background="#a0000000" />
 
     <fragment

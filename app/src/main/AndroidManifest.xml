@@ -35,6 +35,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.AlarmsActivity" />
+        <activity android:name=".view.BluetoothDevices"/>
         <activity android:name=".view.Calculator" />
         <activity android:name=".view.Calendar" />
         <activity android:name=".view.ChangeEmail" />
