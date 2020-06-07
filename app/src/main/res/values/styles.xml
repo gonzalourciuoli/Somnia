@@ -9,9 +9,7 @@
     </style>
 
     <style name="SwitchTheme" parent="Theme.AppCompat.Light">
-        <item name="colorControlActivated">#CCB4F2</item>
-        <item name="colorSwitchThumbNormal">#CCB4F2</item>
-        <item name="android:colorForeground">#CCB4F2</item>
+        <item name="android:colorControlActivated">#FFF</item>
     </style>
 
     <style name="DatePickerTheme" parent="Theme.AppCompat.Light.Dialog">
