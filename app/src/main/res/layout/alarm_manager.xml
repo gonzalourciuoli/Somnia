@@ -17,34 +17,22 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="221dp"
-            android:layout_height="185dp"
-            android:layout_marginBottom="20dp"
-            tools:ignore="ContentDescription"
-            android:src="@drawable/somnia"/>
-
-
         <TextView
-            android:id="@+id/alarm"
-            android:layout_width="158dp"
+            android:id="@+id/textView_Hour"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"
-            android:layout_marginBottom="15dp"
             android:ems="10"
             android:paddingLeft="20dp"
-            android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="10dp"
-            android:text="Alarm"
-            android:textAlignment="viewStart"
+            android:text="Hour"
+            android:textAlignment="center"
             android:textColor="#fff"
             android:textColorHint="#ccc"
-            android:textSize="40sp"
-            android:textStyle="bold" />
-
+            android:textSize="70sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/textView_Date"
@@ -59,43 +47,44 @@
             android:paddingRight="10dp"
             android:paddingBottom="10dp"
             android:text="Date"
-            android:textAlignment="viewStart"
+            android:textAlignment="center"
             android:textColor="#fff"
             android:textColorHint="#ccc"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/textView_Hour"
-            android:layout_width="wrap_content"
+            android:id="@+id/alarm"
+            android:layout_width="158dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="8dp"
             android:ems="10"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="10dp"
-            android:text="Hour"
+            android:text="Alarm"
             android:textAlignment="viewStart"
             android:textColor="#fff"
             android:textColorHint="#ccc"
-            android:textSize="25sp"
-            android:textStyle="bold"/>
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
 
         <Button
             android:id="@+id/stopButton"
-            android:layout_width="320dp"
-            android:layout_height="wrap_content"
+            android:layout_width="210dp"
+            android:layout_height="65dp"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="40dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/button_gradient_rounded"
+            android:layout_marginBottom="130dp"
+            android:background="@drawable/button_stop_alarm"
             android:text="Stop"
             android:textColor="#fff"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
