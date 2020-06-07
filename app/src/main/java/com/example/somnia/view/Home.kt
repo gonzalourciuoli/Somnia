@@ -93,13 +93,13 @@ class Home : AppCompatActivity() {
                 }
                 val hour: String = alarmHour.toString() + ":" + minute
                 val weekDays: MutableMap<String, Boolean> =mutableMapOf(
-                    "Monday" to false,
-                    "Tuesday" to false,
-                    "Wednesday" to false,
-                    "Thursday" to false,
-                    "Friday" to false,
-                    "Saturday" to false,
-                    "Sunday" to false
+                    "Monday" to true,
+                    "Tuesday" to true,
+                    "Wednesday" to true,
+                    "Thursday" to true,
+                    "Friday" to true,
+                    "Saturday" to true,
+                    "Sunday" to true
                 )
                 val userPreferences = getSharedPreferences("users", Context.MODE_PRIVATE)
                 val user = userPreferences.getString("email", "")
