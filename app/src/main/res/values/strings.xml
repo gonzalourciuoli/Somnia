@@ -38,7 +38,7 @@
     <string name="sleep_calculator">SLEEP CALCULATOR</string>
     <string name="valuations">VALUATIONS</string>
     <string name="see_your_ratings">SEE YOUR RATINGS</string>
-    <string name="toggle_Sleep">Sleep</string>
+    <string name="toggle_Sleep">SLEEP</string>
     <string name="new_Email">Introduce your new e-mail</string>
     <string name="top_settings">SETTINGS</string>
     <string name="log_out">LOGOUT</string>
@@ -77,6 +77,7 @@
     <string name="permission_rationale">Location data is used as part of the Google Fit API</string>
     <string name="action_unregister_listener">Unregister listener</string>
     <string name="action_settings">Settings</string>
+    <string name="horas_dormidas">6</string>
     <string-array name="repeat_array">
         <item>None</item>
         <item>Weekly</item>

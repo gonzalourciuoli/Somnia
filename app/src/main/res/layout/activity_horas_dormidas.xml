@@ -2,6 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="5dp"
@@ -13,8 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="15dp"
-        android:elevation="0dp"
-        app:cardBackgroundColor="@color/colorRed"
+        app:cardBackgroundColor="@color/darkButtonColor"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -32,16 +32,16 @@
                 android:layout_marginBottom="25dp">
 
                 <ImageView
-                    android:id="@+id/remove_icon"
+                    android:id="@+id/horas_dormidas"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="84dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
-                    android:src="@drawable/ic_delete_forever_black_24dp"/>
+                    android:src="@drawable/ic_horas_dormidas" />
 
                 <TextView
-                    android:id="@+id/remove_title"
+                    android:id="@+id/horas_dormidas_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -52,17 +52,20 @@
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"/>
 
-                <TextView
-                    android:id="@+id/remove_description"
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/num_horas_dormidas"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    android:textColor="#fff"
-                    android:text="Insert description"/>
+                    android:layout_marginTop="5dp"
+                    android:autofillHints=""
+                    android:backgroundTint="@color/white"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:inputType="time"
+                    android:text="@string/horas_dormidas"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp"
+                    android:layout_gravity="center_horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/delete_valuation_alert_buttonLayout"
@@ -72,19 +75,7 @@
                     android:layout_gravity="center_horizontal">
 
                     <Button
-                        android:id="@+id/delete_valuation_alert_cancel"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        android:text="Cancel"
-                        android:textAlignment="center"
-                        android:textColor="#fff"
-                        android:background="@drawable/button_red_rounded"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <Button
-                        android:id="@+id/delete_valuation_alert_confirm"
+                        android:id="@+id/horas_dormidas_alert_confirm"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
@@ -93,13 +84,12 @@
                         android:textAlignment="center"
                         android:textColor="#fff"
                         android:background="@drawable/input"
-                        app:layout_constraintStart_toEndOf="@+id/delete_valuation_alert_cancel"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 
 </RelativeLayout>

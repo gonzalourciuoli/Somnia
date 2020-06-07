@@ -8,6 +8,12 @@
     android:background="@drawable/n2"
     tools:context=".view.Home">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#a0000000"
+        ></LinearLayout>
+
 
     <Button
         android:id="@+id/rate_last_sleep"
@@ -22,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/timePicker_sleep"
-        app:layout_constraintVertical_bias="0.60" />
+        app:layout_constraintVertical_bias="0.625" />
 
     <Button
         android:id="@+id/see_your_ratings"
@@ -37,24 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/timePicker_sleep"
-        app:layout_constraintVertical_bias="0.70"></Button>
-
-    <Button
-        android:id="@+id/google_account"
-        android:layout_width="317dp"
-        android:layout_height="52dp"
-        android:background="@drawable/button_gradient_home"
-        android:fontFamily="@font/reef_family"
-        android:text="Log in into your Google Account"
-        android:textColor="#fff"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/timePicker_sleep"
-        app:layout_constraintVertical_bias="0.80"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.783"></Button>
 
     <TimePicker
         android:id="@+id/timePicker_sleep"
@@ -84,23 +73,6 @@
 
         />
 
-    <Switch
-        android:id="@+id/toggle_Wake_Sleep"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:checked="false"
-        android:fontFamily="@font/reef"
-        android:text="@string/toggle_Sleep"
-        android:textSize="20sp"
-        android:textColor="#fff"
-        android:theme="@style/SwitchTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
-
     <fragment
         android:id="@+id/toolbar"
         class="com.example.somnia.view.Toolbar"
@@ -113,11 +85,10 @@
 
     <Button
         android:id="@+id/button_setAlarm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
+        android:layout_width="109dp"
+        android:layout_height="49dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/button_gradient_rounded"
+        android:background="@drawable/button_gradient_home2"
         android:fontFamily="@font/reef_family"
         android:text="Set"
         android:textColor="#fff"
@@ -125,12 +96,41 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toggle_Wake_Sleep"
-        app:layout_constraintVertical_bias="0.15"
 
-         />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.18" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="109dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/button_gradient_home2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.18">
+
+        <Switch
+            android:id="@+id/toggle_Wake_Sleep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:fontFamily="@font/reef"
+            android:switchPadding="10dp"
+            android:text="@string/toggle_Sleep"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:theme="@style/SwitchTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

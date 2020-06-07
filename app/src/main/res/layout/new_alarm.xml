@@ -7,6 +7,11 @@
     android:layout_height="match_parent"
     android:background="@drawable/n2">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#a0000000"
+        ></LinearLayout>
 
     <TextView
         android:id="@+id/newAlarmLayoutTitle"
@@ -64,22 +69,26 @@
 
     <com.spark.submitbutton.SubmitButton
         android:id="@+id/add"
-        android:layout_width="130dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="88dp"
+        android:layout_width="382dp"
+        android:layout_height="399dp"
         android:layout_marginTop="52dp"
-        android:layout_marginEnd="40dp"
         android:layout_marginBottom="65dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="40dp"
         android:text=" ADD"
-        android:background="@drawable/button_cancel"
         android:textAlignment="center"
-        android:textColor="@color/cardview_light_background"
+        android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cancel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/wednesday_switch" />
+        app:layout_constraintTop_toBottomOf="@id/wednesday_switch"
+        app:sub_btn_background="#b99aff"
+        app:sub_btn_duration="1500"
+        app:sub_btn_line_color="#dbc7ff"
+        app:sub_btn_ripple_color="#b99aff"
+        app:sub_btn_tick_color="@color/white" />
 
 
 
@@ -93,7 +102,7 @@
         android:layout_marginBottom="65dp"
         android:text="@string/cancel_button"
         android:textStyle="bold"
-        android:textColor="@color/cardview_light_background"
+        android:textColor="@color/white"
         android:background="@drawable/button_cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
