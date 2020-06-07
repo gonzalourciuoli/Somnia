@@ -51,11 +51,11 @@ class Home : AppCompatActivity() {
         val timePicker_wake_act = findViewById<TimePicker>(R.id.timePicker_wake)
         toggle_Wake_Sleep.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                toggle_Wake_Sleep.setText("Wake")
+                toggle_Wake_Sleep.setText("WAKE")
                 timePicker_wake_act.visibility = View.VISIBLE
                 timePicker_sleep_act.visibility = View.GONE
             } else {
-                toggle_Wake_Sleep.setText("Sleep")
+                toggle_Wake_Sleep.setText("SLEEP")
                 timePicker_sleep_act.visibility = View.VISIBLE
                 timePicker_wake_act.visibility = View.GONE
             }
