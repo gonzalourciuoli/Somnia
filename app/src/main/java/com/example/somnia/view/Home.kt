@@ -114,6 +114,15 @@ class Home : AppCompatActivity() {
                                 }
                             }
 
+                        db.collection("bar_chart").document(user.toString() + "@" + data)
+                            .set(mapOf(
+                                "horas" to horas_totales,
+                                "dia" to current.dayOfMonth.toString(),
+                                "mes" to current.monthValue.toString(),
+                                "año" to current.year.toString(),
+                                "usuari" to user.toString()
+                            ))
+
 
                         Toast.makeText(this, "Hours saved", Toast.LENGTH_LONG).show()
                         dialog.cancel()

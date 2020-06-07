@@ -42,14 +42,21 @@
         android:layout_height="482dp"
         android:clipToPadding="false"
         android:paddingHorizontal="25dp"
-        android:background="@null" />
         android:background="#a0000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:background="#a0000000">
 
     <fragment
         android:id="@+id/toolbar"
         class="com.example.somnia.view.Toolbar"
         android:layout_width="413dp"
-        android:layout_height="80dp"
+        android:layout_height="75dp"
         android:layout_gravity="bottom"></fragment>
+
+    </LinearLayout>
 
 </LinearLayout>
