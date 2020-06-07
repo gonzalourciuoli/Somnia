@@ -17,6 +17,7 @@ import com.example.somnia.controller.Controller
 import com.example.somnia.model.AlarmReceiver
 import kotlinx.android.synthetic.main.new_alarm.*
 import java.time.LocalDateTime
+import java.time.format.TextStyle
 import java.util.*
 
 class AlarmMangerActivity : AppCompatActivity() {
@@ -46,11 +47,12 @@ class AlarmMangerActivity : AppCompatActivity() {
 
         dateTxt = findViewById(R.id.textView_Date)
         hourTxt = findViewById(R.id.textView_Hour)
-        val current = LocalDateTime.now().toString()
-        val date = current.substringBefore("T")
-        var hour = current.substringAfter("T")
+        val current = LocalDateTime.now()
+        //val date = current.substringBefore("T")
+        var hour = current.toString().substringAfter("T")
         hour = hour.substringBeforeLast(":")
-        dateTxt.text = date
+        dateTxt.text = current.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.ENGLISH) + ", " + current.dayOfMonth + " " +
+        current.month.getDisplayName(TextStyle.FULL, Locale.ENGLISH) + " " + current.year
         hourTxt.text = hour
         stopButton.setOnClickListener {
             intent_reciver.putExtra("on/off","off")
