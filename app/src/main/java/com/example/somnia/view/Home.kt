@@ -4,20 +4,19 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import android.widget.Button
-import android.widget.Switch
-import android.widget.TimePicker
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.RequiresApi
 import com.example.somnia.R
 import com.example.somnia.controller.Controller
 import com.example.somnia.model.Alarm
 import com.example.somnia.model.AlarmReceiver
+import kotlinx.android.synthetic.main.new_alarm.*
 import java.util.Calendar
 
 class Home : AppCompatActivity() {
@@ -67,6 +66,8 @@ class Home : AppCompatActivity() {
                 timePicker_wake_act.visibility = View.GONE
             }
         }
+        hideKeyboardInputInTimePicker(this.resources.configuration.orientation, timePicker_sleep_act)
+        hideKeyboardInputInTimePicker(this.resources.configuration.orientation, timePicker_wake_act)
 
         val button_set_alarm = findViewById<Button>(R.id.button_setAlarm)
         var alarmTitle: String
@@ -117,5 +118,27 @@ class Home : AppCompatActivity() {
                 Toast.makeText(this, "New alarm added", Toast.LENGTH_LONG).show()
         }
 
+    }
+
+    fun hideKeyboardInputInTimePicker(orientation: Int, timePicker: TimePicker)
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            try
+            {
+                if (orientation == Configuration.ORIENTATION_PORTRAIT)
+                {
+                    ((timePicker.getChildAt(0) as LinearLayout).getChildAt(4) as LinearLayout).getChildAt(0).visibility = View.GONE
+                }
+                else
+                {
+                    (((timePicker.getChildAt(0) as LinearLayout).getChildAt(2) as LinearLayout).getChildAt(2) as LinearLayout).getChildAt(0).visibility = View.GONE
+                }
+            }
+            catch (ex: Exception)
+            {
+            }
+
+        }
     }
 }
