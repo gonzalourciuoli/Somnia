@@ -1,6 +1,9 @@
 package com.example.somnia.view
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.anychart.APIlib
 import com.anychart.AnyChart
@@ -18,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_signup.*
+import java.time.LocalDateTime
 
 
 class LinearChart: AppCompatActivity()  {
