@@ -66,28 +66,32 @@ class Settings : AppCompatActivity() {
         alertView.findViewById<Button>(R.id.delete_valuation_alert_cancel).setOnClickListener {
             dialog.cancel()
         }
+
         alertView.findViewById<Button>(R.id.delete_valuation_alert_confirm).setOnClickListener {
+
+            db.collection("users").document(user.toString()).delete()
+            db.collection("valuations")
+                .whereEqualTo("user", user)
+                .get().addOnSuccessListener { list ->
+                    for (valuation in list){
+                        val date = valuation.get("date").toString()
+                        db.collection("valuations").document(user.toString() + "@" + date).delete()
+                    }
+                }
+            db.collection("Alarms")
+                .whereEqualTo("User", user)
+                .get().addOnSuccessListener { list ->
+                    for (alarm in list){
+                        val title = alarm.get("Title").toString()
+                        val hour = alarm.get("Hour").toString()
+                        db.collection("Alarms").document(user.toString() + "@" + title + "@" + hour).delete()
+                    }
+                }
+
             auth.currentUser?.uid?.let { db.collection("users").document(it).delete()
                 .addOnSuccessListener {
-                    auth.currentUser!!.delete().addOnCompleteListener {
-                        db.collection("users").document(user.toString()).delete()
-                        db.collection("valuations")
-                            .whereEqualTo("user", user)
-                            .get().addOnSuccessListener { list ->
-                                for (valuation in list){
-                                    val date = valuation.get("date").toString()
-                                    db.collection("valuations").document(user.toString() + "@" + date).delete()
-                                }
-                            }
-                        db.collection("Alarms")
-                            .whereEqualTo("User", user)
-                            .get().addOnSuccessListener { list ->
-                                for (alarm in list){
-                                    val title = alarm.get("Title").toString()
-                                    val hour = alarm.get("Hour").toString()
-                                    db.collection("Alarms").document(user.toString() + "@" + title + "@" + hour).delete()
-                                }
-                            }
+                    auth.currentUser!!.delete().addOnSuccessListener {
+
                         val preferences : SharedPreferences = getSharedPreferences("checkbox", Context.MODE_PRIVATE)
                         val editor2 : SharedPreferences.Editor = preferences.edit()
                         editor2.putString("remember", "false")
