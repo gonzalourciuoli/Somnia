@@ -8,6 +8,12 @@
     android:background="@drawable/n2"
     tools:context=".view.Home">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#a0000000"
+        ></LinearLayout>
+
 
     <Button
         android:id="@+id/rate_last_sleep"

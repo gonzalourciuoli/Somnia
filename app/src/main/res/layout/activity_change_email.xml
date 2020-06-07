@@ -7,6 +7,12 @@
     android:background="@drawable/n2"
     tools:context=".view.ChangeEmail">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#a0000000"
+        ></LinearLayout>
+
     <TextView
         android:id="@+id/top_chEmail"
         android:layout_width="wrap_content"
